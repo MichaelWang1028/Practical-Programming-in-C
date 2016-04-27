@@ -30,17 +30,12 @@ tree_node* add_tree_node(tree_node* root, int data)
 
 void display_pre_order_traversal(tree_node* root)
 {
-  if (root != NULL) {
-    printf("%d\t", root->data);
-  }
+  if (root == NULL)
+    return;
 
-  if (root->left != NULL) {
-    display_pre_order_traversal(root->left);
-  }
-
-  if (root->right != NULL) {
-    display_pre_order_traversal(root->right);
-  }
+  printf("%d\t", root->data);
+  display_pre_order_traversal(root->left);
+  display_pre_order_traversal(root->right);
 }
 
 void display_in_order_traversal(tree_node* root)
