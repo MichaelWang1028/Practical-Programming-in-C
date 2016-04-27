@@ -11,9 +11,8 @@ int main()
   tree_node* root = NULL;
   root = add_tree_nodes(root, tree_nodes, 8);
 
-  printf("%d\n", root->data);
-  printf("%d\n", root->left->data);
-  printf("%d\n", root->right->data);
+  display_pre_order_traversal(root);
+  printf("\n");
 
   return 0;
 }
