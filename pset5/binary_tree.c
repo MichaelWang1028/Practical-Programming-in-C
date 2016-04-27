@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include "binary_tree.h"
 
@@ -29,5 +30,15 @@ tree_node* add_tree_node(tree_node* root, int data)
 
 void display_pre_order_traversal(tree_node* root)
 {
-  
+  if (root != NULL) {
+    printf("%d\t", root->data);
+  }
+
+  if (root->left != NULL) {
+    display_pre_order_traversal(root->left);
+  }
+
+  if (root->right != NULL) {
+    display_pre_order_traversal(root->right);
+  }
 }
