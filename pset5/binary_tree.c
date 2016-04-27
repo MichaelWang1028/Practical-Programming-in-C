@@ -42,3 +42,18 @@ void display_pre_order_traversal(tree_node* root)
     display_pre_order_traversal(root->right);
   }
 }
+
+void display_in_order_traversal(tree_node* root)
+{
+  if (root->left != NULL) {
+    display_in_order_traversal(root->left);
+  }
+
+  if (root != NULL) {
+    printf("%d\t", root->data);
+  }
+
+  if (root->right != NULL) {
+    display_in_order_traversal(root->right);
+  }
+}
