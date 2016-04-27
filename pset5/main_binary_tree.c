@@ -14,6 +14,9 @@ int main()
   display_pre_order_traversal(root);
   printf("\n");
 
+  display_in_order_traversal(root);
+  printf("\n");
+
   return 0;
 }
 
