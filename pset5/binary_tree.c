@@ -61,7 +61,6 @@ void display_in_order_traversal(tree_node* root)
 int delete_tree(tree_node* root)
 {
   static int deleted_nodes = 0;
-  deleted_nodes++;
   if (root->left != NULL) {
     delete_tree(root->left);
   }
@@ -72,6 +71,7 @@ int delete_tree(tree_node* root)
 
   if (root != NULL) {
     free(root);
+    deleted_nodes++;
   }
 
   return deleted_nodes;
