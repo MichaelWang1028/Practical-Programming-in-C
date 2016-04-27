@@ -26,3 +26,8 @@ tree_node* add_tree_node(tree_node* root, int data)
   }
   return root;
 }
+
+void display_pre_order_traversal(tree_node* root)
+{
+  
+}

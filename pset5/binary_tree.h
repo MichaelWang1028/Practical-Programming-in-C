@@ -10,5 +10,6 @@ typedef struct tree_node
 
 tree_node* allocate_tree_node(int data);
 tree_node* add_tree_node(tree_node* root, int data);
+void display_pre_order_traversal(tree_node* root);
 
 #endif
