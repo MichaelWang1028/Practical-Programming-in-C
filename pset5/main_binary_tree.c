@@ -17,6 +17,10 @@ int main()
   display_in_order_traversal(root);
   printf("\n");
 
+  int deleted_nodes = delete_tree(root);
+
+  printf("Deleted nodes: %d\n", deleted_nodes);
+
   return 0;
 }
 
