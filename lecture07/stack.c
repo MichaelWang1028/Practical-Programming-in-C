@@ -26,3 +26,8 @@ void print_stack()
   }
   puts("");
 }
+
+int top()
+{
+  return stack_buffer[i_top - 1];
+}

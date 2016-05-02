@@ -7,5 +7,6 @@ extern int i_top;
 void push(int elem);
 int pop();
 void print_stack();
+int top();
 
 #endif
