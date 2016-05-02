@@ -9,6 +9,6 @@ extern int * sorted_array[5];
 void print_array(int *array, unsigned int length);
 void shift_element(unsigned int i);
 void insertion_sort();
-void print_sorted_array(int **array, unsigned int length);
+void print_pointer_array(int **array, unsigned int length);
 
 #endif

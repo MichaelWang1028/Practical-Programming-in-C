@@ -2,14 +2,14 @@
 #include "sort_pointers.h"
 
 int array[5] = {4, 3, 1, 5, 2};
-int * sorted_array[5];
+int * pointer_array[5];
 
 int main()
 {
   unsigned int length = array_length(array);
 
   for (unsigned int i = 0; i < length; i++) {
-    sorted_array[i] = (array + i);
+    pointer_array[i] = (array + i);
   }
 
   puts("array:");
@@ -17,7 +17,7 @@ int main()
   puts("Insertion sort");
   insertion_sort();
   puts("sorted array:");
-  print_sorted_array(sorted_array, length);
+  print_pointer_array(pointer_array, length);
   puts("array:");
   print_array(array, length);
 
@@ -27,16 +27,16 @@ int main()
 void shift_element(unsigned int i)
 {
   int *pvalue;
-  for (pvalue = sorted_array[i]; i && *sorted_array[i - 1] > *pvalue; i--) {
-    sorted_array[i] = sorted_array[i - 1];
+  for (pvalue = pointer_array[i]; i && *pointer_array[i - 1] > *pvalue; i--) {
+    pointer_array[i] = pointer_array[i - 1];
   }
-  sorted_array[i] = pvalue;
+  pointer_array[i] = pvalue;
 }
 
 void insertion_sort()
 {
-  for (unsigned int i = 1; i < array_length(sorted_array); i++) {
-    if (*sorted_array[i] < *sorted_array[i - 1]) {
+  for (unsigned int i = 1; i < array_length(pointer_array); i++) {
+    if (*pointer_array[i] < *pointer_array[i - 1]) {
       shift_element(i);
     }
   }
@@ -50,7 +50,7 @@ void print_array(int *array, unsigned int length)
   puts("");
 }
 
-void print_sorted_array(int **array, unsigned int length)
+void print_pointer_array(int **array, unsigned int length)
 {
   for (unsigned int i = 0; i < length; i++) {
     printf("%d\t", **(array + i));
