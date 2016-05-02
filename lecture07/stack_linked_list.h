@@ -10,6 +10,7 @@ extern stack_node * stack_buffer;
 
 void push(int element);
 int pop();
+int top();
 void print_stack();
 
 #endif

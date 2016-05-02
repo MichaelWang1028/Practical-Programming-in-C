@@ -27,6 +27,11 @@ int pop()
   return -1;
 }
 
+int top()
+{
+  return stack_buffer->element;
+}
+
 void print_stack()
 {
   for (stack_node* s_node = stack_buffer; s_node != NULL; s_node = s_node->next_node) {
