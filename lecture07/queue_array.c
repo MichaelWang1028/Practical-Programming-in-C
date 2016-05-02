@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "queue_array.h"
 
-int queue_buffer[100];
+int queue_buffer[NUMBER_OF_ELEMENTS];
 int i_front = 0;
 int i_count = 0;
 
@@ -32,7 +32,7 @@ int dequeue()
 void print_queue()
 {
   for (int i = i_front; i <  i_count + i_front; i++) {
-    printf("%d\t", queue_buffer[i]);
+    printf("%d\t", queue_buffer[i % NUMBER_OF_ELEMENTS]);
   }
   puts("");
 }
