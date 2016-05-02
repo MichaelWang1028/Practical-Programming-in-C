@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "stack.h"
 
 int stack_buffer[100];
