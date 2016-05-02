@@ -7,5 +7,6 @@ typedef struct queue_node {
 } queue_node;
 
 extern queue_node * queue_buffer;
+extern queue_node * rear_node;
 
 #endif
