@@ -6,5 +6,5 @@ swap: swap.c swap.h
 	gcc -g -O0 -Wall -Wextra swap.c -o swap.o
 sort_pointers: sort_pointers.c sort_pointers.h
 	gcc -g -O0 -Wall -Wextra sort_pointers.c -o sort_pointers.o
-stack: stack.c stack_test.c stack.h
-	gcc -g -O0 -Wall -Wextra stack.c stack_test.c -o stack.o
+stack_array: stack_array.c stack_array_test.c stack_array.h
+	gcc -g -O0 -Wall -Wextra stack_array.c stack_array_test.c -o stack_array.o
