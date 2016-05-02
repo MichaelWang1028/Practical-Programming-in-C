@@ -24,7 +24,7 @@ int dequeue()
 
 void print_queue()
 {
-  for (int i = 0; i <  i_count; i++) {
+  for (int i = i_front; i <  i_count + i_front; i++) {
     printf("%d\t", queue_buffer[i]);
   }
   puts("");
