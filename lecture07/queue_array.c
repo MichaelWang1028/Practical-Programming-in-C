@@ -8,7 +8,7 @@ int i_count = 0;
 void enqueue(double element)
 {
   if (i_count < NUMBER_OF_ELEMENTS) {
-    queue_buffer[i_front + i_count] = element;
+    queue_buffer[(i_front + i_count) % NUMBER_OF_ELEMENTS] = element;
     i_count++;
   }
 }
@@ -16,8 +16,15 @@ void enqueue(double element)
 int dequeue()
 {
   if (i_count > 0) {
+    int element = queue_buffer[i_front];
     i_count--;
-    return queue_buffer[i_front++];
+    i_front++;
+
+    if (i_front == NUMBER_OF_ELEMENTS) {
+      i_front = 0;
+    }
+
+    return element;
   }
   return -1;
 }
