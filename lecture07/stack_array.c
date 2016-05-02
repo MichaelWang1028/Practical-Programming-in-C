@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "stack.h"
+#include "stack_array.h"
 
 int stack_buffer[100];
 int i_top = 0;

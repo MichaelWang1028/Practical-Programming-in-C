@@ -1,5 +1,5 @@
-#ifndef STACK_H
-#define STACK_H
+#ifndef STACK_ARRAY_H
+#define STACK_ARRAY_H
 
 extern int stack_buffer[100];
 extern int i_top;
