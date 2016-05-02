@@ -13,5 +13,8 @@ int main()
   pop();
   print_stack();
 
+  printf("%d\n", top());
+  print_stack();
+
   return 0;
 }
