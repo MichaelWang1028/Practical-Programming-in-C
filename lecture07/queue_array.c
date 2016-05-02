@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "queue_array.h"
 
 int queue_buffer[100];
@@ -19,4 +20,12 @@ int dequeue()
     return queue_buffer[i_front++];
   }
   return -1;
+}
+
+void print_queue()
+{
+  for (int i = 0; i <  i_count; i++) {
+    printf("%d\t", queue_buffer[i]);
+  }
+  puts("");
 }

@@ -9,5 +9,6 @@ extern int i_count;
 
 void enqueue(double element);
 int dequeue();
+void print_queue();
 
 #endif
