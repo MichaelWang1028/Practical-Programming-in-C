@@ -15,6 +15,18 @@ void push(int element)
   }
 }
 
+int pop()
+{
+  if (stack_buffer != NULL) {
+    stack_node * temp_node = stack_buffer;
+    int element = stack_buffer->element;
+    stack_buffer = stack_buffer->next_node;
+    free(temp_node);
+    return element;
+  }
+  return -1;
+}
+
 void print_stack()
 {
   for (stack_node* s_node = stack_buffer; s_node != NULL; s_node = s_node->next_node) {

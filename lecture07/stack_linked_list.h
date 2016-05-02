@@ -9,6 +9,7 @@ typedef struct stack_node {
 extern stack_node * stack_buffer;
 
 void push(int element);
+int pop();
 void print_stack();
 
 #endif
