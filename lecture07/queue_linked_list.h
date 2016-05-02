@@ -9,4 +9,8 @@ typedef struct queue_node {
 extern queue_node * queue_buffer;
 extern queue_node * rear_node;
 
+void enqueue(int element);
+int dequeue();
+void print_queue();
+
 #endif
