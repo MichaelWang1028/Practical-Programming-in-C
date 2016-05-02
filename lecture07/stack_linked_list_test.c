@@ -9,6 +9,10 @@ int main()
   push(5);
 
   print_stack();
+  pop();
+  print_stack();
+  pop();
+  print_stack();
 
   return 0;
 }
