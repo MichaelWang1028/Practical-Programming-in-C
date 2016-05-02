@@ -16,3 +16,12 @@ int pop()
     return -1;
   }
 }
+
+
+void print_stack()
+{
+  for (int i = 0; i < i_top; i++) {
+    printf("%d\t", stack_buffer[i]);
+  }
+  puts("");
+}
