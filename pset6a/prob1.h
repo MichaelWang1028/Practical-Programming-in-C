@@ -34,5 +34,6 @@ enum assoc {
 };
 
 extern const unsigned int op_operands[];
+extern const unsigned int op_precedences[];
 
 #endif
