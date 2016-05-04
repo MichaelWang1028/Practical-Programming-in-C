@@ -1,13 +1,15 @@
 /*
  * prob1.c
  *
- *  Created on: 
- *      Author: 
+ *  Created on:
+ *      Author:
  */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <string.h>
+#include "prob1.h"
 
 /* maximum length of input string (including newline character) */
 #define INPUT_MAX 2048
