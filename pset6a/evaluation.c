@@ -169,9 +169,56 @@ token_queue convert_infix_to_postfix_queue(token_queue * pqueue_infix) {
 double evaluate_postfix_queue(token_queue * pqueue_postfix) {
 	/* TODO: process postfix-ordered queue and return final answer;
 	   all tokens from postfix-ordered queue is freed */
+  p_expr_token stack_result = NULL;
+  p_expr_token expression_token = NULL;
 
-     print_queue(pqueue_postfix);
-     return 0.0;
+  while ((expression_token = dequeue(pqueue_postfix)))  {
+    enum token_type type = expression_token->type;
+    token_value value = expression_token->value;
+
+    if (type == OPERAND) {
+      push(&stack_result, expression_token);
+    } else if (type == OPERATOR) {
+      p_expr_token stack_token = pop(&stack_result);
+      double result = stack_token->value.operand;
+
+      if (value.op_code == NEGATE) {
+        result *= -1;
+      }
+
+      for (unsigned int i = 0; i < op_operands[value.op_code] - 1; i++) {
+        stack_token = pop(&stack_result);
+        double current_value = stack_token->value.operand;
+        switch (value.op_code) {
+          case ADD:
+            result += current_value;
+            break;
+          case SUBTRACT:
+            result -= current_value;
+            break;
+          case MULTIPLY:
+            result *= current_value;
+            break;
+          case DIVIDE:
+            result /= current_value;
+            break;
+          case NEGATE:
+            break;
+        }
+      }
+
+      enum token_type type = OPERAND;
+    	token_value value;
+      value.operand = result;
+
+      push(&stack_result, create_new_token(type, value));
+    }
+  }
+
+  p_expr_token last_token = pop(&stack_result);
+  double final_result = last_token->value.operand;
+
+  return final_result;
 }
 
 void print_queue(token_queue * pointer_to_queue)
