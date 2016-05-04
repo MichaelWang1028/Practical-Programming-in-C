@@ -22,7 +22,7 @@ const enum assoc op_associativity[] = {LEFT, LEFT, RIGHT};
    input: pqueue - pointer to queue
           ptoken - token pointer to add
    postcondition: token added to end of queue */
-void enqueue(struct token_queue * pqueue, const p_expr_token ptoken) {
+void enqueue(token_queue * pqueue, const p_expr_token ptoken) {
 	ptoken->linked_token = NULL;
 	if (pqueue->back)
 		pqueue->back->linked_token = ptoken;
@@ -35,7 +35,7 @@ void enqueue(struct token_queue * pqueue, const p_expr_token ptoken) {
    input: pointer to queue
    output: front token pointer (or NULL, if queue was empty)
    postcondition: token removed from queue */
-p_expr_token dequeue(struct token_queue * pqueue) {
+p_expr_token dequeue(token_queue * pqueue) {
 	p_expr_token ptoken = pqueue->front;
 	if (pqueue->front) {
 		pqueue->front = ptoken->linked_token;

@@ -10,7 +10,7 @@
 double evaluate(const char * str) {
 	char * strbuffer; /* mutable buffer for string (modified in calls to strtok()) */
 	double ans; /* answer to return */
-	struct token_queue queue_infix, queue_postfix;
+	token_queue queue_infix, queue_postfix;
 
 	/* copy str into mutable buffer */
 	strbuffer = strcpy((char *)malloc(strlen(str)+1),str);
@@ -29,8 +29,8 @@ double evaluate(const char * str) {
 }
 
 /* constructs a queue of tokens in infix order from a space-delimited string */
-struct token_queue expr_to_infix(char * str) {
-	struct token_queue queue_infix; /* queue with infix ordering */
+token_queue expr_to_infix(char * str) {
+	token_queue queue_infix; /* queue with infix ordering */
 	enum token_type type = OPERATOR;
 	union token_value value;
 
@@ -95,11 +95,11 @@ struct token_queue expr_to_infix(char * str) {
 /* creates a queue of tokens in postfix order from a queue of tokens in infix order */
 /* postcondition: returned queue contains all the tokens, and pqueue_infix should be
    empty */
-struct token_queue infix_to_postfix(struct token_queue * pqueue_infix) {
+token_queue infix_to_postfix(token_queue * pqueue_infix) {
 	/* TODO: construct postfix-ordered queue from infix-ordered queue;
 	   all tokens from infix queue should be added to postfix queue or freed */
 
-	struct token_queue infix_to_postfix_queue;
+	token_queue infix_to_postfix_queue;
 	p_expr_token operator_stack = NULL;
 
 	while (true) {
@@ -135,7 +135,7 @@ struct token_queue infix_to_postfix(struct token_queue * pqueue_infix) {
 
 /* evalutes the postfix expression stored in the queue */
 /* postcondition: returned value is final answer, and pqueue_postfix should be empty */
-double evaluate_postfix(struct token_queue * pqueue_postfix) {
+double evaluate_postfix(token_queue * pqueue_postfix) {
 	/* TODO: process postfix-ordered queue and return final answer;
 	   all tokens from postfix-ordered queue is freed */
 }
