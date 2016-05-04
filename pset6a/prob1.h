@@ -33,4 +33,6 @@ enum assoc {
 	RIGHT /* right-to-left (unary -) */
 };
 
+extern const unsigned int op_operands[];
+
 #endif
