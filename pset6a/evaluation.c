@@ -96,35 +96,66 @@ token_queue convert_expression_to_infix_queue(char * str) {
 /* postcondition: returned queue contains all the tokens, and pqueue_infix should be
    empty */
 token_queue convert_infix_to_postfix_queue(token_queue * pqueue_infix) {
-	/* TODO: construct postfix-ordered queue from infix-ordered queue;
-	   all tokens from infix queue should be added to postfix queue or freed */
-
 	token_queue infix_to_postfix_queue;
-	p_expr_token operator_stack = NULL;
+  infix_to_postfix_queue.front = NULL;
+  infix_to_postfix_queue.back = NULL;
 
-	while (true) {
-		p_expr_token temp_token = dequeue(pqueue_infix);
-		if (temp_token == NULL) {
-			break;
-		}
+	p_expr_token operator_stack = NULL;
+  p_expr_token temp_token = NULL;
+
+	while ((temp_token = dequeue(pqueue_infix))) {
 		enum token_type type = temp_token->type;
 		token_value value = temp_token->value;
 
 		if (type == OPERAND) {
-			printf("Value %g\n", value.operand);
+			enqueue(&infix_to_postfix_queue, create_new_token(type, value));
 		} else if (type == OPERATOR){
+      p_expr_token stack_token = NULL;
+
+      while (true) {
+        stack_token = pop(&operator_stack);
+
+        if (stack_token == NULL) {
+          break;
+        }
+
+        enum token_type stack_type = stack_token->type;
+        token_value stack_value = stack_token->value;
+
+        int current_precedence = op_precedences[value.op_code];
+        int current_associativity = op_associativity[current_precedence];
+        int stack_precedence = op_precedences[stack_value.op_code];
+
+        if ((current_precedence < stack_precedence) || (current_precedence == stack_precedence && current_associativity == LEFT)) {
+          enqueue(&infix_to_postfix_queue, create_new_token(stack_type, stack_value));
+        } else {
+          push(&operator_stack, stack_token);
+          break;
+        }
+      }
+
 			push(&operator_stack, temp_token);
-			printf("Operator %c\n", operators[value.op_code]);
 		}
 	}
 
+  while (true) {
+    p_expr_token stack_token = pop(&operator_stack);
+    if (stack_token == NULL) {
+      break;
+    }
+
+    enum token_type stack_type = stack_token->type;
+    token_value stack_value = stack_token->value;
+    enqueue(&infix_to_postfix_queue, create_new_token(stack_type, stack_value));
+  }
+
 	while(true) {
-		p_expr_token temp_token = pop(&operator_stack);
-		if (temp_token == NULL) {
+		p_expr_token atemp_token = pop(&operator_stack);
+		if (atemp_token == NULL) {
 			break;
 		}
 
-		token_value value = temp_token->value;
+		token_value value = atemp_token->value;
 		printf("%c\t", operators[value.op_code]);
 	}
 	puts("");
