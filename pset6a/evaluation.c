@@ -152,17 +152,17 @@ double evaluate_postfix_queue(token_queue * pqueue_postfix) {
 	/* TODO: process postfix-ordered queue and return final answer;
 	   all tokens from postfix-ordered queue is freed */
   p_expr_token stack_result = NULL;
-  p_expr_token expression_token = NULL;
+  p_expr_token current_token = NULL;
 
   int counter = 0;
 
-  while ((expression_token = dequeue(pqueue_postfix)))  {
+  while ((current_token = dequeue(pqueue_postfix)))  {
     counter++;
-    enum token_type type = expression_token->type;
-    token_value value = expression_token->value;
+    enum token_type type = current_token->type;
+    token_value value = current_token->value;
 
     if (type == OPERAND) {
-      push(&stack_result, expression_token);
+      push(&stack_result, current_token);
     } else if (type == OPERATOR) {
       p_expr_token stack_token = pop(&stack_result);
       double result = stack_token->value.operand;
