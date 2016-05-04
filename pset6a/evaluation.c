@@ -51,8 +51,9 @@ token_queue convert_expression_to_infix_queue(char * str) {
 			case '-':
 				/* check previous token to distinguish between
 				   negate (unary) and subtract (binary) */
-				if (type == OPERATOR)
+				if (type == OPERATOR){
 					value.op_code = NEGATE; /* unary */
+        }
 #if PARSE_PARENTHESES
 				else if (type == LEFT_PARENTHESES)
 					value.op_code = NEGATE; /* unary */
@@ -185,12 +186,14 @@ double evaluate_postfix_queue(token_queue * pqueue_postfix) {
             break;
           case SUBTRACT:
             result -= current_value;
+            result *= -1;
             break;
           case MULTIPLY:
             result *= current_value;
             break;
           case DIVIDE:
             result /= current_value;
+            result = 1 / result;
             break;
           case NEGATE:
             break;
@@ -201,6 +204,7 @@ double evaluate_postfix_queue(token_queue * pqueue_postfix) {
     	token_value value;
       value.operand = result;
 
+      printf("%g\n", result);
       push(&stack_result, create_new_token(type, value));
     }
   }
