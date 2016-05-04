@@ -48,4 +48,12 @@ union token_value {
 	enum op op_code; /* opcode for operators */
 };
 
+/* data structure for token */
+typedef struct s_expr_token {
+	union token_value value; /* numeric value or opcode */
+	enum token_type type; /* type of token */
+
+	struct s_expr_token * linked_token; /* linked token in stack/queue */
+} * p_expr_token; /* p_expr_token is shorthand for "struct s_expr_token *" */
+
 #endif

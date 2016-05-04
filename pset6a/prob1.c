@@ -22,14 +22,6 @@ const unsigned int op_precedences[] = {0, 0, 1, 1, 2};
 /* evaluation direction (associativity) for each precedence level */
 const enum assoc op_associativity[] = {LEFT, LEFT, RIGHT};
 
-/* data structure for token */
-typedef struct s_expr_token {
-	union token_value value; /* numeric value or opcode */
-	enum token_type type; /* type of token */
-
-	struct s_expr_token * linked_token; /* linked token in stack/queue */
-} * p_expr_token; /* p_expr_token is shorthand for "struct s_expr_token *" */
-
 /* data structure for queue */
 struct token_queue {
 	p_expr_token front; /* front of queue, where tokens are dequeued */
