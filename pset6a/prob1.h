@@ -42,4 +42,10 @@ extern const unsigned int op_precedences[];
 /* evaluation direction (associativity) for each precedence level */
 extern const enum assoc op_associativity[];
 
+/* contains value of token */
+union token_value {
+	double operand; /* numeric value for operand */
+	enum op op_code; /* opcode for operators */
+};
+
 #endif

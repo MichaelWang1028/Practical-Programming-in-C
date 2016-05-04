@@ -22,12 +22,6 @@ const unsigned int op_precedences[] = {0, 0, 1, 1, 2};
 /* evaluation direction (associativity) for each precedence level */
 const enum assoc op_associativity[] = {LEFT, LEFT, RIGHT};
 
-/* contains value of token */
-union token_value {
-	double operand; /* numeric value for operand */
-	enum op op_code; /* opcode for operators */
-};
-
 /* data structure for token */
 typedef struct s_expr_token {
 	union token_value value; /* numeric value or opcode */
