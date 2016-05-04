@@ -56,4 +56,10 @@ typedef struct s_expr_token {
 	struct s_expr_token * linked_token; /* linked token in stack/queue */
 } * p_expr_token; /* p_expr_token is shorthand for "struct s_expr_token *" */
 
+/* data structure for queue */
+struct token_queue {
+	p_expr_token front; /* front of queue, where tokens are dequeued */
+	p_expr_token back; /* back of queue, where tokens are added */
+};
+
 #endif

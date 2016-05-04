@@ -22,12 +22,6 @@ const unsigned int op_precedences[] = {0, 0, 1, 1, 2};
 /* evaluation direction (associativity) for each precedence level */
 const enum assoc op_associativity[] = {LEFT, LEFT, RIGHT};
 
-/* data structure for queue */
-struct token_queue {
-	p_expr_token front; /* front of queue, where tokens are dequeued */
-	p_expr_token back; /* back of queue, where tokens are added */
-};
-
 /* queue functions - enqueue and dequeue */
 void enqueue(struct token_queue * pqueue, const p_expr_token ptoken);
 p_expr_token dequeue(struct token_queue * pqueue);
