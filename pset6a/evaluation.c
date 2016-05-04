@@ -204,7 +204,6 @@ double evaluate_postfix_queue(token_queue * pqueue_postfix) {
     	token_value value;
       value.operand = result;
 
-      printf("%g\n", result);
       push(&stack_result, create_new_token(type, value));
     }
   }
