@@ -110,6 +110,7 @@ token_queue convert_infix_to_postfix_queue(token_queue * pqueue_infix) {
 
 		if (type == OPERAND) {
 			enqueue(&infix_to_postfix_queue, create_new_token(type, value));
+      free(current_token);
 		} else if (type == OPERATOR){
       p_expr_token stack_token = NULL;
 
@@ -133,9 +134,7 @@ token_queue convert_infix_to_postfix_queue(token_queue * pqueue_infix) {
 	}
 
   while ((current_token = pop(&operator_stack_top))) {
-    enum token_type stack_type = current_token->type;
-    token_value stack_value = current_token->value;
-    enqueue(&infix_to_postfix_queue, create_new_token(stack_type, stack_value));
+    enqueue(&infix_to_postfix_queue, create_new_token(current_token->type, current_token->value));
   }
 
 	return infix_to_postfix_queue;
