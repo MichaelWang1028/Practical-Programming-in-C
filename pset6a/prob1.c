@@ -18,36 +18,6 @@ const unsigned int op_precedences[] = {0, 0, 1, 1, 2};
 /* evaluation direction (associativity) for each precedence level */
 const enum assoc op_associativity[] = {LEFT, LEFT, RIGHT};
 
-int main(void) {
-	char input[INPUT_MAX];
-	double ans;
-	unsigned int len;
-
-	do {
-		printf("Enter an expression to evaluate: ");
-		fflush(stdout);
-		if (!fgets(input, INPUT_MAX, stdin))
-			abort(); /* failed to read stdin */
-		
-		len = strlen(input);
-		/* remove trailing newline character */
-		if (len > 0 && input[len-1] == '\n') {
-			input[len-1] = '\0';
-			--len;
-		}
-		if (len == 0) /* empty expression signals exit */
-			break;
-
-		/* call evaluation functions */
-		ans = evaluate(input);
-
-		/* write result to stdout */
-		printf("%s => %g\n", input, ans);
-	} while (1);
-
-	return 0;
-}
-
 /* enqueue (add) token to end of queue
    input: pqueue - pointer to queue
           ptoken - token pointer to add
