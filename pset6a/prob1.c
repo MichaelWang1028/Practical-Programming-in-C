@@ -71,7 +71,7 @@ p_expr_token pop(p_expr_token * ptop) {
 /* allocate new token on heap, with specified type and value; the token is initially
    un-linked (field "linked_token" == NULL)
    note: token must be freed using free() after use */
-p_expr_token new_token(const enum token_type type, const union token_value value) {
+p_expr_token new_token(const enum token_type type, const token_value value) {
 	p_expr_token ptoken = (p_expr_token)malloc(sizeof(struct s_expr_token));
 	ptoken->type = type;
 	ptoken->value = value;

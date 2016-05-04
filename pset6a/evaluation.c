@@ -32,7 +32,7 @@ double evaluate(const char * str) {
 token_queue expr_to_infix(char * str) {
 	token_queue queue_infix; /* queue with infix ordering */
 	enum token_type type = OPERATOR;
-	union token_value value;
+	token_value value;
 
 	/* initialize the queue to empty */
 	queue_infix.front = NULL;
@@ -108,7 +108,7 @@ token_queue infix_to_postfix(token_queue * pqueue_infix) {
 			break;
 		}
 		enum token_type type = temp_token->type;
-		union token_value value = temp_token->value;
+		token_value value = temp_token->value;
 
 		if (type == OPERAND) {
 			printf("Value %g\n", value.operand);
@@ -124,7 +124,7 @@ token_queue infix_to_postfix(token_queue * pqueue_infix) {
 			break;
 		}
 
-		union token_value value = temp_token->value;
+		token_value value = temp_token->value;
 		printf("%c\t", operators[value.op_code]);
 	}
 	puts("");

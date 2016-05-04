@@ -52,7 +52,7 @@ typedef union token_value {
 
 /* data structure for token */
 typedef struct s_expr_token {
-	union token_value value; /* numeric value or opcode */
+	token_value value; /* numeric value or opcode */
 	enum token_type type; /* type of token */
 
 	struct s_expr_token * linked_token; /* linked token in stack/queue */
