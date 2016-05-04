@@ -133,7 +133,6 @@ token_queue convert_infix_to_postfix_queue(token_queue * pqueue_infix) {
           break;
         }
       }
-
 			push(&operator_stack, temp_token);
 		}
 	}
@@ -149,18 +148,6 @@ token_queue convert_infix_to_postfix_queue(token_queue * pqueue_infix) {
     enqueue(&infix_to_postfix_queue, create_new_token(stack_type, stack_value));
   }
 
-	while(true) {
-		p_expr_token atemp_token = pop(&operator_stack);
-		if (atemp_token == NULL) {
-			break;
-		}
-
-		token_value value = atemp_token->value;
-		printf("%c\t", operators[value.op_code]);
-	}
-	puts("");
-
-
 	return infix_to_postfix_queue;
 }
 
@@ -172,7 +159,10 @@ double evaluate_postfix_queue(token_queue * pqueue_postfix) {
   p_expr_token stack_result = NULL;
   p_expr_token expression_token = NULL;
 
+  int counter = 0;
+
   while ((expression_token = dequeue(pqueue_postfix)))  {
+    counter++;
     enum token_type type = expression_token->type;
     token_value value = expression_token->value;
 
