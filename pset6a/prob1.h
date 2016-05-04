@@ -85,4 +85,7 @@ struct token_queue infix_to_postfix(struct token_queue * pqueue_infix);
 /* postcondition: returned value is final answer, and pqueue_postfix should be empty */
 double evaluate_postfix(struct token_queue * pqueue_postfix);
 
+/* handles evaluation process (calls above functions) for expression string str */
+double evaluate(const char * str);
+
 #endif

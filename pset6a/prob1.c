@@ -22,9 +22,6 @@ const unsigned int op_precedences[] = {0, 0, 1, 1, 2};
 /* evaluation direction (associativity) for each precedence level */
 const enum assoc op_associativity[] = {LEFT, LEFT, RIGHT};
 
-/* handles evaluation process (calls above functions) for expression string str */
-double evaluate(const char * str);
-
 int main(void) {
 	char input[INPUT_MAX];
 	double ans;
