@@ -124,6 +124,7 @@ token_queue convert_infix_to_postfix_queue(token_queue * pqueue_infix) {
 
         if ((current_precedence < stack_precedence) || (current_precedence == stack_precedence && current_associativity == LEFT)) {
           enqueue(&infix_to_postfix_queue, create_new_token(stack_type, stack_value));
+          free(stack_token);
         } else {
           push(&operator_stack_top, stack_token);
           break;
@@ -135,6 +136,7 @@ token_queue convert_infix_to_postfix_queue(token_queue * pqueue_infix) {
 
   while ((current_token = pop(&operator_stack_top))) {
     enqueue(&infix_to_postfix_queue, create_new_token(current_token->type, current_token->value));
+    free(current_token);
   }
 
 	return infix_to_postfix_queue;
