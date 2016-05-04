@@ -22,10 +22,6 @@ const unsigned int op_precedences[] = {0, 0, 1, 1, 2};
 /* evaluation direction (associativity) for each precedence level */
 const enum assoc op_associativity[] = {LEFT, LEFT, RIGHT};
 
-/* evalutes the postfix expression stored in the queue */
-/* postcondition: returned value is final answer, and pqueue_postfix should be empty */
-double evaluate_postfix(struct token_queue * pqueue_postfix);
-
 /* handles evaluation process (calls above functions) for expression string str */
 double evaluate(const char * str);
 
