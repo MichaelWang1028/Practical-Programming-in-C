@@ -22,14 +22,11 @@ const unsigned int op_precedences[] = {0, 0, 1, 1, 2};
 /* evaluation direction (associativity) for each precedence level */
 const enum assoc op_associativity[] = {LEFT, LEFT, RIGHT};
 
-/* creates a new token in dynamic memory (using malloc()) */
-p_expr_token new_token(const enum token_type type, const union token_value value);
-
 /* constructs a queue of tokens in infix order from a space-delimited string */
 struct token_queue expr_to_infix(char * str);
 
 /* creates a queue of tokens in postfix order from a queue of tokens in infix order */
-/* postcondition: returned queue contains all the tokens, and pqueue_infix should be 
+/* postcondition: returned queue contains all the tokens, and pqueue_infix should be
    empty */
 struct token_queue infix_to_postfix(struct token_queue * pqueue_infix);
 
