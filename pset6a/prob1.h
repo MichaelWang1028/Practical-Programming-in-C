@@ -70,5 +70,10 @@ p_expr_token dequeue(struct token_queue * pqueue);
 void push(p_expr_token * ptop, const p_expr_token ptoken);
 p_expr_token pop(p_expr_token * ptop);
 
+/* creates a new token in dynamic memory (using malloc()) */
+p_expr_token new_token(const enum token_type type, const union token_value value);
+
+/* constructs a queue of tokens in infix order from a space-delimited string */
+struct token_queue expr_to_infix(char * str);
 
 #endif

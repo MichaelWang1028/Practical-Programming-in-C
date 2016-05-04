@@ -22,9 +22,6 @@ const unsigned int op_precedences[] = {0, 0, 1, 1, 2};
 /* evaluation direction (associativity) for each precedence level */
 const enum assoc op_associativity[] = {LEFT, LEFT, RIGHT};
 
-/* constructs a queue of tokens in infix order from a space-delimited string */
-struct token_queue expr_to_infix(char * str);
-
 /* creates a queue of tokens in postfix order from a queue of tokens in infix order */
 /* postcondition: returned queue contains all the tokens, and pqueue_infix should be
    empty */
