@@ -22,14 +22,6 @@ const unsigned int op_precedences[] = {0, 0, 1, 1, 2};
 /* evaluation direction (associativity) for each precedence level */
 const enum assoc op_associativity[] = {LEFT, LEFT, RIGHT};
 
-/* queue functions - enqueue and dequeue */
-void enqueue(struct token_queue * pqueue, const p_expr_token ptoken);
-p_expr_token dequeue(struct token_queue * pqueue);
-
-/* stack functions - push and pop */
-void push(p_expr_token * ptop, const p_expr_token ptoken);
-p_expr_token pop(p_expr_token * ptop);
-
 /* creates a new token in dynamic memory (using malloc()) */
 p_expr_token new_token(const enum token_type type, const union token_value value);
 

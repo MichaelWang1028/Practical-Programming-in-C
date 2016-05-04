@@ -62,4 +62,13 @@ struct token_queue {
 	p_expr_token back; /* back of queue, where tokens are added */
 };
 
+/* queue functions - enqueue and dequeue */
+void enqueue(struct token_queue * pqueue, const p_expr_token ptoken);
+p_expr_token dequeue(struct token_queue * pqueue);
+
+/* stack functions - push and pop */
+void push(p_expr_token * ptop, const p_expr_token ptoken);
+p_expr_token pop(p_expr_token * ptop);
+
+
 #endif
