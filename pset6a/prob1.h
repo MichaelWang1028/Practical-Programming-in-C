@@ -33,7 +33,10 @@ enum assoc {
 	RIGHT /* right-to-left (unary -) */
 };
 
+/* number of operands for each operator type */
 extern const unsigned int op_operands[];
+
+/* order-of-operations (precedence) (0 = evaluated last) */
 extern const unsigned int op_precedences[];
 
 #endif
