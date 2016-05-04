@@ -16,4 +16,6 @@ double evaluate_postfix_queue(token_queue * pqueue_postfix);
 /* handles evaluation process (calls above functions) for expression string str */
 double evaluate(const char * str);
 
+void print_queue(token_queue * pointer_to_queue);
+
 #endif

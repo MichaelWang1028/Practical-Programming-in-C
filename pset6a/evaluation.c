@@ -169,4 +169,26 @@ token_queue convert_infix_to_postfix_queue(token_queue * pqueue_infix) {
 double evaluate_postfix_queue(token_queue * pqueue_postfix) {
 	/* TODO: process postfix-ordered queue and return final answer;
 	   all tokens from postfix-ordered queue is freed */
+
+     print_queue(pqueue_postfix);
+     return 0.0;
+}
+
+void print_queue(token_queue * pointer_to_queue)
+{
+  while (true) {
+    p_expr_token expression_token = dequeue(pointer_to_queue);
+    if (expression_token == NULL) {
+      break;
+    }
+    enum token_type type = expression_token->type;
+    token_value value = expression_token->value;
+
+    if (type == OPERAND) {
+      printf("%f\t", value.operand);
+    } else if (type == OPERATOR) {
+      printf("%c\t", operators[value.op_code]);
+    }
+  }
+  puts("");
 }
