@@ -53,7 +53,7 @@ token_queue expr_to_infix(char * str) {
 				   negate (unary) and subtract (binary) */
 				if (type == OPERATOR)
 					value.op_code = NEGATE; /* unary */
-#if PARSE_PARENS
+#if PARSE_PARENTHESES
 				else if (type == LEFT_PARENTHESES)
 					value.op_code = NEGATE; /* unary */
 #endif
@@ -69,7 +69,7 @@ token_queue expr_to_infix(char * str) {
 				type = OPERATOR;
 				value.op_code = DIVIDE;
 				break;
-#if PARSE_PARENS
+#if PARSE_PARENTHESES
 			case '(':
 				type = LEFT_PARENTHESES;
 				break;
