@@ -16,10 +16,10 @@ double evaluate(const char * str) {
 	strbuffer = strcpy((char *)malloc(strlen(str)+1),str);
 
 	/* get queue of tokens in infix order from string buffer */
-	queue_infix = expr_to_infix(strbuffer);
+	queue_infix = convert_expression_to_infix_queue(strbuffer);
 
 	/* get queue of tokens in postfix order from infix-ordered queue */
-	queue_postfix = infix_to_postfix(&queue_infix);
+	queue_postfix = convert_infix_to_postfix_queue(&queue_infix);
 
 	/* get answer from postfix-ordered queue */
 	ans = evaluate_postfix(&queue_postfix);
@@ -29,7 +29,7 @@ double evaluate(const char * str) {
 }
 
 /* constructs a queue of tokens in infix order from a space-delimited string */
-token_queue expr_to_infix(char * str) {
+token_queue convert_expression_to_infix_queue(char * str) {
 	token_queue queue_infix; /* queue with infix ordering */
 	enum token_type type = OPERATOR;
 	token_value value;
@@ -87,7 +87,7 @@ token_queue expr_to_infix(char * str) {
 			value.operand = strtod(str, NULL);
 		}
 		/* add token with parsed type and value to end of queue */
-		enqueue(&queue_infix, new_token(type, value));
+		enqueue(&queue_infix, create_new_token(type, value));
 	}
 	return queue_infix;
 }
@@ -95,7 +95,7 @@ token_queue expr_to_infix(char * str) {
 /* creates a queue of tokens in postfix order from a queue of tokens in infix order */
 /* postcondition: returned queue contains all the tokens, and pqueue_infix should be
    empty */
-token_queue infix_to_postfix(token_queue * pqueue_infix) {
+token_queue convert_infix_to_postfix_queue(token_queue * pqueue_infix) {
 	/* TODO: construct postfix-ordered queue from infix-ordered queue;
 	   all tokens from infix queue should be added to postfix queue or freed */
 
