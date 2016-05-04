@@ -59,10 +59,10 @@ typedef struct s_expr_token {
 } * p_expr_token; /* p_expr_token is shorthand for "struct s_expr_token *" */
 
 /* data structure for queue */
-struct token_queue {
+typedef struct token_queue {
 	p_expr_token front; /* front of queue, where tokens are dequeued */
 	p_expr_token back; /* back of queue, where tokens are added */
-};
+} token_queue;
 
 /* queue functions - enqueue and dequeue */
 void enqueue(struct token_queue * pqueue, const p_expr_token ptoken);
