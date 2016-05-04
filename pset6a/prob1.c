@@ -11,24 +11,16 @@
 #include <string.h>
 #include "prob1.h"
 
-/* type of token */
-enum token_type {
-	OPERAND, /* number */
-	OPERATOR, /* operator: +, -, *, / */
-#if PARSE_PARENS
-	LPARENS, /* left parentheses ( */
-	RPARENS /* right parentheses ) */
-#endif
-};
-
 /* operator identifiers (opcodes) */
 enum op {
 	ADD, /* a+b */
-	SUBTRACT, /* a-b (binary) */ 
+	SUBTRACT, /* a-b (binary) */
 	MULTIPLY, /* a*b */
 	DIVIDE, /* a/b */
 	NEGATE /* -a (unary) */
 };
+
+char operators[] = {'+', '-', '*', '/', '-'};
 
 /* direction of evaluation (associativity) */
 enum assoc {

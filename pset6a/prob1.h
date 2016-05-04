@@ -8,4 +8,14 @@
 /* leave disabled for part (a); enable for part (b) */
 #define PARSE_PARENS 0
 
+/* type of token */
+enum token_type {
+	OPERAND, /* number */
+	OPERATOR, /* operator: +, -, *, / */
+#if PARSE_PARENS
+	LPARENS, /* left parentheses ( */
+	RPARENS /* right parentheses ) */
+#endif
+};
+
 #endif
