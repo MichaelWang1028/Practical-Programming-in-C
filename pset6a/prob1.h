@@ -9,13 +9,12 @@
 
 extern char operators[];
 
-/* type of token */
 enum token_type {
-	OPERAND, /* number */
-	OPERATOR, /* operator: +, -, *, / */
+	OPERAND,
+	OPERATOR,
 #if PARSE_PARENS
-	LPARENS, /* left parentheses ( */
-	RPARENS /* right parentheses ) */
+	LEFT_PARENTHESES,
+	RIGHT_PARENTHESES
 #endif
 };
 

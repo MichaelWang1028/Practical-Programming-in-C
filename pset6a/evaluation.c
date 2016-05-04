@@ -54,7 +54,7 @@ token_queue expr_to_infix(char * str) {
 				if (type == OPERATOR)
 					value.op_code = NEGATE; /* unary */
 #if PARSE_PARENS
-				else if (type == LPARENS)
+				else if (type == LEFT_PARENTHESES)
 					value.op_code = NEGATE; /* unary */
 #endif
 				else
@@ -71,10 +71,10 @@ token_queue expr_to_infix(char * str) {
 				break;
 #if PARSE_PARENS
 			case '(':
-				type = LPARENS;
+				type = LEFT_PARENTHESES;
 				break;
 			case ')':
-				type = RPARENS;
+				type = RIGHT_PARENTHESES;
 				break;
 #endif
 			default:
