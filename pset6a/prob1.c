@@ -11,15 +11,6 @@
 #include <string.h>
 #include "prob1.h"
 
-/* operator identifiers (opcodes) */
-enum op {
-	ADD, /* a+b */
-	SUBTRACT, /* a-b (binary) */
-	MULTIPLY, /* a*b */
-	DIVIDE, /* a/b */
-	NEGATE /* -a (unary) */
-};
-
 char operators[] = {'+', '-', '*', '/', '-'};
 
 /* direction of evaluation (associativity) */

@@ -18,4 +18,13 @@ enum token_type {
 #endif
 };
 
+/* operator identifiers (opcodes) */
+enum op {
+	ADD, /* a+b */
+	SUBTRACT, /* a-b (binary) */
+	MULTIPLY, /* a*b */
+	DIVIDE, /* a/b */
+	NEGATE /* -a (unary) */
+};
+
 #endif
