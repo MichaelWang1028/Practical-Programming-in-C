@@ -164,8 +164,10 @@ double evaluate_postfix_queue(token_queue * pqueue_postfix) {
     if (type == OPERAND) {
       push(&stack_result, current_token);
     } else if (type == OPERATOR) {
+      free(current_token);
       p_expr_token stack_token = pop(&stack_result);
       double result = stack_token->value.operand;
+      free(stack_token);
 
       if (value.op_code == NEGATE) {
         result *= -1;
@@ -174,6 +176,7 @@ double evaluate_postfix_queue(token_queue * pqueue_postfix) {
       for (unsigned int i = 0; i < op_operands[value.op_code] - 1; i++) {
         stack_token = pop(&stack_result);
         double current_value = stack_token->value.operand;
+        free(stack_token);
         switch (value.op_code) {
           case ADD:
             result += current_value;
@@ -204,6 +207,7 @@ double evaluate_postfix_queue(token_queue * pqueue_postfix) {
 
   p_expr_token last_token = pop(&stack_result);
   double final_result = last_token->value.operand;
+  free(last_token);
 
   return final_result;
 }
