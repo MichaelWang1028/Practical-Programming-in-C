@@ -4,11 +4,7 @@
  *  Created on:
  *      Author:
  */
-
-#include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
-#include <string.h>
 #include "prob1.h"
 
 char operators[] = {'+', '-', '*', '/', '-'};
