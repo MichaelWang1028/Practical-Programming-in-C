@@ -70,7 +70,6 @@ p_expr_token dequeue(token_queue * pqueue);
 void push(p_expr_token * ptop, const p_expr_token ptoken);
 p_expr_token pop(p_expr_token * ptop);
 
-/* creates a new token in dynamic memory (using malloc()) */
-p_expr_token new_token(const enum token_type type, const union token_value value);
+p_expr_token create_new_token(const enum token_type type, const union token_value value);
 
 #endif
