@@ -13,12 +13,6 @@
 
 char operators[] = {'+', '-', '*', '/', '-'};
 
-/* direction of evaluation (associativity) */
-enum assoc {
-	LEFT, /* left-to-right (+, binary -, *, /) */
-	RIGHT /* right-to-left (unary -) */
-};
-
 /* number of operands for each operator type */
 const unsigned int op_operands[] = {2, 2, 2, 2, 1};
 

@@ -27,4 +27,10 @@ enum op {
 	NEGATE /* -a (unary) */
 };
 
+/* direction of evaluation (associativity) */
+enum assoc {
+	LEFT, /* left-to-right (+, binary -, *, /) */
+	RIGHT /* right-to-left (unary -) */
+};
+
 #endif
