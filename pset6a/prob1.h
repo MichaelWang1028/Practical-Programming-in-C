@@ -45,10 +45,10 @@ extern const unsigned int op_precedences[];
 extern const enum assoc op_associativity[];
 
 /* contains value of token */
-union token_value {
+typedef union token_value {
 	double operand; /* numeric value for operand */
 	enum op op_code; /* opcode for operators */
-};
+} token_value;
 
 /* data structure for token */
 typedef struct s_expr_token {
