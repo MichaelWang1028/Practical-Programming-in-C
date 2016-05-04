@@ -39,4 +39,7 @@ extern const unsigned int op_operands[];
 /* order-of-operations (precedence) (0 = evaluated last) */
 extern const unsigned int op_precedences[];
 
+/* evaluation direction (associativity) for each precedence level */
+extern const enum assoc op_associativity[];
+
 #endif
