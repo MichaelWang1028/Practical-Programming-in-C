@@ -101,19 +101,19 @@ token_queue convert_infix_to_postfix_queue(token_queue * pqueue_infix) {
   infix_to_postfix_queue.front = NULL;
   infix_to_postfix_queue.back = NULL;
 
-	p_expr_token operator_stack = NULL;
-  p_expr_token temp_token = NULL;
+	p_expr_token operator_stack_top = NULL;
+  p_expr_token current_token = NULL;
 
-	while ((temp_token = dequeue(pqueue_infix))) {
-		enum token_type type = temp_token->type;
-		token_value value = temp_token->value;
+	while ((current_token = dequeue(pqueue_infix))) {
+		enum token_type type = current_token->type;
+		token_value value = current_token->value;
 
 		if (type == OPERAND) {
 			enqueue(&infix_to_postfix_queue, create_new_token(type, value));
 		} else if (type == OPERATOR){
       p_expr_token stack_token = NULL;
 
-      while ((stack_token = pop(&operator_stack))) {
+      while ((stack_token = pop(&operator_stack_top))) {
         enum token_type stack_type = stack_token->type;
         token_value stack_value = stack_token->value;
 
@@ -124,16 +124,16 @@ token_queue convert_infix_to_postfix_queue(token_queue * pqueue_infix) {
         if ((current_precedence < stack_precedence) || (current_precedence == stack_precedence && current_associativity == LEFT)) {
           enqueue(&infix_to_postfix_queue, create_new_token(stack_type, stack_value));
         } else {
-          push(&operator_stack, stack_token);
+          push(&operator_stack_top, stack_token);
           break;
         }
       }
-			push(&operator_stack, temp_token);
+			push(&operator_stack_top, current_token);
 		}
 	}
 
   while (true) {
-    p_expr_token stack_token = pop(&operator_stack);
+    p_expr_token stack_token = pop(&operator_stack_top);
     if (stack_token == NULL) {
       break;
     }
