@@ -11,7 +11,7 @@ token_queue convert_infix_to_postfix_queue(token_queue * pqueue_infix);
 
 /* evalutes the postfix expression stored in the queue */
 /* postcondition: returned value is final answer, and pqueue_postfix should be empty */
-double evaluate_postfix(token_queue * pqueue_postfix);
+double evaluate_postfix_queue(token_queue * pqueue_postfix);
 
 /* handles evaluation process (calls above functions) for expression string str */
 double evaluate(const char * str);

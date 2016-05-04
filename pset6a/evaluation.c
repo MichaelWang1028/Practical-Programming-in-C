@@ -22,7 +22,7 @@ double evaluate(const char * str) {
 	queue_postfix = convert_infix_to_postfix_queue(&queue_infix);
 
 	/* get answer from postfix-ordered queue */
-	ans = evaluate_postfix(&queue_postfix);
+	ans = evaluate_postfix_queue(&queue_postfix);
 
 	free(strbuffer); /* free memory from heap */
 	return ans;
@@ -135,7 +135,7 @@ token_queue convert_infix_to_postfix_queue(token_queue * pqueue_infix) {
 
 /* evalutes the postfix expression stored in the queue */
 /* postcondition: returned value is final answer, and pqueue_postfix should be empty */
-double evaluate_postfix(token_queue * pqueue_postfix) {
+double evaluate_postfix_queue(token_queue * pqueue_postfix) {
 	/* TODO: process postfix-ordered queue and return final answer;
 	   all tokens from postfix-ordered queue is freed */
 }
