@@ -5,14 +5,14 @@
 #include "evaluation.h"
 
 int main(void) {
-	char input[INPUT_MAX];
+	char input[INPUT_MAX_LENGTH];
 	double ans;
 	unsigned int len;
 
 	do {
 		printf("Enter an expression to evaluate: ");
 		fflush(stdout);
-		if (!fgets(input, INPUT_MAX, stdin))
+		if (!fgets(input, INPUT_MAX_LENGTH, stdin))
 			abort(); /* failed to read stdin */
 
 		len = strlen(input);
