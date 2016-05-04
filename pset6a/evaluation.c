@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
 #include "prob1.h"
 #include "evaluation.h"
 
@@ -118,11 +117,7 @@ token_queue convert_infix_to_postfix_queue(token_queue * pqueue_infix) {
         enum token_type stack_type = stack_token->type;
         token_value stack_value = stack_token->value;
 
-        int current_precedence = op_precedences[value.op_code];
-        int current_associativity = op_associativity[current_precedence];
-        int stack_precedence = op_precedences[stack_value.op_code];
-
-        if ((current_precedence < stack_precedence) || (current_precedence == stack_precedence && current_associativity == LEFT)) {
+        if (should_enqueue_operator(value, stack_value)) {
           enqueue(&infix_to_postfix_queue, create_new_token(stack_type, stack_value));
           free(stack_token);
         } else {
@@ -140,6 +135,15 @@ token_queue convert_infix_to_postfix_queue(token_queue * pqueue_infix) {
   }
 
 	return infix_to_postfix_queue;
+}
+
+bool should_enqueue_operator(token_value current_value, token_value stack_value)
+{
+  int current_precedence = op_precedences[current_value.op_code];
+  int current_associativity = op_associativity[current_precedence];
+  int stack_precedence = op_precedences[stack_value.op_code];
+
+  return (current_precedence < stack_precedence) || (current_precedence == stack_precedence && current_associativity == LEFT);
 }
 
 /* evalutes the postfix expression stored in the queue */

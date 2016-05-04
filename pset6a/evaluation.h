@@ -1,6 +1,8 @@
 #ifndef EVALUATION_H
 #define EVALUATION_H
 
+#include <stdbool.h>
+
 /* constructs a queue of tokens in infix order from a space-delimited string */
 token_queue convert_expression_to_infix_queue(char * str);
 
@@ -17,5 +19,7 @@ double evaluate_postfix_queue(token_queue * pqueue_postfix);
 double evaluate(const char * str);
 
 void print_queue(token_queue * pointer_to_queue);
+
+bool should_enqueue_operator(token_value current_value, token_value stack_value);
 
 #endif
