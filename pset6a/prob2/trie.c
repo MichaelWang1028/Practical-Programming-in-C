@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "trie.h"
 
 /* allocate new node on the heap
@@ -5,6 +6,13 @@
 trie_node * new_node(void) {
 	/* TODO: allocate a new node on the heap, and
 	   initialize all fields to default values */
+	trie_node * node = (trie_node *) malloc(sizeof(trie_node));
+
+	if (node != NULL) {
+		node->translation = NULL;
+	}
+
+	return node;
 }
 
 /* delete node and all its children
