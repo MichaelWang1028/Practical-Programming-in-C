@@ -5,7 +5,7 @@
 
 /* enable (1) or disable (0) parentheses checking in parsing strings */
 /* leave disabled for part (a); enable for part (b) */
-#define PARSE_PARENTHESES 0
+#define PARSE_PARENTHESES 1
 
 extern char operators[];
 
