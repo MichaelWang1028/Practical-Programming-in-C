@@ -26,4 +26,10 @@ void delete_node(trie_node * pnode) {
 	   Be sure to free non-null translations!
 	   Hint: use recursion
 	 */
+	 for (int i = 0; i < UCHAR_MAX + 1; i++) {
+		 if (pnode->children[i] != NULL) {
+			 delete_node(pnode->children[i]);
+		 }
+	 }
+	 free(pnode);
 }
