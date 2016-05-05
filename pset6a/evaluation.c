@@ -20,8 +20,6 @@ double evaluate(const char * str) {
 	/* get queue of tokens in postfix order from infix-ordered queue */
 	queue_postfix = convert_infix_to_postfix_queue(&queue_infix);
 
-	print_queue(&queue_postfix);
-
 	/* get answer from postfix-ordered queue */
 	ans = evaluate_postfix_queue(&queue_postfix);
 
@@ -127,21 +125,24 @@ token_queue convert_infix_to_postfix_queue(token_queue * pqueue_infix) {
 		}
 
 		if (type == RIGHT_PARENTHESES) {
-			p_expr_token stack_token = pop(&operator_stack_top);
-			enum token_type stack_type = stack_token->type;
-			token_value stack_value = stack_token->value;
+			p_expr_token stack_token = NULL;
 
-			if (stack_type == LEFT_PARENTHESES) {
+			while (true) {
+				stack_token = pop(&operator_stack_top);
+				enum token_type stack_type = stack_token->type;
+				token_value stack_value = stack_token->value;
+
+				if (stack_type == LEFT_PARENTHESES) {
+					break;
+				}
+
+				enqueue(&infix_to_postfix_queue, create_new_token(stack_type, stack_value));
 				free(stack_token);
-				free(current_token);
-				continue;
 			}
 
-			enqueue(&infix_to_postfix_queue, create_new_token(stack_type, stack_value));
 			free(stack_token);
-
-			stack_token = pop(&operator_stack_top);
-			free(stack_token);
+			free(current_token);
+			continue;
 		}
 
 		if (type == OPERATOR){
