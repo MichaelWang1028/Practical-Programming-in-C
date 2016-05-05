@@ -6,16 +6,16 @@
 trie_node * new_node(void) {
 	/* TODO: allocate a new node on the heap, and
 	   initialize all fields to default values */
-	trie_node * node = (trie_node *) malloc(sizeof(trie_node));
+	trie_node * p_node = (trie_node *) malloc(sizeof(trie_node));
 
-	if (node != NULL) {
-		node->translation = NULL;
+	if (p_node != NULL) {
+		p_node->translation = NULL;
 		for (int i = 0; i < UCHAR_MAX + 1; i++) {
-			node->children[i] = NULL;
+			p_node->children[i] = NULL;
 		}
 	}
 
-	return node;
+	return p_node;
 }
 
 /* delete node and all its children
