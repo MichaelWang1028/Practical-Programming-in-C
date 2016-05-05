@@ -97,4 +97,14 @@ unsigned int load_dictionary(const char * filename) {
 char * lookup_word(const char * word) {
 	/* TODO: search trie structure for word
 	   return NULL if word is not found */
+	trie_node * current_node = proot;
+	for (unsigned int i = 0; i < strlen(word); i++) {
+		unsigned int index = (unsigned int) word[i];
+		if (current_node->children[index] == NULL) {
+			return NULL;
+		}
+		current_node = current_node->children[index];
+	}
+
+	return current_node->translation;
 }
