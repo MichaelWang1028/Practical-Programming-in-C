@@ -4,22 +4,22 @@
 #include <limits.h>
 
 /* the trie node data structure */
-struct s_trie_node
+typedef struct s_trie_node
 {
 	char * translation; /* NULL if node not a word */
 
 	/* pointer array to child nodes */
 	struct s_trie_node * children[UCHAR_MAX + 1];
-};
+} trie_node;
 
 /* allocate new node on the heap
    output: pointer to new node (must be freed) */
-struct s_trie_node * new_node(void);
+trie_node * new_node(void);
 
 /* delete node and all its children
    input: pointer to node to delete
    postcondition: node and children are freed */
-void delete_node(struct s_trie_node * pnode);
+void delete_node(trie_node * pnode);
 
 /* add word to trie, with translation
    input: word and translation
