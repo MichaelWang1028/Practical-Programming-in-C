@@ -16,3 +16,11 @@ The goal of this problem was to implement a simple four-function calculator usin
 The input for this program is a space-delimited infix expression (e.g. 3 + 5 * 9) which has to be evaluated following the order of operations for a mathematical expression.
 In addition, this calculator has to handle the unary negation operator (  - ).
 Another feature of this calculator is that this has to be able to deal with parentheses.
+
+##### Observations
+This exercise has a couple of helper files.
+Frankly, I considered that the provided file **prob1.c** is totally a mess because it has almost 290 lines of code which could be properly separated into more files to improve not only readability of code but also its maintenance.
+
+Furthermore, understanding the provided code took me a little while, so a good approach I took was to divide the code in several files.
+Honestly, I have to admit this problem was pretty challenging at the beginning, but I really enjoyed solving this problem.
+As the problem suggest, it is a good idea to make the calculator work without worrying about parentheses firstly.
