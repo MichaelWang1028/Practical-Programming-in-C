@@ -110,7 +110,8 @@ token_queue convert_infix_to_postfix_queue(token_queue * pqueue_infix) {
 		if (type == OPERAND) {
 			enqueue(&infix_to_postfix_queue, create_new_token(type, value));
       free(current_token);
-		} else if (type == OPERATOR){
+		}
+		if (type == OPERATOR){
       p_expr_token stack_token = NULL;
 
       while ((stack_token = pop(&operator_stack_top))) {
