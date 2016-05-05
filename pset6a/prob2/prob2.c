@@ -16,16 +16,12 @@
 trie_node * proot = NULL;
 
 /* add word to trie, with translation
+	 if word exists, translation is appended
+	 to existing	string.
    input: word and translation
    output: non-zero if new node added, zero otherwise
    postcondition: word exists in trie */
 int add_word(const char * word, char * translation) {
-	/* TODO: add word to trie structure
-	   If word exists, append translation to existing
-	   string
-	   Be sure to store a copy of translation, since
-	   the string is reused by load_dictionary()
-	 */
 	int nodes_created = 0;
 	trie_node * current_node = proot;
 
@@ -38,6 +34,8 @@ int add_word(const char * word, char * translation) {
 		current_node = current_node->children[index];
 	}
 
+	/* makes sure to store a copy of translation, since
+	the string is reused by load_dictionary() */
 	if (current_node->translation == NULL) {
 		current_node->translation = strcpy(malloc((strlen(translation) + 1) * sizeof(char)), translation);
 	} else {
