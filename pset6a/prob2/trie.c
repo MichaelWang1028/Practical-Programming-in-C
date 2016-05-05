@@ -10,6 +10,9 @@ trie_node * new_node(void) {
 
 	if (node != NULL) {
 		node->translation = NULL;
+		for (int i = 0; i < UCHAR_MAX + 1; i++) {
+			node->children[i] = NULL;
+		}
 	}
 
 	return node;
