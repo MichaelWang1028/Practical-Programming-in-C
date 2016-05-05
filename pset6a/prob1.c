@@ -7,13 +7,13 @@
 #include <stdlib.h>
 #include "prob1.h"
 
-char operators[] = {'+', '-', '*', '/', '-'};
+char operators[] = {'+', '-', '*', '/', '+', '-'};
 
 /* number of operands for each operator type */
-const unsigned int op_operands[] = {2, 2, 2, 2, 1};
+const unsigned int op_operands[] = {2, 2, 2, 2, 1, 1};
 
 /* order-of-operations (precedence) (0 = evaluated last) */
-const unsigned int op_precedences[] = {0, 0, 1, 1, 2};
+const unsigned int op_precedences[] = {0, 0, 1, 1, 2, 2};
 
 /* evaluation direction (associativity) for each precedence level */
 const enum assoc op_associativity[] = {LEFT, LEFT, RIGHT};

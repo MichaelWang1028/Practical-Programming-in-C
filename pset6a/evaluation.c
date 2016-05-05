@@ -20,6 +20,8 @@ double evaluate(const char * str) {
 	/* get queue of tokens in postfix order from infix-ordered queue */
 	queue_postfix = convert_infix_to_postfix_queue(&queue_infix);
 
+	print_queue(&queue_postfix);
+
 	/* get answer from postfix-ordered queue */
 	ans = evaluate_postfix_queue(&queue_postfix);
 
@@ -44,8 +46,16 @@ token_queue convert_expression_to_infix_queue(char * str) {
 		if (strlen(str) == 1) { /* operators are all 1 character */
 			switch (str[0]) {
 			case '+':
+				if (type == OPERATOR){
+					value.op_code = KEEP; /* unary */
+        }
+#if PARSE_PARENTHESES
+				else if (type == LEFT_PARENTHESES)
+					value.op_code = KEEP; /* unary */
+#endif
+				else
+					value.op_code = ADD; /* binary */
 				type = OPERATOR;
-				value.op_code = ADD;
 				break;
 			case '-':
 				/* check previous token to distinguish between
@@ -221,6 +231,7 @@ double evaluate_postfix_queue(token_queue * pqueue_postfix) {
             result /= current_value;
             result = 1 / result;
             break;
+					case KEEP:
           case NEGATE:
             break;
         }

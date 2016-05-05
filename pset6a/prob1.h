@@ -24,6 +24,7 @@ enum op {
 	SUBTRACT, /* a-b (binary) */
 	MULTIPLY, /* a*b */
 	DIVIDE, /* a/b */
+	KEEP, /* +a (unary) */
 	NEGATE /* -a (unary) */
 };
 
