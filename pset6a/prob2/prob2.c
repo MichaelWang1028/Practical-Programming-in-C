@@ -42,10 +42,12 @@ int add_word(const char * word, char * translation) {
 		current_node->translation = strcpy(malloc((strlen(translation) + 1) * sizeof(char)), translation);
 	} else {
 		char * old_translation = current_node->translation;
-		current_node->translation = malloc((strlen(old_translation) + strlen(translation) + 2) * sizeof(char)); // 2 = 1 (comma) + 1 (\0)
-		strcat(current_node->translation, old_translation);
-		strcat(current_node->translation, ",");
-		strcat(current_node->translation, translation);
+		int old_length = strlen(old_translation);
+		int new_length = strlen(translation);
+		current_node->translation = malloc((old_length + new_length + 2) * sizeof(char)); // 2 = 1 (comma) + 1 (\0)
+		strcpy(current_node->translation, old_translation);
+		strcpy(current_node->translation + old_length, ",");
+		strcpy(current_node->translation + old_length + 1, translation);
 		free(old_translation);
 	}
 
