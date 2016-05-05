@@ -27,9 +27,6 @@ int add_word(const char * word, char * translation) {
 	 */
 }
 
-/* delimiter for dictionary */
-#define DELIMS "\t"
-
 /* read dictionary file into trie structure */
 unsigned int load_dictionary(const char * filename) {
 	FILE * pfile;

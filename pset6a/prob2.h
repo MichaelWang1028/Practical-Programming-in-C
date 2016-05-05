@@ -9,6 +9,9 @@
 #define LINE_MAX 2048
 #endif
 
+/* delimiter for dictionary */
+#define DELIMS "\t"
+
 /* pointer to the root node of the trie structure */
 extern struct s_trie_node * proot;
 
