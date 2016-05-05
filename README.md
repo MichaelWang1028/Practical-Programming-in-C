@@ -11,3 +11,8 @@ Therefore, for every lecture, I will include a brief summary, while for every pr
 
 ## Problem Set 6 - Part A
 ### Pointers to pointers. Multidimensional arrays. Stacks and Queues.
+#### Problem 6.1: Four-Function Calculator
+The goal of this problem was to implement a simple four-function calculator using stacks and queues.
+The input for this program is a space-delimited infix expression (e.g. 3 + 5 * 9) which has to be evaluated following the order of operations for a mathematical expression.
+In addition, this calculator has to handle the unary negation operator (  - ).
+Another feature of this calculator is that this has to be able to deal with parentheses.
