@@ -7,6 +7,7 @@
 
 /* header files */
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "prob2.h"
 #include "trie.h"
@@ -25,6 +26,29 @@ int add_word(const char * word, char * translation) {
 	   Be sure to store a copy of translation, since
 	   the string is reused by load_dictionary()
 	 */
+	int nodes_created = 0;
+	trie_node * current_node = proot;
+
+	for (unsigned int i = 0; i < strlen(word); i++) {
+		unsigned int index = (unsigned int) word[i];
+		if (current_node->children[index] == NULL) {
+			current_node->children[index] = new_node();
+			nodes_created++;
+		}
+		current_node = current_node->children[index];
+	}
+
+	char * translation_copy = strcpy(malloc((strlen(translation) + 1) * sizeof(char)), translation);
+
+	if (current_node->translation == NULL) {
+		current_node->translation = translation_copy;
+	} else {
+		strcat(current_node->translation, ",");
+		strcat(current_node->translation, translation_copy);
+		free(translation_copy);
+	}
+
+	return nodes_created;
 }
 
 /* read dictionary file into trie structure */
