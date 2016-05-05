@@ -10,15 +10,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
-
-/* the trie node data structure */
-struct s_trie_node
-{
-	char * translation; /* NULL if node not a word */
-
-	/* pointer array to child nodes */
-	struct s_trie_node * children[UCHAR_MAX+1];
-};
+#include "prob2.h"
 
 /* pointer to the root node of the trie structure */
 static struct s_trie_node * proot = NULL;
@@ -180,4 +172,3 @@ char * lookup_word(const char * word) {
 	/* TODO: search trie structure for word
 	   return NULL if word is not found */
 }
-
