@@ -15,16 +15,6 @@
 /* pointer to the root node of the trie structure */
 static struct s_trie_node * proot = NULL;
 
-/* helper functions for trie structure */
-
-/* read dictionary file into trie structure */
-unsigned int load_dictionary(const char * filename);
-
-/* search trie structure for word and return translations
-   input: word to search
-   output: translation, or NULL if not found */
-char * lookup_word(const char * word);
-
 /* maximum number of characters for word to search */
 #define WORD_MAX 256
 
