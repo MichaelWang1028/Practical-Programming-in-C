@@ -12,7 +12,7 @@ extern char operators[];
 enum token_type {
 	OPERAND,
 	OPERATOR,
-#if PARSE_PARENS
+#if PARSE_PARENTHESES
 	LEFT_PARENTHESES,
 	RIGHT_PARENTHESES
 #endif
