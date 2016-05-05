@@ -15,14 +15,6 @@
 /* pointer to the root node of the trie structure */
 static struct s_trie_node * proot = NULL;
 
-/* maximum number of characters for word to search */
-#define WORD_MAX 256
-
-/* maximum number of characters in line */
-#ifndef LINE_MAX
-#define LINE_MAX 2048
-#endif
-
 /* main function */
 int main(int argc, char * argv[]) {
 	char word[WORD_MAX], * translation;
