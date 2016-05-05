@@ -12,7 +12,7 @@
 #include "trie.h"
 
 /* pointer to the root node of the trie structure */
-struct s_trie_node * proot = NULL;
+trie_node * proot = NULL;
 
 /* add word to trie, with translation
    input: word and translation
