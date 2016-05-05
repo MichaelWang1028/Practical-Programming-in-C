@@ -30,7 +30,7 @@ int add_word(const char * word, char * translation) {
 	trie_node * current_node = proot;
 
 	for (unsigned int i = 0; i < strlen(word); i++) {
-		unsigned int index = (unsigned int) word[i];
+		unsigned char index = (unsigned char) word[i];
 		if (current_node->children[index] == NULL) {
 			current_node->children[index] = new_node();
 			nodes_created++;
