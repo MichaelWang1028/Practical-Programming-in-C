@@ -22,14 +22,15 @@ trie_node * new_node(void) {
    input: pointer to node to delete
    postcondition: node and children are freed */
 void delete_node(trie_node * pnode) {
-	 for (int i = 0; i < UCHAR_MAX + 1; i++) {
-		 if (pnode->children[i] != NULL) {
-			 delete_node(pnode->children[i]);
-		 }
-	 }
+	if (pnode->translation != NULL) {
+		free(pnode->translation);
+	}
 
-	 if (pnode->translation != NULL) {
-		 free(pnode->translation);
-	 }
-	 free(pnode);
+	for (int i = 0; i < UCHAR_MAX + 1; i++) {
+		if (pnode->children[i] != NULL) {
+			delete_node(pnode->children[i]);
+		}
+	}
+
+	free(pnode);
 }
