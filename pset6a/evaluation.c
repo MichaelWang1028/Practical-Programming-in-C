@@ -111,12 +111,34 @@ token_queue convert_infix_to_postfix_queue(token_queue * pqueue_infix) {
 			enqueue(&infix_to_postfix_queue, create_new_token(type, value));
       free(current_token);
 		}
+
+		if (type == LEFT_PARENTHESES) {
+			push(&operator_stack_top, current_token);
+		}
+
+		if (type == RIGHT_PARENTHESES) {
+			p_expr_token stack_token = pop(&operator_stack_top);
+			enum token_type stack_type = stack_token->type;
+			token_value stack_value = stack_token->value;
+
+			enqueue(&infix_to_postfix_queue, create_new_token(stack_type, stack_value));
+			free(stack_token);
+
+			stack_token = pop(&operator_stack_top);
+			free(stack_token);
+		}
+
 		if (type == OPERATOR){
       p_expr_token stack_token = NULL;
 
       while ((stack_token = pop(&operator_stack_top))) {
         enum token_type stack_type = stack_token->type;
         token_value stack_value = stack_token->value;
+
+				if (stack_type == LEFT_PARENTHESES) {
+					push(&operator_stack_top, stack_token);
+					break;
+				}
 
         if (should_enqueue_operator(value, stack_value)) {
           enqueue(&infix_to_postfix_queue, create_new_token(stack_type, stack_value));
