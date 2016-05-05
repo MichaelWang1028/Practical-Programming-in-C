@@ -8,3 +8,6 @@ However, this book does not offer challenging problems or exercises, so I starte
 
 The purpose of this README is to track how well (or badly) I am doing this course, and I would also like to provide some advice for the ones who are interested in taking this course too.
 Therefore, for every lecture, I will include a brief summary, while for every project or problem set I will describe the difficulties and insights I got.
+
+## Problem Set 6 - Part A
+### Pointers to pointers. Multidimensional arrays. Stacks and Queues.
