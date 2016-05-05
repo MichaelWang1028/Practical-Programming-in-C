@@ -38,14 +38,15 @@ int add_word(const char * word, char * translation) {
 		current_node = current_node->children[index];
 	}
 
-	char * translation_copy = strcpy(malloc((strlen(translation) + 1) * sizeof(char)), translation);
-
 	if (current_node->translation == NULL) {
-		current_node->translation = translation_copy;
+		current_node->translation = strcpy(malloc((strlen(translation) + 1) * sizeof(char)), translation);
 	} else {
+		char * old_translation = current_node->translation;
+		current_node->translation = malloc((strlen(old_translation) + strlen(translation) + 2) * sizeof(char)); // 2 = 1 (comma) + 1 (\0)
+		strcat(current_node->translation, old_translation);
 		strcat(current_node->translation, ",");
-		strcat(current_node->translation, translation_copy);
-		free(translation_copy);
+		strcat(current_node->translation, translation);
+		free(old_translation);
 	}
 
 	return nodes_created;
