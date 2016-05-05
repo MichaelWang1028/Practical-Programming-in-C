@@ -121,6 +121,12 @@ token_queue convert_infix_to_postfix_queue(token_queue * pqueue_infix) {
 			enum token_type stack_type = stack_token->type;
 			token_value stack_value = stack_token->value;
 
+			if (stack_type == LEFT_PARENTHESES) {
+				free(stack_token);
+				free(current_token);
+				continue;
+			}
+
 			enqueue(&infix_to_postfix_queue, create_new_token(stack_type, stack_value));
 			free(stack_token);
 
