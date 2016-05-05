@@ -9,28 +9,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <limits.h>
 #include "prob2.h"
+#include "trie.h"
 
 /* pointer to the root node of the trie structure */
 static struct s_trie_node * proot = NULL;
 
 /* helper functions for trie structure */
-
-/* allocate new node on the heap
-   output: pointer to new node (must be freed) */
-struct s_trie_node * new_node(void);
-
-/* delete node and all its children
-   input: pointer to node to delete
-   postcondition: node and children are freed */
-void delete_node(struct s_trie_node * pnode);
-
-/* add word to trie, with translation
-   input: word and translation
-   output: non-zero if new node added, zero otherwise
-   postcondition: word exists in trie */
-int add_word(const char * word, char * translation);
 
 /* read dictionary file into trie structure */
 unsigned int load_dictionary(const char * filename);
@@ -90,23 +75,6 @@ int main(int argc, char * argv[]) {
 	delete_node(proot);
 
 	return 0;
-}
-
-/* allocate new node on the heap
-   output: pointer to new node (must be freed) */
-struct s_trie_node * new_node(void) {
-	/* TODO: allocate a new node on the heap, and
-	   initialize all fields to default values */
-}
-
-/* delete node and all its children
-   input: pointer to node to delete
-   postcondition: node and children are freed */
-void delete_node(struct s_trie_node * pnode) {
-	/* TODO: delete node and all its children
-	   Be sure to free non-null translations!
-	   Hint: use recursion
-	 */
 }
 
 /* add word to trie, with translation
