@@ -37,7 +37,7 @@ int add_word(const char * word, char * translation) {
 	/* makes sure to store a copy of translation, since
 	the string is reused by load_dictionary() */
 	if (current_node->translation == NULL) {
-		current_node->translation = strcpy(malloc((strlen(translation) + 1) * sizeof(char)), translation);
+		current_node->translation = strdup(translation);
 	} else {
 		char * old_translation = current_node->translation;
 		int old_length = strlen(old_translation);
