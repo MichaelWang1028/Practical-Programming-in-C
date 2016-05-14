@@ -3,13 +3,6 @@
 #include <string.h>
 #include "hash.h"
 
-typedef struct wordrec
-{
-  char* word;
-  unsigned long count;
-  struct wordrec* next;
-} wordrec;
-
 /*
   @function walloc
   @desc     produces a new node
