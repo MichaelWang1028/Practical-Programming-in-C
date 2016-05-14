@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 #define MAX_BUCKETS 1000
 #define MULTIPLIER 31
 #define MAX_LEN 100
