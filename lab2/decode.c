@@ -3,9 +3,6 @@
 #include <string.h>
 #include "decode.h"
 
-#define MAX_SYMBOLS 255
-#define MAX_LEN     10
-
 struct tnode
 {
     struct  tnode* left; /*used when in tree*/
