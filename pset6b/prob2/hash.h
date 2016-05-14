@@ -7,9 +7,9 @@
 
 typedef struct wordrec
 {
-        char* word;
-        unsigned long count;
-        struct wordrec* next;
+  char* word;
+  unsigned long count;
+  struct wordrec* next;
 } wordrec;
 
 /*
