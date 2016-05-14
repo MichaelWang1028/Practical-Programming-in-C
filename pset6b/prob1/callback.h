@@ -2,11 +2,12 @@
 #define CALLBACK_H
 
 #define NUMBER_OF_STUDENTS 10
+#define STRING_LENGTH 100
 
 typedef struct
 {
-  char fname[100];
-  char lname[100];
+  char fname[STRING_LENGTH];
+  char lname[STRING_LENGTH];
   int  year;
   int  age;
 } student;
