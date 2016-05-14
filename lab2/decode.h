@@ -20,4 +20,6 @@ typedef struct code
 
 extern tree_node* root; /*tree of symbols*/
 
+tree_node* allocate_new_tree_node();
+
 #endif

@@ -5,11 +5,7 @@
 
 tree_node* root = NULL; /*tree of symbols*/
 
-/*
-    @function   talloc
-    @desc       allocates new node
-*/
-tree_node* talloc()
+tree_node* allocate_new_tree_node()
 {
     tree_node* p = (tree_node *) malloc(sizeof(tree_node));
     if(p != NULL)
@@ -88,7 +84,7 @@ int main()
 	FILE* fout;
 	FILE* fin;
 	/*allocate root*/
-	root = talloc();
+	root = allocate_new_tree_node();
 	fin = fopen(CODE_FILE, "r");
 	/*build tree*/
 	build_tree(fin);
