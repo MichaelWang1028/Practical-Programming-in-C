@@ -49,17 +49,21 @@ wordrec* lookup(const char* str, int create)
   unsigned long hash = hashstring(str);/*starting point*/
   wordrec *wp = table[hash];
   wordrec *curr = NULL;
-  /*TODO: write code to
-  follow the linked list to find str
-  if found return pointer*/
+
+  for (curr = wp; curr != NULL; curr = curr->next) {
+    if (strcmp(curr->word, str) == 0) {
+      return curr;
+    }
+  }
 
   /*if not found and create specified*/
-   if(create)
-    {
-      /*TODO:write code to
-       create new node
-      update linked list*/
-    }
+  if (create)
+  {
+    curr = walloc(str);
+    curr->next = wp;
+    table[hash] = curr;
+  }
+
   return curr;
 }
 

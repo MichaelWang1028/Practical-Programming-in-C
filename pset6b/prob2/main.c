@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include <string.h>
 #include "hash.h"
 
-int main(int argc,char* argv[])
+int main()
 {
   FILE* fp = fopen("book.txt", "r");
   char  word[1024]; /*big enough*/
