@@ -23,7 +23,10 @@ student class[NUMBER_OF_STUDENTS] = {
 */
 int compare_first_name(const void* a, const void* b)
 {
-  return 1; /*place holder for now*/
+  student * student_a = (student *) a;
+  student * student_b = (student *) b;
+
+  return strcmp(student_a->fname, student_b->fname);
 }
 
 /*
