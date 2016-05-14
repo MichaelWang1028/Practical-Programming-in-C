@@ -11,11 +11,11 @@ typedef struct tree_node
     char     symbol;
 } tree_node;
 
-struct code
+typedef struct code
 {
 	int		symbol;
 	char	str_code[MAX_LEN];
-};
+} code;
 
 /*global variables*/
 tree_node* root = NULL; /*tree of symbols*/
