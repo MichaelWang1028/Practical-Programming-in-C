@@ -3,20 +3,20 @@
 #include <string.h>
 #include "hash.h"
 
-struct wordrec
+typedef struct wordrec
 {
   char* word;
   unsigned long count;
   struct wordrec* next;
-};
+} wordrec;
 
 /*
   @function walloc
   @desc     produces a new node
 */
-struct wordrec* walloc(const char* str)
+wordrec* walloc(const char* str)
 {
-  struct wordrec* p = (struct wordrec*) malloc(sizeof(struct wordrec));
+  wordrec* p = (wordrec *) malloc(sizeof(wordrec));
   if(p != NULL)
   {
       p->count = 0;
@@ -27,7 +27,7 @@ struct wordrec* walloc(const char* str)
 }
 
 /*hash bucket*/
-struct wordrec* table[MAX_BUCKETS]; /* changed from MAX_LEN -- dsw */
+wordrec* table[MAX_BUCKETS]; /* changed from MAX_LEN -- dsw */
 
 /*
   @function hashstring
@@ -51,11 +51,11 @@ unsigned long hashstring(const char* str)
   @desc     returns a pointer to the word or creates
             it if required
 */
-struct wordrec*  lookup(const char* str, int create)
+wordrec* lookup(const char* str, int create)
 {
   unsigned long hash = hashstring(str);/*starting point*/
-  struct wordrec* wp = table[hash];
-  struct wordrec* curr = NULL;
+  wordrec *wp = table[hash];
+  wordrec *curr = NULL;
   /*TODO: write code to
   follow the linked list to find str
   if found return pointer*/
@@ -76,7 +76,7 @@ struct wordrec*  lookup(const char* str, int create)
 */
 void cleartable()
 {
-  struct wordrec* wp = NULL,*p = NULL;
+  wordrec* wp = NULL,*p = NULL;
   int i = 0;
   /*TODO: write code to
     reclaim memory
@@ -87,7 +87,7 @@ int main(int argc,char* argv[])
 {
   FILE* fp = fopen("book.txt","r");
   char  word[1024]; /*big enough*/
-  struct wordrec* wp = NULL;
+  wordrec* wp = NULL;
   int i = 0;
 
   memset(table, 0, sizeof(table));
