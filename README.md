@@ -71,4 +71,4 @@ The goal of this problem is to count the frequency of words within a file using 
 Again the problem is really straightforward, and I spent more time separating the code than solving the problem.
 
 ##### Difficulties
-The only tricky thing is when implementing the function **cleartable()** because you should free not only the node of the linked list, but also the word of this node.
+The only tricky thing is when implementing the function **cleartable()** because you should free not only the node of the linked list, but also the word associated with this node.
