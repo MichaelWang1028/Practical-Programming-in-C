@@ -14,7 +14,7 @@ struct tree_node
 struct code
 {
 	int		symbol;
-	char	strcode[MAX_LEN];
+	char	str_code[MAX_LEN];
 };
 
 /*global variables*/
@@ -44,17 +44,17 @@ struct tree_node* talloc()
 void build_tree(FILE* fp)
 {
 	char	symbol;
-	char	strcode[MAX_LEN];
+	char	str_code[MAX_LEN];
 	int		items_read;
 	int		i,len;
 	struct	tree_node* curr = NULL;
 
 	while(!feof(fp))
 	{
-		items_read = fscanf(fp, "%c %s\n", &symbol, strcode);
+		items_read = fscanf(fp, "%c %s\n", &symbol, str_code);
 		if(items_read != 2) break;
 		curr = root;
-		len = strlen(strcode);
+		len = strlen(str_code);
 		for(i = 0; i < len; i++)
 		{
 			/*TODO: create the tree as you go*/
