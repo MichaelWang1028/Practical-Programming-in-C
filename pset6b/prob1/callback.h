@@ -1,6 +1,8 @@
 #ifndef CALLBACK_H
 #define CALLBACK_H
 
+#define NUMBER_OF_STUDENTS 10
+
 typedef struct
 {
   char fname[100];
@@ -9,7 +11,7 @@ typedef struct
   int  age;
 } student;
 
-extern student class[10];
+extern student class[NUMBER_OF_STUDENTS];
 
 /*
   TODO

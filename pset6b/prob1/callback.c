@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "callback.h"
 
-student class[10] = {
+student class[NUMBER_OF_STUDENTS] = {
   "Sean","Penn",2,21,
   "Sean","Connery",4,25,
   "Angelina","Jolie",3,22,
