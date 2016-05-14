@@ -3,6 +3,9 @@
 #include <string.h>
 #include "hash.h"
 
+/*hash bucket*/
+wordrec* table[MAX_BUCKETS]; /* changed from MAX_LEN -- dsw */
+
 /*
   @function walloc
   @desc     produces a new node
@@ -18,9 +21,6 @@ wordrec* walloc(const char* str)
   }
   return p;
 }
-
-/*hash bucket*/
-wordrec* table[MAX_BUCKETS]; /* changed from MAX_LEN -- dsw */
 
 /*
   @function hashstring
