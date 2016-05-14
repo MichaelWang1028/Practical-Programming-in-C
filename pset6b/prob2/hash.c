@@ -74,8 +74,13 @@ wordrec* lookup(const char* str, int create)
 void cleartable()
 {
   wordrec* wp = NULL,*p = NULL;
-  int i = 0;
-  /*TODO: write code to
-    reclaim memory
-  */
+
+  for (int i = 0; i < MAX_BUCKETS; i++) {
+    wp = table[i];
+    for (p = wp; p != NULL; p = wp) {
+        wp = p->next;
+        free(p->word);
+        free(p);
+    }
+  }
 }
