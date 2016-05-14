@@ -1,2 +1,2 @@
-main: callback_ps.c
-	gcc -g -O0 -Wall -Wextra callback_ps.c -o main.o
+main: main.c callback.c callback.h
+	gcc -g -O0 -Wall -Wextra main.c callback.c -o main.o
