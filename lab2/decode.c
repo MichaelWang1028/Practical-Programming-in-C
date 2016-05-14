@@ -20,7 +20,7 @@ struct code
 };
 
 /*global variables*/
-struct tnode* root=NULL; /*tree of symbols*/
+struct tnode* root = NULL; /*tree of symbols*/
 
 /*
     @function   talloc
@@ -28,12 +28,12 @@ struct tnode* root=NULL; /*tree of symbols*/
 */
 struct tnode* talloc()
 {
-    struct tnode* p=(struct tnode*)malloc(sizeof(struct tnode));
-    if(p!=NULL)
+    struct tnode* p = (struct tnode *) malloc(sizeof(struct tnode));
+    if(p != NULL)
     {
-        p->left=p->right=NULL;
-        p->symbol=0;
-		p->isleaf=0;
+        p->left = p->right = NULL;
+        p->symbol = 0;
+		p->isleaf = 0;
     }
     return p;
 }
@@ -49,33 +49,33 @@ void build_tree(FILE* fp)
 	char	strcode[MAX_LEN];
 	int		items_read;
 	int		i,len;
-	struct	tnode* curr=NULL;
+	struct	tnode* curr = NULL;
 
 	while(!feof(fp))
 	{
-		items_read=fscanf(fp,"%c %s\n",&symbol,strcode);
-		if(items_read!=2) break;
-		curr=root;
-		len=strlen(strcode);
-		for(i=0;i<len;i++)
+		items_read = fscanf(fp, "%c %s\n", &symbol, strcode);
+		if(items_read != 2) break;
+		curr = root;
+		len = strlen(strcode);
+		for(i = 0; i < len; i++)
 		{
 			/*TODO: create the tree as you go*/
 		}
 		/*assign code*/
-		curr->isleaf=1;
-		curr->symbol=symbol;
-		printf("inserted symbol:%c\n",symbol);
+		curr->isleaf = 1;
+		curr->symbol = symbol;
+		printf("inserted symbol:%c\n", symbol);
 	}
 }
 
 /*
 	function decode
 */
-void decode(FILE* fin,FILE* fout)
+void decode(FILE* fin, FILE* fout)
 {
 	char c;
-	struct tnode* curr=root;
-	while((c=getc(fin))!=EOF)
+	struct tnode* curr = root;
+	while((c = getc(fin)) != EOF)
 	{
 		/*TODO:
 			traverse the tree
@@ -90,12 +90,13 @@ void decode(FILE* fin,FILE* fout)
 
 void freetree(struct tnode* root)
 {
-	if(root==NULL)
+	if(root == NULL)
 		return;
 	freetree(root->right);
 	freetree(root->left);
 	free(root);
 }
+
 int main()
 {
 	const char* IN_FILE = "encoded.txt";
