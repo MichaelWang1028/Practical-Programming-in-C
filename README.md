@@ -21,6 +21,29 @@ Another feature of this calculator is that this has to be able to deal with pare
 This exercise has a couple of helper files.
 Frankly, I considered that the provided file **prob1.c** is totally a mess because it has almost 290 lines of code which could be properly separated into more files to improve not only readability of code but also its maintenance.
 
-Furthermore, understanding the provided code took me a little while, so a good approach I took was to divide the code in several files.
+Furthermore, understanding the provided code took me a little while, so it was a good approach to divide the code in several files.
 Honestly, I have to admit this problem was pretty challenging at the beginning, but I really enjoyed solving this problem.
 As the problem suggest, it is a good idea to make the calculator work without worrying about parentheses firstly.
+
+##### Difficulties
+I had a hard time because the functions **pop()** and **push()** take a pointer to pointer on the top of a stack, and I was passing the pointer on the top of the stack.
+After checking the code a couple of times I understood what was going on.
+
+#### Problem 6.2: One-way English to French Dictionary
+In this problem one has to implement a one-way English to French dictionary using a data structure called trie.
+The input for this program is an English word, and the program will return the translation of this word.
+If there is more than one translation for this word, every translation will be returned in a string separated by commas.
+On the other hand, if there is no translation for the entered word, a message will be display saying that the word was not found in the dictionary.
+
+##### Observations
+I have to say that the information provided in the exercise is not so clear and not enough to have a deep understanding of what a trie is, so I strongly recommend to read or watch videos about tries.
+First, I got a little confused after reading the information provided, but after watching a video uploaded by CS50 on Youtube, I totally understood what I had to do.
+This exercise it is easier than it seems, and it is pretty interesting to see how useful tries could be.
+
+##### Difficulties
+I spent almost an hour trying to figure out why my program was not working properly.
+First, I thought I was not calling free properly to release the memory space I allocated.
+However, my program was freeing really well, so I was drawing blanks on what to do.
+Thus, I decided to see the solution in order to compare, and my code was pretty similar that at the beginning I was not able to figure out what happened.
+Finally, I realized that I was performing a casting from a char to unsigned int which turns out to be not as simple as possible.
+After changing this casting my problem was solved.
