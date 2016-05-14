@@ -4,16 +4,16 @@
 #include "callback.h"
 
 student class[NUMBER_OF_STUDENTS] = {
-  "Sean", "Penn", 2, 21,
-  "Sean", "Connery", 4, 25,
-  "Angelina", "Jolie", 3, 22,
-  "Meryl", "Streep", 4, 29,
-  "Robin", "Williams", 3, 32,
-  "Bill", "Gates", 3, 17,
-  "Jodie", "Foster", 4, 25,
-  "John", "Travolta", 1, 17,
-  "Isaac", "Newton", 2, 19,
-  "Sarah", "Palin", 2, 19
+  {"Sean", "Penn", 2, 21},
+  {"Sean", "Connery", 4, 25},
+  {"Angelina", "Jolie", 3, 22},
+  {"Meryl", "Streep", 4, 29},
+  {"Robin", "Williams", 3, 32},
+  {"Bill", "Gates", 3, 17},
+  {"Jodie", "Foster", 4, 25},
+  {"John", "Travolta", 1, 17},
+  {"Isaac", "Newton", 2, 19},
+  {"Sarah", "Palin", 2, 19}
 };
 
 /*
@@ -66,7 +66,6 @@ void printrec(void* prec,void* arg)
   printf("%-20s %-20s %2d %2d\n",pstud->fname, pstud->lname, pstud->year, pstud->age);
 }
 
-
 /*
   @function isolder
   @desc     prints student record onlyl if the student is older than *((int*)arg)
@@ -78,6 +77,6 @@ void isolder(void* prec, void* arg)
   int max_age = *(int *) arg;
 
   if (pstud->age > max_age) {
-    printf("%-20s %-20s %2d %2d\n",pstud->fname, pstud->lname, pstud->year, pstud->age);
+    printrec(prec, NULL);
   }
 }
