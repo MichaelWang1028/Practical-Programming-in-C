@@ -12,6 +12,8 @@ typedef struct wordrec
   struct wordrec* next;
 } wordrec;
 
+extern wordrec* table[MAX_BUCKETS];
+
 /*
    @function walloc
    @desc     produces a new node
