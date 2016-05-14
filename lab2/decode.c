@@ -8,11 +8,12 @@ tree_node* root = NULL; /*tree of symbols*/
 tree_node* allocate_new_tree_node()
 {
     tree_node* p = (tree_node *) malloc(sizeof(tree_node));
+
     if(p != NULL)
     {
-        p->left = p->right = NULL;
-        p->symbol = 0;
-		p->isleaf = 0;
+      p->left = p->right = NULL;
+      p->symbol = 0;
+      p->isleaf = 0;
     }
     return p;
 }
