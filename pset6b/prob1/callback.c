@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "callback.h"
 
-struct student class[]={
+student class[]={
   "Sean","Penn",2,21,
   "Sean","Connery",4,25,
   "Angelina","Jolie",3,22,
@@ -43,7 +43,7 @@ int compare_last_name(const void* a,const void* b)
   @function apply
   @desc     applies
  */
-void apply(struct student* sarr,int nrec,void (*fp)(void* prec,void* arg),void* arg)
+void apply(student* sarr,int nrec,void (*fp)(void* prec,void* arg),void* arg)
 {
   int i=0;
   for(i=0;i<nrec;i++)
@@ -59,7 +59,7 @@ void apply(struct student* sarr,int nrec,void (*fp)(void* prec,void* arg),void* 
 */
 void printrec(void* prec,void* arg)
 {
-  struct student* pstud=(struct student*)prec;
+  student* pstud=(student*)prec;
   printf("%-20s %-20s %2d %2d\n",pstud->fname,pstud->lname,pstud->year,pstud->age);
 }
 
@@ -76,7 +76,7 @@ void isolder(void* prec,void* arg)
 
 int main()
 {
-  int nstudents=sizeof(class)/sizeof(struct student);
+  int nstudents=sizeof(class)/sizeof(student);
   int age;
 
   puts("Raw records:");
@@ -86,13 +86,13 @@ int main()
   /*sort based on first name*/
   puts("Sorted by first name:");
   puts("-------------------------------");
-  qsort(class,nstudents,sizeof(struct student),compare_first_name);
+  qsort(class,nstudents,sizeof(student),compare_first_name);
   apply(class,nstudents,printrec,NULL);
 
   /*sort based on last name*/
   puts("Sorted by last name:");
   puts("-------------------------------");
-  qsort(class,nstudents,sizeof(struct student),compare_last_name);
+  qsort(class,nstudents,sizeof(student),compare_last_name);
   apply(class,nstudents,printrec,NULL);
 
   /*print people older than 20*/
