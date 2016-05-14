@@ -26,4 +26,11 @@ Honestly, I have to admit this problem was pretty challenging at the beginning, 
 As the problem suggest, it is a good idea to make the calculator work without worrying about parentheses firstly.
 
 ##### Difficulties
-I had a hard time because the functions **pop()** and **push()** take a pointer to pointer on the top of a stack, and I was passing the pointer on the top of the stack. After checking the code a couple of times I understood what was going on.
+I had a hard time because the functions **pop()** and **push()** take a pointer to pointer on the top of a stack, and I was passing the pointer on the top of the stack.
+After checking the code a couple of times I understood what was going on.
+
+#### Problem 6.2: One-way English to French Dictionary
+In this problem one has to implement a one-way English to French dictionary using a data structure called trie.
+The input for this program is an English word, and the program will return the translation of this word.
+If there is more than one translation for this word, every translation will be returned in a string separated by commas.
+On the other hand, if there is no translation for the entered word, a message will be display saying that the word was not found in the dictionary.
