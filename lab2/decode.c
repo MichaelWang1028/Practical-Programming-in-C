@@ -3,13 +3,13 @@
 #include <string.h>
 #include "decode.h"
 
-struct tree_node
+typedef struct tree_node
 {
     struct  tree_node* left; /*used when in tree*/
     struct  tree_node*right; /*used when in tree*/
     int     isleaf;
     char     symbol;
-};
+} tree_node;
 
 struct code
 {
@@ -18,15 +18,15 @@ struct code
 };
 
 /*global variables*/
-struct tree_node* root = NULL; /*tree of symbols*/
+tree_node* root = NULL; /*tree of symbols*/
 
 /*
     @function   talloc
     @desc       allocates new node
 */
-struct tree_node* talloc()
+tree_node* talloc()
 {
-    struct tree_node* p = (struct tree_node *) malloc(sizeof(struct tree_node));
+    tree_node* p = (tree_node *) malloc(sizeof(tree_node));
     if(p != NULL)
     {
         p->left = p->right = NULL;
@@ -72,7 +72,7 @@ void build_tree(FILE* fp)
 void decode(FILE* fin, FILE* fout)
 {
 	char c;
-	struct tree_node* curr = root;
+	tree_node* curr = root;
 	while((c = getc(fin)) != EOF)
 	{
 		/*TODO:
@@ -86,7 +86,7 @@ void decode(FILE* fin, FILE* fout)
 	@desc	  cleans up resources for tree
 */
 
-void freetree(struct tree_node* root)
+void freetree(tree_node* root)
 {
 	if(root == NULL)
 		return;
