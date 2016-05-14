@@ -36,6 +36,14 @@ If there is more than one translation for this word, every translation will be r
 On the other hand, if there is no translation for the entered word, a message will be display saying that the word was not found in the dictionary.
 
 ##### Observations
-I strongly recommend to read or watch videos about tries.
-First, I got a little confused after reading the information provided in this exercise, but after watching a video uploaded by CS50 on Youtube, I totally understood what I had to do.
+I have to say that the information provided in the exercise is not so clear and not enough to have a deep understanding of what a trie is, so I strongly recommend to read or watch videos about tries.
+First, I got a little confused after reading the information provided, but after watching a video uploaded by CS50 on Youtube, I totally understood what I had to do.
 This exercise it is easier than it seems, and it is pretty interesting to see how useful tries could be.
+
+##### Difficulties
+I spent almost an hour trying to figure out why my program was not working properly.
+First, I thought I was not calling free properly to release the memory space I allocated.
+However, my program was freeing really well, so I was drawing blanks on what to do.
+Thus, I decided to see the solution in order to compare, and my code was pretty similar that at the beginning I was not able to figure out what happened.
+Finally, I realized that I was performing a casting from a char to unsigned int which turns out to be not as simple as possible.
+After changing this casting my problem was solved.
