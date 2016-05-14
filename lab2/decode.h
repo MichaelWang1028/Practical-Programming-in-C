@@ -18,4 +18,6 @@ typedef struct code
 	char	str_code[MAX_LEN];
 } code;
 
+extern tree_node* root; /*tree of symbols*/
+
 #endif

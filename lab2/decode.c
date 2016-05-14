@@ -3,7 +3,6 @@
 #include <string.h>
 #include "decode.h"
 
-/*global variables*/
 tree_node* root = NULL; /*tree of symbols*/
 
 /*
