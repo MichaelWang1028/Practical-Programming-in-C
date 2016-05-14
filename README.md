@@ -21,6 +21,6 @@ Another feature of this calculator is that this has to be able to deal with pare
 This exercise has a couple of helper files.
 Frankly, I considered that the provided file **prob1.c** is totally a mess because it has almost 290 lines of code which could be properly separated into more files to improve not only readability of code but also its maintenance.
 
-Furthermore, understanding the provided code took me a little while, so a good approach I took was to divide the code in several files.
+Furthermore, understanding the provided code took me a little while, so it was a good approach to divide the code in several files.
 Honestly, I have to admit this problem was pretty challenging at the beginning, but I really enjoyed solving this problem.
 As the problem suggest, it is a good idea to make the calculator work without worrying about parentheses firstly.
