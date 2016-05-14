@@ -34,3 +34,8 @@ In this problem one has to implement a one-way English to French dictionary usin
 The input for this program is an English word, and the program will return the translation of this word.
 If there is more than one translation for this word, every translation will be returned in a string separated by commas.
 On the other hand, if there is no translation for the entered word, a message will be display saying that the word was not found in the dictionary.
+
+##### Observations
+I strongly recommend to read or watch videos about tries.
+First, I got a little confused after reading the information provided in this exercise, but after watching a video uploaded by CS50 on Youtube, I totally understood what I had to do.
+This exercise it is easier than it seems, and it is pretty interesting to see how useful tries could be.
