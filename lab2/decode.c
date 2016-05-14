@@ -3,10 +3,10 @@
 #include <string.h>
 #include "decode.h"
 
-struct tnode
+struct tree_node
 {
-    struct  tnode* left; /*used when in tree*/
-    struct  tnode*right; /*used when in tree*/
+    struct  tree_node* left; /*used when in tree*/
+    struct  tree_node*right; /*used when in tree*/
     int     isleaf;
     char     symbol;
 };
@@ -18,15 +18,15 @@ struct code
 };
 
 /*global variables*/
-struct tnode* root = NULL; /*tree of symbols*/
+struct tree_node* root = NULL; /*tree of symbols*/
 
 /*
     @function   talloc
     @desc       allocates new node
 */
-struct tnode* talloc()
+struct tree_node* talloc()
 {
-    struct tnode* p = (struct tnode *) malloc(sizeof(struct tnode));
+    struct tree_node* p = (struct tree_node *) malloc(sizeof(struct tree_node));
     if(p != NULL)
     {
         p->left = p->right = NULL;
@@ -47,7 +47,7 @@ void build_tree(FILE* fp)
 	char	strcode[MAX_LEN];
 	int		items_read;
 	int		i,len;
-	struct	tnode* curr = NULL;
+	struct	tree_node* curr = NULL;
 
 	while(!feof(fp))
 	{
@@ -72,7 +72,7 @@ void build_tree(FILE* fp)
 void decode(FILE* fin, FILE* fout)
 {
 	char c;
-	struct tnode* curr = root;
+	struct tree_node* curr = root;
 	while((c = getc(fin)) != EOF)
 	{
 		/*TODO:
@@ -86,7 +86,7 @@ void decode(FILE* fin, FILE* fout)
 	@desc	  cleans up resources for tree
 */
 
-void freetree(struct tnode* root)
+void freetree(struct tree_node* root)
 {
 	if(root == NULL)
 		return;
