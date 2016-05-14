@@ -57,9 +57,9 @@ unsigned long hashstring(const char* str)
 */
 struct wordrec*  lookup(const char* str, int create)
 {
+  unsigned long hash = hashstring(str);/*starting point*/
   struct wordrec* wp = table[hash];
   struct wordrec* curr = NULL;
-  unsigned long hash = hashstring(str);/*starting point*/
   /*TODO: write code to
   follow the linked list to find str
   if found return pointer*/
