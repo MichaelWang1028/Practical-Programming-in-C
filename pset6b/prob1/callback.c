@@ -1,14 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-
-struct student
-{
-  char fname[100];
-  char lname[100];
-  int  year;
-  int  age;
-};
+#include "callback.h"
 
 struct student class[]={
   "Sean","Penn",2,21,
