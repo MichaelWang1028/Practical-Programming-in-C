@@ -36,9 +36,10 @@ int compare_first_name(const void* a, const void* b)
 */
 int compare_last_name(const void* a, const void* b)
 {
+  student * student_a = (student *) a;
+  student * student_b = (student *) b;
 
-  return 1; /*place holder for now*/
-
+  return strcmp(student_a->lname, student_b->lname);
 }
 
 /*!
@@ -69,9 +70,14 @@ void printrec(void* prec,void* arg)
 /*
   @function isolder
   @desc     prints student record onlyl if the student is older than *((int*)arg)
-  NOTE: use the same format as
+  NOTE: use the same format as printrec
 */
 void isolder(void* prec, void* arg)
 {
+  student* pstud = (student*) prec;
+  int max_age = *(int *) arg;
 
+  if (pstud->age > max_age) {
+    printf("%-20s %-20s %2d %2d\n",pstud->fname, pstud->lname, pstud->year, pstud->age);
+  }
 }
