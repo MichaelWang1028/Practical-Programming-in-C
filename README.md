@@ -24,3 +24,6 @@ Frankly, I considered that the provided file **prob1.c** is totally a mess becau
 Furthermore, understanding the provided code took me a little while, so it was a good approach to divide the code in several files.
 Honestly, I have to admit this problem was pretty challenging at the beginning, but I really enjoyed solving this problem.
 As the problem suggest, it is a good idea to make the calculator work without worrying about parentheses firstly.
+
+##### Difficulties
+I had a hard time because the functions **pop()** and **push()** take a pointer to pointer on the top of a stack, and I was passing the pointer on the top of the stack. After checking the code a couple of times I understood what was going on.
