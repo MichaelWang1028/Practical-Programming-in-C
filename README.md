@@ -47,3 +47,28 @@ However, my program was freeing really well, so I was drawing blanks on what to 
 Thus, I decided to see the solution in order to compare, and my code was pretty similar that at the beginning I was not able to figure out what happened.
 Finally, I realized that I was performing a casting from a char to unsigned int which turns out to be not as simple as possible.
 After changing this casting my problem was solved.
+
+## Problem Set 6 - Part B
+### Function Pointers and Hash Table
+This problem set was really easy, but it was worthy.
+It was pretty useful having read chapter 7 of Head First C previously, and watched the CS50 video about hash tables.
+
+#### Problem 6.1: Implementing callback functions
+The purpose of this exercise was to implement callback functions to sort a list of students depending on his name, and last name.
+In addition, a function that prints records depending upon the age of students has to be implemented.
+
+##### Observations
+This problem is really straightforward.
+In fact, I spent more time organizing the file in separate files than actually solving the problem.
+
+##### Difficulties
+None.
+
+#### Problem 6.1: Word frequency counter
+The goal of this problem is to count the frequency of words within a file using a hash table.
+
+##### Observations
+Again the problem is really straightforward, and I spent more time separating the code than solving the problem.
+
+##### Difficulties
+The only tricky thing is when implementing the function **cleartable()** because you should free not only the node of the linked list, but also the word of this node.
