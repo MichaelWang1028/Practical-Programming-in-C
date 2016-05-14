@@ -3,10 +3,6 @@
 #include <string.h>
 #include "hash.h"
 
-#define MAX_BUCKETS 1000
-#define MULTIPLIER 31
-#define MAX_LEN 100
-
 struct wordrec
 {
   char* word;
