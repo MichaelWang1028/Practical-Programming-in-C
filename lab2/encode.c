@@ -3,18 +3,6 @@
 #include <string.h>
 #include "encode.h"
 
-typedef struct tree_node
-{
-    struct  tree_node* left; /*used when in tree*/
-    struct  tree_node* right; /*used when in tree*/
-    struct  tree_node* parent;/*used when in tree*/
-    struct  tree_node* next; /*used when in list*/
-    float   freq;
-    int     isleaf;
-    char    symbol;
-} tree_node;
-
-
 /*global variables*/
 char code[MAX_SYMBOLS][MAX_LEN];
 tree_node* root=NULL; /*tree of symbols*/
