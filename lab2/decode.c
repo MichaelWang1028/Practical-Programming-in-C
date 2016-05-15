@@ -46,12 +46,11 @@ void build_tree(FILE* fp)
       if (str_code[i] == RIGHT) {
         if (curr->right == NULL)
           curr->right = allocate_new_tree_node();
-        curr = curr->right;
       } else {
         if (curr->left == NULL)
           curr->left = allocate_new_tree_node();
-        curr = curr->left;
       }
+      curr = (str_code[i] == RIGHT) ? curr->right : curr->left;
 		}
 
 		/*assign code*/
