@@ -21,18 +21,16 @@ tree_node* allocate_new_node(int symbol, float freq)
     return p;
 }
 
-/*
-    @function display_tree_node_list
-    @desc     displays the list of tree_nodes during code construction
-*/
-void pq_display(tree_node* head)
+void display_tree_node_list(tree_node* head)
 {
-    tree_node* p=NULL;
+    tree_node* p = NULL;
     printf("list:");
-    for(p=head;p!=NULL;p=p->next)
+
+    for(p = head; p != NULL; p = p->next)
     {
         printf("(%c,%f) ",p->symbol,p->freq);
     }
+    
     printf("\n");
 }
 

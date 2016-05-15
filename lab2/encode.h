@@ -22,4 +22,6 @@ extern struct cnode* chead;/*list of code*/
 
 tree_node* allocate_new_node(int symbol, float freq);
 
+void display_tree_node_list(tree_node* head);
+
 #endif
