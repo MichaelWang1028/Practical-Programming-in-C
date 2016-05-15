@@ -24,4 +24,32 @@ tree_node* allocate_new_node(int symbol, float freq);
 
 void display_tree_node_list(tree_node* head);
 
+void insert_into_priority_queue(tree_node* p);
+
+/*
+    @function pop_priority_queue
+    @desc     removes the first element
+    NOTE:     makes use of global variable qhead
+*/
+tree_node* pop_priority_queue();
+
+/*
+	@function build_code
+	@desc     generates the string codes given the tree
+	NOTE: makes use of the global variable root
+*/
+void generate_code(tree_node* root,int depth);
+
+/*
+	@func	dump_code
+	@desc	output code file
+*/
+void dump_code(FILE* fp);
+
+/*
+	@func	encode
+	@desc	outputs compressed stream
+*/
+void encode(char* str, FILE* fout);
+
 #endif

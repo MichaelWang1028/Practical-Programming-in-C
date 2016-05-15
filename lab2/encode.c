@@ -35,42 +35,40 @@ void display_tree_node_list(tree_node* head)
 }
 
 /*
-    @function pq_insert
-    @desc     inserts an element into the priority queue
-    NOTE:     makes use of global variable qhead
+  NOTE:     makes use of global variable qhead
 */
-void pq_insert(tree_node* p)
+void insert_into_priority_queue(tree_node* p)
 {
-    tree_node* curr=NULL;
-    tree_node* prev=NULL;
-   printf("inserting:%c,%f\n",p->symbol,p->freq);
-   if(qhead==NULL) /*qhead is null*/
-   {
-   		/*TODO: write code to insert when queue is empty*/
-   }
-   /*TODO: write code to find correct position to insert*/
-   if(curr==qhead)
-   {
-   	 	/*TODO: write code to insert before the current start*/
-   }
-   else /*insert between prev and next*/
-   {
-	 	/*TODO: write code to insert in between*/
-   }
+  tree_node* curr = NULL;
+  tree_node* prev = NULL;
+  printf("inserting:%c,%f\n", p->symbol, p->freq);
+
+  if (qhead == NULL) /*qhead is null*/
+  {
+    /*TODO: write code to insert when queue is empty*/
+  }
+  /*TODO: write code to find correct position to insert*/
+  if (curr == qhead)
+  {
+    /*TODO: write code to insert before the current start*/
+  }
+  else /*insert between prev and next*/
+  {
+    /*TODO: write code to insert in between*/
+  }
 }
 
 /*
-    @function pq_pop
+    @function pop_priority_queue
     @desc     removes the first element
     NOTE:     makes use of global variable qhead
 */
-
-tree_node* pq_pop()
+tree_node* pop_priority_queue()
 {
-    tree_node* p=NULL;
-    /*TODO: write code to remove front of the queue*/
-	printf("popped:%c,%f\n",p->symbol,p->freq);
-    return p;
+  tree_node* p = NULL;
+  /*TODO: write code to remove front of the queue*/
+	printf("popped:%c,%f\n", p->symbol, p->freq);
+  return p;
 }
 
 /*
@@ -78,28 +76,24 @@ tree_node* pq_pop()
 	@desc     generates the string codes given the tree
 	NOTE: makes use of the global variable root
 */
-void generate_code(tree_node* root,int depth)
+void generate_code(tree_node* root, int depth)
 {
 	int symbol;
 	int len; /*length of code*/
-	if(root->isleaf)
-	{
-		symbol=root->symbol;
-		len   =depth;
+	if (root->isleaf) {
+		symbol = root->symbol;
+		len = depth;
 		/*start backwards*/
-		code[symbol][len]=0;
+		code[symbol][len] = 0;
 		/*
 			TODO: follow parent pointer to the top
 			to generate the code string
 		*/
 		printf("built code:%c,%s\n",symbol,code[symbol]);
+	} else {
+		generate_code(root->left, depth + 1);
+		generate_code(root->right, depth + 1);
 	}
-	else
-	{
-		generate_code(root->left,depth+1);
-		generate_code(root->right,depth+1);
-	}
-
 }
 
 /*
@@ -108,11 +102,10 @@ void generate_code(tree_node* root,int depth)
 */
 void dump_code(FILE* fp)
 {
-	int i=0;
-	for(i=0;i<MAX_SYMBOLS;i++)
+	for(int i = 0; i < MAX_SYMBOLS; i++)
 	{
-		if(code[i][0]) /*non empty*/
-			fprintf(fp,"%c %s\n",i,code[i]);
+		if (code[i][0]) /*non empty*/
+			fprintf(fp,"%c %s\n", i, code[i]);
 	}
 }
 
@@ -120,14 +113,15 @@ void dump_code(FILE* fp)
 	@func	encode
 	@desc	outputs compressed stream
 */
-void encode(char* str,FILE* fout)
+void encode(char* str, FILE* fout)
 {
-	while(*str)
+	while (*str)
 	{
-		fprintf(fout,"%s",code[*str]);
+		fprintf(fout, "%s", code[*str]);
 		str++;
 	}
 }
+
 /*
     @function main
 */
@@ -146,12 +140,12 @@ int main()
 	memset(code,0,sizeof(code));
 
 	/*testing queue*/
-    pq_insert(allocate_new_node('a',0.1));
-    pq_insert(allocate_new_node('b',0.2));
-    pq_insert(allocate_new_node('c',0.15));
+    insert_into_priority_queue(allocate_new_node('a',0.1));
+    insert_into_priority_queue(allocate_new_node('b',0.2));
+    insert_into_priority_queue(allocate_new_node('c',0.15));
     /*making sure it pops in the right order*/
 	puts("making sure it pops in the right order");
-	while((p=pq_pop()))
+	while((p=pop_priority_queue()))
     {
         free(p);
     }
@@ -162,13 +156,13 @@ int main()
     /*initialize with freq*/
     for(i=0;i<NCHAR;i++)
     {
-        pq_insert(allocate_new_node('a'+i,freq[i]));
+        insert_into_priority_queue(allocate_new_node('a'+i,freq[i]));
     }
     /*build tree*/
     for(i=0;i<NCHAR-1;i++)
     {
-        lc=pq_pop();
-        rc=pq_pop();
+        lc=pop_priority_queue();
+        rc=pop_priority_queue();
         /*create parent*/
         p=allocate_new_node(0,lc->freq+rc->freq);
         /*set parent link*/
@@ -178,10 +172,10 @@ int main()
 		/*make it non-leaf*/
 		p->isleaf=0;
         /*add the new node to the queue*/
-        pq_insert(p);
+        insert_into_priority_queue(p);
     }
     /*get root*/
-    root=pq_pop();
+    root=pop_priority_queue();
 	/*build code*/
 	generate_code(root,0);
 	/*output code*/
