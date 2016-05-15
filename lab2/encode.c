@@ -3,7 +3,6 @@
 #include <string.h>
 #include "encode.h"
 
-/*global variables*/
 char code[MAX_SYMBOLS][MAX_LEN];
 tree_node* root = NULL; /*tree of symbols*/
 tree_node* qhead = NULL; /*list of current symbols*/

@@ -15,4 +15,9 @@ typedef struct tree_node
     char    symbol;
 } tree_node;
 
+extern char code[MAX_SYMBOLS][MAX_LEN];
+extern tree_node* root; /*tree of symbols*/
+extern tree_node* qhead; /*list of current symbols*/
+extern struct cnode* chead;/*list of code*/
+
 #endif
