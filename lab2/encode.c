@@ -49,12 +49,9 @@ void insert_into_priority_queue(tree_node* p)
   }
 
   curr = queue_head;
-  while (curr->freq < p->freq) {
+  while (curr != NULL && (curr->freq < p->freq)) {
     prev = curr;
     curr = curr->next;
-    if (curr == NULL) {
-      break;
-    }
   }
 
   if (curr == queue_head) { /*inset before curr*/
@@ -64,8 +61,6 @@ void insert_into_priority_queue(tree_node* p)
     prev->next = p;
     p->next = curr;
   }
-
-  display_tree_node_list(queue_head);
 }
 
 /*
