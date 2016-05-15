@@ -72,11 +72,7 @@ void decode(FILE* input_file, FILE* output_file)
       curr = root;
     }
 
-    if (c == RIGHT) {
-      curr = curr->right;
-    } else {
-      curr = curr->left;
-    }
+    curr = (c == RIGHT) ? curr->right : curr->left;
 	}
   fprintf(output_file, "\n");
 }
