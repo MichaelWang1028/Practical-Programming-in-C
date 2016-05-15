@@ -53,9 +53,6 @@ void build_tree(FILE* fp)
 	}
 }
 
-/*
-	function decode
-*/
 void decode(FILE* fin, FILE* fout)
 {
 	char c;
@@ -68,10 +65,6 @@ void decode(FILE* fin, FILE* fout)
 		*/
 	}
 }
-/*
-	@function freetree
-	@desc	  cleans up resources for tree
-*/
 
 void freetree(tree_node* root)
 {

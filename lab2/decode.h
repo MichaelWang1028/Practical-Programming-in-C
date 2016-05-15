@@ -29,4 +29,8 @@ tree_node* allocate_new_tree_node();
 */
 void build_tree(FILE* fp);
 
+void decode(FILE* fin, FILE* fout);
+
+void free_tree(tree_node* root);
+
 #endif
