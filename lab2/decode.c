@@ -34,17 +34,22 @@ void build_tree(FILE* fp)
 	while(!feof(fp))
 	{
 		items_read = fscanf(fp, "%c %s\n", &symbol, str_code);
-		if(items_read != 2) break;
+
+		if (items_read != 2) {
+      break;
+    }
+
 		curr = root;
 		len = strlen(str_code);
 		for(i = 0; i < len; i++)
 		{
 			/*TODO: create the tree as you go*/
 		}
+
 		/*assign code*/
 		curr->isleaf = 1;
 		curr->symbol = symbol;
-		printf("inserted symbol:%c\n", symbol);
+		printf("inserted symbol: %c\n", symbol);
 	}
 }
 
