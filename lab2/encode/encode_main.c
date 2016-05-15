@@ -66,6 +66,7 @@ int main()
 	fout = fopen(OUT_FILE,"w");
 	encode("abba cafe bad", stdout);
 	encode("abba cafe bad", fout);
+  fprintf(fout, "\n");
 	fclose(fout);
 	getchar();
 	/*TODO: clear resources*/
