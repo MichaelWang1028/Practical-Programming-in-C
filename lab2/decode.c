@@ -53,11 +53,11 @@ void build_tree(FILE* fp)
 	}
 }
 
-void decode(FILE* fin, FILE* fout)
+void decode(FILE* input_file, FILE* output_file)
 {
 	char c;
 	tree_node* curr = root;
-	while((c = getc(fin)) != EOF)
+	while((c = getc(input_file)) != EOF)
 	{
 		/*TODO:
 			traverse the tree
@@ -79,21 +79,21 @@ void free_tree(tree_node* root)
 
 int main()
 {
-	FILE* fout;
-	FILE* fin;
+	FILE* output_file;
+	FILE* input_file;
 	/*allocate root*/
 	root = allocate_new_tree_node();
-	fin = fopen(CODE_FILE, "r");
+	input_file = fopen(CODE_FILE, "r");
 	/*build tree*/
-	build_tree(fin);
-	fclose(fin);
+	build_tree(input_file);
+	fclose(input_file);
 
 	/*decode*/
-	fin = fopen(IN_FILE, "r");
-	fout = fopen(OUT_FILE, "w");
-	decode(fin, fout);
-	fclose(fin);
-	fclose(fout);
+	input_file = fopen(IN_FILE, "r");
+	output_file = fopen(OUT_FILE, "w");
+	decode(input_file, output_file);
+	fclose(input_file);
+	fclose(output_file);
 	/*cleanup*/
 	free_tree(root);
 	getchar();
