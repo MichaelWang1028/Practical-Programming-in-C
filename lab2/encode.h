@@ -3,6 +3,8 @@
 
 #define MAX_SYMBOLS 255
 #define MAX_LEN     7
+#define CODE_FILE "code.txt"
+#define OUT_FILE "encoded.txt"
 
 typedef struct tree_node
 {
