@@ -127,17 +127,17 @@ void encode(char* str, FILE* fout)
 */
 int main()
 {
-    /*test pq*/
-    tree_node* p=NULL;
-    tree_node* lc,*rc;
-    float freq[]={0.01,0.04,0.05,0.11,0.19,0.20,0.4};
-	int   NCHAR=7; /*number of characters*/
-    int i=0;
-	const char *CODE_FILE="code.txt";
-	const char *OUT_FILE="encoded.txt";
-	FILE* fout=NULL;
+  /*test priority queue*/
+  tree_node* p = NULL;
+  tree_node* lc,*rc;
+  float freq[] = {0.01, 0.04, 0.05, 0.11, 0.19, 0.20, 0.4};
+	int NCHAR = 7; /*number of characters*/
+  int i = 0;
+	const char *CODE_FILE = "code.txt";
+	const char *OUT_FILE = "encoded.txt";
+	FILE* fout = NULL;
 	/*zero out code*/
-	memset(code,0,sizeof(code));
+	memset(code, 0, sizeof(code));
 
 	/*testing queue*/
     insert_into_priority_queue(allocate_new_node('a',0.1));
