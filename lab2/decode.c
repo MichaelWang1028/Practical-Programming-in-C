@@ -66,12 +66,14 @@ void decode(FILE* fin, FILE* fout)
 	}
 }
 
-void freetree(tree_node* root)
+void free_tree(tree_node* root)
 {
-	if(root == NULL)
-		return;
-	freetree(root->right);
-	freetree(root->left);
+	if(root == NULL) {
+    return;
+  }
+
+	free_tree(root->right);
+	free_tree(root->left);
 	free(root);
 }
 
@@ -96,7 +98,7 @@ int main()
 	fclose(fin);
 	fclose(fout);
 	/*cleanup*/
-	freetree(root);
+	free_tree(root);
 	getchar();
 	return 0;
 }
