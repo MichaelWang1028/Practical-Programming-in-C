@@ -19,7 +19,7 @@ typedef struct tree_node
 
 extern char code[MAX_SYMBOLS][MAX_LEN];
 extern tree_node* root; /*tree of symbols*/
-extern tree_node* qhead; /*list of current symbols*/
+extern tree_node* queue_head; /*list of current symbols*/
 extern struct cnode* chead;/*list of code*/
 
 tree_node* allocate_new_node(int symbol, float freq);

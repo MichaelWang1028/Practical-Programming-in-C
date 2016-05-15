@@ -26,7 +26,7 @@ int main()
     free(p);
   }
 
-	qhead = NULL;
+	queue_head = NULL;
   /*initialize with freq*/
   for(i = 0; i < NCHAR; i++) {
     insert_into_priority_queue(allocate_new_node('a'+i, freq[i]));

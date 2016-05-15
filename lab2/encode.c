@@ -4,7 +4,7 @@
 
 char code[MAX_SYMBOLS][MAX_LEN];
 tree_node* root = NULL; /*tree of symbols*/
-tree_node* qhead = NULL; /*list of current symbols*/
+tree_node* queue_head = NULL; /*list of current symbols*/
 struct cnode* chead = NULL;/*list of code*/
 
 tree_node* allocate_new_node(int symbol, float freq)
@@ -35,7 +35,7 @@ void display_tree_node_list(tree_node* head)
 }
 
 /*
-  NOTE: makes use of global variable qhead
+  NOTE: makes use of global variable queue_head
 */
 void insert_into_priority_queue(tree_node* p)
 {
@@ -43,27 +43,46 @@ void insert_into_priority_queue(tree_node* p)
   tree_node* prev = NULL;
   printf("inserting:%c,%f\n", p->symbol, p->freq);
 
-  if (qhead == NULL) {/*qhead is null*/
-    /*TODO: write code to insert when queue is empty*/
+  if (queue_head == NULL) {
+    queue_head = p;
+    return;
   }
-  /*TODO: write code to find correct position to insert*/
-  if (curr == qhead) {
-    /*TODO: write code to insert before the current start*/
+
+  curr = queue_head;
+  while (curr->freq < p->freq) {
+    prev = curr;
+    curr = curr->next;
+    if (curr == NULL) {
+      break;
+    }
+  }
+
+  if (curr == queue_head) { /*inset before curr*/
+    p->next = curr;
+    queue_head = p;
   } else { /*insert between prev and next*/
-    /*TODO: write code to insert in between*/
+    prev->next = p;
+    p->next = curr;
   }
+
+  display_tree_node_list(queue_head);
 }
 
 /*
   @function pop_priority_queue
   @desc     removes the first element
-  NOTE:     makes use of global variable qhead
+  NOTE:     makes use of global variable queue_head
 */
 tree_node* pop_priority_queue()
 {
   tree_node* p = NULL;
-  /*TODO: write code to remove front of the queue*/
-	printf("popped:%c,%f\n", p->symbol, p->freq);
+
+  p = queue_head;
+  if (p != NULL) {
+    queue_head = queue_head->next;
+    printf("popped:%c,%f\n", p->symbol, p->freq);
+  }
+
   return p;
 }
 
