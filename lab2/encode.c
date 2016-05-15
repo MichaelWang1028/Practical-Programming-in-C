@@ -5,23 +5,23 @@
 
 /*global variables*/
 char code[MAX_SYMBOLS][MAX_LEN];
-tree_node* root=NULL; /*tree of symbols*/
-tree_node* qhead=NULL; /*list of current symbols*/
-struct cnode* chead=NULL;/*list of code*/
+tree_node* root = NULL; /*tree of symbols*/
+tree_node* qhead = NULL; /*list of current symbols*/
+struct cnode* chead = NULL;/*list of code*/
 
 /*
     @function   talloc
     @desc       allocates new node
 */
-tree_node* talloc(int symbol,float freq)
+tree_node* talloc(int symbol, float freq)
 {
-    tree_node* p=(tree_node*)malloc(sizeof(tree_node));
-    if(p!=NULL)
+    tree_node* p = (tree_node *) malloc(sizeof(tree_node));
+    if(p != NULL)
     {
-        p->left=p->right=p->parent=p->next=NULL;
-        p->symbol=symbol;
-        p->freq=freq;
-		p->isleaf=1;
+        p->left = p->right = p->parent = p->next = NULL;
+        p->symbol = symbol;
+        p->freq = freq;
+		p->isleaf = 1;
     }
     return p;
 }
