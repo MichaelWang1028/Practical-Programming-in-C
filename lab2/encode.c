@@ -28,9 +28,9 @@ void display_tree_node_list(tree_node* head)
 
     for(p = head; p != NULL; p = p->next)
     {
-        printf("(%c,%f) ",p->symbol,p->freq);
+        printf("(%c,%f) ", p->symbol, p->freq);
     }
-    
+
     printf("\n");
 }
 
