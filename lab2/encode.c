@@ -3,9 +3,6 @@
 #include <string.h>
 #include "encode.h"
 
-#define MAX_SYMBOLS 255
-#define MAX_LEN     7
-
 typedef struct tree_node
 {
     struct  tree_node* left; /*used when in tree*/
