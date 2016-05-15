@@ -97,10 +97,11 @@ void generate_code(tree_node* root, int depth)
 		code[symbol][len] = 0;
 
     tree_node * current = root;
-		/*
-			TODO: follow parent pointer to the top
-			to generate the code string
-		*/
+    for (int i = len - 1; i >= 0; i--) {
+      code[symbol][i] = (current == current->parent->left) ? '0' : '1';
+      current = current->parent;
+    }
+
 		printf("built code:%c,%s\n", symbol, code[symbol]);
 	} else {
 		generate_code(root->left, depth + 1);
