@@ -22,4 +22,11 @@ extern tree_node* root; /*tree of symbols*/
 
 tree_node* allocate_new_tree_node();
 
+/*
+    @function build_tree
+    @desc     builds the symbol tree given the list of symbols and code.h
+	NOTE: alters the global variable root that has already been allocated in main
+*/
+void build_tree(FILE* fp);
+
 #endif

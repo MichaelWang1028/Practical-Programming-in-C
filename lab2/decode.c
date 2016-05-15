@@ -20,7 +20,7 @@ tree_node* allocate_new_tree_node()
 
 /*
     @function build_tree
-    @desc     builds the symbol tree given the list of symbols and code.h
+    @desc     builds the symbol tree given the list of symbols and code.txt
 	NOTE: alters the global variable root that has already been allocated in main
 */
 void build_tree(FILE* fp)
@@ -28,7 +28,7 @@ void build_tree(FILE* fp)
 	char	symbol;
 	char	str_code[MAX_LEN];
 	int		items_read;
-	int		i,len;
+	int		i, len;
 	struct	tree_node* curr = NULL;
 
 	while(!feof(fp))
