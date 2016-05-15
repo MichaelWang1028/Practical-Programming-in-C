@@ -43,7 +43,15 @@ void build_tree(FILE* fp)
 		len = strlen(str_code);
 		for(i = 0; i < len; i++)
 		{
-			/*TODO: create the tree as you go*/
+      if (str_code[i] == RIGHT) {
+        if (curr->right == NULL)
+          curr->right = allocate_new_tree_node();
+        curr = curr->right;
+      } else {
+        if (curr->left == NULL)
+          curr->left = allocate_new_tree_node();
+        curr = curr->left;
+      }
 		}
 
 		/*assign code*/

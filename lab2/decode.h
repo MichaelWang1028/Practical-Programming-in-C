@@ -6,11 +6,12 @@
 #define IN_FILE "encoded.txt"
 #define CODE_FILE "code.txt"
 #define OUT_FILE "decoded.txt"
+#define RIGHT '1'
 
 typedef struct tree_node
 {
     struct  tree_node* left; /*used when in tree*/
-    struct  tree_node*right; /*used when in tree*/
+    struct  tree_node* right; /*used when in tree*/
     int     isleaf;
     char     symbol;
 } tree_node;
