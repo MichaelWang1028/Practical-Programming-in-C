@@ -5,31 +5,31 @@
 #define MAX_SYMBOLS 255
 #define MAX_LEN     7
 
-struct tnode
+struct tree_node
 {
-    struct  tnode* left; /*used when in tree*/
-    struct  tnode*right; /*used when in tree*/
-    struct  tnode*parent;/*used when in tree*/
-    struct  tnode* next; /*used when in list*/
+    struct  tree_node* left; /*used when in tree*/
+    struct  tree_node* right; /*used when in tree*/
+    struct  tree_node* parent;/*used when in tree*/
+    struct  tree_node* next; /*used when in list*/
     float   freq;
     int     isleaf;
-    char     symbol;
+    char    symbol;
 };
 
 
 /*global variables*/
 char code[MAX_SYMBOLS][MAX_LEN];
-struct tnode* root=NULL; /*tree of symbols*/
-struct tnode* qhead=NULL; /*list of current symbols*/
+struct tree_node* root=NULL; /*tree of symbols*/
+struct tree_node* qhead=NULL; /*list of current symbols*/
 struct cnode* chead=NULL;/*list of code*/
 
 /*
     @function   talloc
     @desc       allocates new node
 */
-struct tnode* talloc(int symbol,float freq)
+struct tree_node* talloc(int symbol,float freq)
 {
-    struct tnode* p=(struct tnode*)malloc(sizeof(struct tnode));
+    struct tree_node* p=(struct tree_node*)malloc(sizeof(struct tree_node));
     if(p!=NULL)
     {
         p->left=p->right=p->parent=p->next=NULL;
@@ -41,12 +41,12 @@ struct tnode* talloc(int symbol,float freq)
 }
 
 /*
-    @function display_tnode_list
-    @desc     displays the list of tnodes during code construction
+    @function display_tree_node_list
+    @desc     displays the list of tree_nodes during code construction
 */
-void pq_display(struct tnode* head)
+void pq_display(struct tree_node* head)
 {
-    struct tnode* p=NULL;
+    struct tree_node* p=NULL;
     printf("list:");
     for(p=head;p!=NULL;p=p->next)
     {
@@ -60,10 +60,10 @@ void pq_display(struct tnode* head)
     @desc     inserts an element into the priority queue
     NOTE:     makes use of global variable qhead
 */
-void pq_insert(struct tnode* p)
+void pq_insert(struct tree_node* p)
 {
-    struct tnode* curr=NULL;
-    struct tnode* prev=NULL;
+    struct tree_node* curr=NULL;
+    struct tree_node* prev=NULL;
    printf("inserting:%c,%f\n",p->symbol,p->freq);
    if(qhead==NULL) /*qhead is null*/
    {
@@ -86,9 +86,9 @@ void pq_insert(struct tnode* p)
     NOTE:     makes use of global variable qhead
 */
 
-struct tnode* pq_pop()
+struct tree_node* pq_pop()
 {
-    struct tnode* p=NULL;
+    struct tree_node* p=NULL;
     /*TODO: write code to remove front of the queue*/
 	printf("popped:%c,%f\n",p->symbol,p->freq);
     return p;
@@ -99,7 +99,7 @@ struct tnode* pq_pop()
 	@desc     generates the string codes given the tree
 	NOTE: makes use of the global variable root
 */
-void generate_code(struct tnode* root,int depth)
+void generate_code(struct tree_node* root,int depth)
 {
 	int symbol;
 	int len; /*length of code*/
@@ -155,8 +155,8 @@ void encode(char* str,FILE* fout)
 int main()
 {
     /*test pq*/
-    struct tnode* p=NULL;
-    struct tnode* lc,*rc;
+    struct tree_node* p=NULL;
+    struct tree_node* lc,*rc;
     float freq[]={0.01,0.04,0.05,0.11,0.19,0.20,0.4};
 	int   NCHAR=7; /*number of characters*/
     int i=0;
