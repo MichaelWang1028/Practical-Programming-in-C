@@ -67,11 +67,18 @@ void decode(FILE* input_file, FILE* output_file)
 	tree_node* curr = root;
 	while((c = getc(input_file)) != EOF)
 	{
-		/*TODO:
-			traverse the tree
-			print the symbols only if you encounter a leaf node
-		*/
+    if (curr->isleaf) {
+      fprintf(output_file, "%c", curr->symbol);
+      curr = root;
+    }
+
+    if (c == RIGHT) {
+      curr = curr->right;
+    } else {
+      curr = curr->left;
+    }
 	}
+  fprintf(output_file, "\n");
 }
 
 void free_tree(tree_node* root)
