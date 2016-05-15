@@ -12,7 +12,6 @@ int main()
 	build_tree(input_file);
 	fclose(input_file);
 
-
 	input_file = fopen(IN_FILE, "r");
 	output_file = fopen(OUT_FILE, "w");
 	decode(input_file, output_file);
