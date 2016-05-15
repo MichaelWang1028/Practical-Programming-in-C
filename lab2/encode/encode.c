@@ -132,3 +132,13 @@ void encode(char* str, FILE* fout)
 		str++;
 	}
 }
+
+void free_tree(tree_node* root)
+{
+  if (root == NULL) {
+    return;
+  }
+  free_tree(root->left);
+  free_tree(root->right);
+  free(root);
+}

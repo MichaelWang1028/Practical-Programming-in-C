@@ -69,6 +69,8 @@ int main()
   fprintf(fout, "\n");
 	fclose(fout);
 	getchar();
-	/*TODO: clear resources*/
+
+  free_tree(root);
+
   return 0;
 }

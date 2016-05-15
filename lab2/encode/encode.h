@@ -54,4 +54,6 @@ void dump_code(FILE* fp);
 */
 void encode(char* str, FILE* fout);
 
+void free_tree(tree_node* root);
+
 #endif
