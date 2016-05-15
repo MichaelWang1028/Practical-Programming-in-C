@@ -8,19 +8,15 @@ tree_node* root = NULL; /*tree of symbols*/
 tree_node* qhead = NULL; /*list of current symbols*/
 struct cnode* chead = NULL;/*list of code*/
 
-/*
-    @function   talloc
-    @desc       allocates new node
-*/
-tree_node* talloc(int symbol, float freq)
+tree_node* allocate_new_node(int symbol, float freq)
 {
     tree_node* p = (tree_node *) malloc(sizeof(tree_node));
-    if(p != NULL)
+    if (p != NULL)
     {
         p->left = p->right = p->parent = p->next = NULL;
         p->symbol = symbol;
         p->freq = freq;
-		p->isleaf = 1;
+		    p->isleaf = 1;
     }
     return p;
 }
@@ -152,9 +148,9 @@ int main()
 	memset(code,0,sizeof(code));
 
 	/*testing queue*/
-    pq_insert(talloc('a',0.1));
-    pq_insert(talloc('b',0.2));
-    pq_insert(talloc('c',0.15));
+    pq_insert(allocate_new_node('a',0.1));
+    pq_insert(allocate_new_node('b',0.2));
+    pq_insert(allocate_new_node('c',0.15));
     /*making sure it pops in the right order*/
 	puts("making sure it pops in the right order");
 	while((p=pq_pop()))
@@ -168,7 +164,7 @@ int main()
     /*initialize with freq*/
     for(i=0;i<NCHAR;i++)
     {
-        pq_insert(talloc('a'+i,freq[i]));
+        pq_insert(allocate_new_node('a'+i,freq[i]));
     }
     /*build tree*/
     for(i=0;i<NCHAR-1;i++)
@@ -176,7 +172,7 @@ int main()
         lc=pq_pop();
         rc=pq_pop();
         /*create parent*/
-        p=talloc(0,lc->freq+rc->freq);
+        p=allocate_new_node(0,lc->freq+rc->freq);
         /*set parent link*/
         lc->parent=rc->parent=p;
         /*set child link*/

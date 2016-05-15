@@ -20,4 +20,6 @@ extern tree_node* root; /*tree of symbols*/
 extern tree_node* qhead; /*list of current symbols*/
 extern struct cnode* chead;/*list of code*/
 
+tree_node* allocate_new_node(int symbol, float freq);
+
 #endif
