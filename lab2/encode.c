@@ -95,6 +95,8 @@ void generate_code(tree_node* root, int depth)
 		len = depth;
 		/*start backwards*/
 		code[symbol][len] = 0;
+
+    tree_node * current = root;
 		/*
 			TODO: follow parent pointer to the top
 			to generate the code string

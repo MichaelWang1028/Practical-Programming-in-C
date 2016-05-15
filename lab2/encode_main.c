@@ -39,7 +39,7 @@ int main()
     lc = pop_priority_queue();
     rc = pop_priority_queue();
     /*create parent*/
-    p = allocate_new_node(0,lc->freq+rc->freq);
+    p = allocate_new_node(0,lc->freq + rc->freq);
     /*set parent link*/
     lc->parent = rc->parent = p;
     /*set child link*/
