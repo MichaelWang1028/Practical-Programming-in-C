@@ -79,9 +79,6 @@ void free_tree(tree_node* root)
 
 int main()
 {
-	const char* IN_FILE = "encoded.txt";
-	const char* CODE_FILE = "code.txt";
-	const char* OUT_FILE = "decoded.txt";
 	FILE* fout;
 	FILE* fin;
 	/*allocate root*/
