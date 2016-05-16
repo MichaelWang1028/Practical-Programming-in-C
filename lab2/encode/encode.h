@@ -58,4 +58,5 @@ void free_tree(tree_node* root);
 
 void initialize_priority_queue(int characters, char initial_char, float frequencies[]);
 
+void build_tree(int characters);
 #endif

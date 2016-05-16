@@ -149,3 +149,25 @@ void initialize_priority_queue(int characters, char initial_char, float frequenc
     insert_into_priority_queue(allocate_new_node(initial_char + i, frequencies[i]));
   }
 }
+
+void build_tree(int characters)
+{
+  tree_node* p = NULL;
+  tree_node* lc, *rc;
+
+  /*build tree*/
+  for(int i = 0; i < characters - 1; i++) {
+    lc = pop_priority_queue();
+    rc = pop_priority_queue();
+    /*create parent*/
+    p = allocate_new_node(0, lc->freq + rc->freq);
+    /*set parent link*/
+    lc->parent = rc->parent = p;
+    /*set child link*/
+    p->right = rc; p->left = lc;
+		/*make it non-leaf*/
+		p->isleaf = 0;
+    /*add the new node to the queue*/
+    insert_into_priority_queue(p);
+  }
+}
