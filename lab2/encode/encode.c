@@ -142,3 +142,10 @@ void free_tree(tree_node* root)
   free_tree(root->right);
   free(root);
 }
+
+void initialize_priority_queue(int characters, char initial_char, float frequencies[])
+{
+  for(int i = 0; i < characters; i++) {
+    insert_into_priority_queue(allocate_new_node(initial_char + i, frequencies[i]));
+  }
+}

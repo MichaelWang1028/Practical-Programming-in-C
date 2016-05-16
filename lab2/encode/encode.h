@@ -56,4 +56,6 @@ void encode(char* str, FILE* fout);
 
 void free_tree(tree_node* root);
 
+void initialize_priority_queue(int characters, char initial_char, float frequencies[]);
+
 #endif
