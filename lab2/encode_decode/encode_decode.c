@@ -16,3 +16,16 @@ void get_frequency_from_file(FILE* file_name)
     }
   }
 }
+
+int count_elements(float frequencies[])
+{
+  int counter = 0;
+
+  for (int i = 0; i < MAX_SYMBOLS; i++) {
+    if (frequencies[i] > 0) {
+      counter++;
+    }
+  }
+
+  return counter;
+}
