@@ -91,3 +91,17 @@ I spent almost the same amount of time implementing the functions than separatin
 
 ##### Difficulties
 Because of the lack of information provided in the pdf, I had to do extra research.
+
+#### Part B: Implementing a Huffman encoder
+A Huffman encoder should be implemented.
+The symbols and their frequencies are given.
+A priority queue is used to build the tree.
+Once the tree is generated, the string for each symbol should be output to a file **code.txt**.
+
+##### Observations
+Completing this task took me almost the same amount of time than separating the provided code into files.
+It was great when I saw that my **code.txt** file has the same table than the one provided in the pdf.
+
+##### Difficulties
+Understanding the problem and the provided code took me some time.
+I got a couple of segmentation faults.
