@@ -72,3 +72,5 @@ Again the problem is really straightforward, and I spent more time separating th
 
 ##### Difficulties
 The only tricky thing is when implementing the function **cleartable()** because you should free not only the node of the linked list, but also the word associated with this node.
+
+## Lab 2: Data compression
