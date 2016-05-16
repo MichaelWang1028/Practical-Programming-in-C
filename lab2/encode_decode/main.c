@@ -4,6 +4,6 @@
 
 int main()
 {
-  printf("%d\n", MAX_LEN);
+  
   return 0;
 }
