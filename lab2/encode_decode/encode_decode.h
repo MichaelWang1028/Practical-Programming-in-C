@@ -6,6 +6,7 @@
 
 #define READ_MODE "r"
 #define WRITE_MODE "w"
+#define APPEND_MODE "a"
 #define INPUT_FILE "book.txt"
 
 extern float frequencies[MAX_SYMBOLS];
