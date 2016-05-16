@@ -78,3 +78,7 @@ The only tricky thing is when implementing the function **cleartable()** because
 This lab was both challenging and exciting.
 As usually, the information provided was not enough, so I had to make my own research.
 The purpose of this lab was to understand and develop Huffman coding.
+
+#### Part A: Implementing a Huffman decoder
+Given a file that contains symbols and a their binary strings, a corresponding Huffman code tree should be created.
+In addition, a function **decode()** should be implemented which uses the Huffman code tree previously generated to decode input from a file.
