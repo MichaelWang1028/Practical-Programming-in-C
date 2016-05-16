@@ -130,7 +130,7 @@ void dump_code(FILE* fp)
 void encode(char* str, FILE* fout)
 {
   while (*str) {
-		fprintf(fout, "%s", code[*str]);
+		fprintf(fout, "%s", code[(unsigned char) *str]);
 		str++;
 	}
 }
