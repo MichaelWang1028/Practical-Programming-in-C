@@ -1,2 +1,2 @@
-encode_decode: encode_decode.c
-	gcc -g -O0 -Wall -Wextra encode_decode.c -o encode_decode.o
+encode_decode: main.c encode_decode.c encode_decode.h
+	gcc -g -O0 -Wall -Wextra main.c encode_decode.c -o encode_decode.o
