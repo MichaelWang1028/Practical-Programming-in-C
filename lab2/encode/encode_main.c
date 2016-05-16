@@ -9,10 +9,8 @@ int main()
 {
   /*test priority queue*/
   tree_node* p = NULL;
-  tree_node* lc, *rc;
   float freq[] = {0.01, 0.04, 0.05, 0.11, 0.19, 0.20, 0.4};
 	int NCHAR = 7; /*number of characters*/
-  int i = 0;
 
 	FILE* fout = NULL;
 	/*zero out code*/
@@ -35,20 +33,7 @@ int main()
   display_tree_node_list(queue_head);
 
   /*build tree*/
-  for(i = 0; i < NCHAR - 1; i++) {
-    lc = pop_priority_queue();
-    rc = pop_priority_queue();
-    /*create parent*/
-    p = allocate_new_node(0, lc->freq + rc->freq);
-    /*set parent link*/
-    lc->parent = rc->parent = p;
-    /*set child link*/
-    p->right = rc; p->left = lc;
-		/*make it non-leaf*/
-		p->isleaf = 0;
-    /*add the new node to the queue*/
-    insert_into_priority_queue(p);
-  }
+  build_tree(NCHAR);
 
   /*get root*/
   root = pop_priority_queue();
