@@ -2,15 +2,14 @@
 #include "encode_decode.h"
 
 float frequencies[MAX_SYMBOLS];
-void encode_file(FILE* file_name);
 
 int main()
 {
-  FILE* input_file = fopen(INPUT_FILE, READ_MODE);
   FILE* code_file = fopen(CODE_FILE, WRITE_MODE);
-  get_frequency_from_file(input_file);
-  fclose(input_file);
-  input_file = fopen(INPUT_FILE, READ_MODE);
+  FILE* output_file = fopen(OUT_FILE, WRITE_MODE);
+  FILE* encoded_file = fopen(ENCODED, READ_MODE);
+  FILE* decoded_file = fopen(DECODED, WRITE_MODE);
+  get_frequency_from_file(INPUT_FILE);
 
   queue_head = NULL;
 
@@ -21,26 +20,14 @@ int main()
   root = pop_priority_queue();
   generate_code(root, 0);
   dump_code(code_file);
+
+  encode_file(INPUT_FILE);
+
+  decode(encoded_file, decoded_file);
+
   free_tree(root);
-
-  encode_file(input_file);
-  // puts("after encoding file");
-
   fclose(code_file);
-
+  fclose(output_file);
   return 0;
-}
 
-void encode_file(FILE* file_name)
-{
-  FILE* encoded_file = fopen(OUT_FILE, WRITE_MODE);
-  char c;
-  while ((c = getc(file_name)) != EOF) {
-    char string[] = {(unsigned char) c, '\0'};
-    // printf("%d\t%c\n", c, c);
-
-    encode(string, encoded_file);
-  }
-  fprintf(encoded_file, "\n");
-  fclose(encoded_file);
 }
