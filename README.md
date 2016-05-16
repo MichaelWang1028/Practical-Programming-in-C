@@ -105,3 +105,18 @@ It was great when I saw that my **code.txt** file has the same table than the on
 ##### Difficulties
 Understanding the problem and the provided code took me some time.
 I got a couple of segmentation faults.
+
+#### Part C: Compressing a larger file
+Given a file **book.txt**, one has to generate the Huffman code tree, i.e., the frequencies are not provided.
+
+
+##### Observations
+Although it seems pretty simple at the beginning, it was necessary to implement a couple of helper functions.
+I tried to reuse the implemented code for encode and decode as much as possible.
+It was really useful to write down the solution on a piece of paper.
+A compression of approximately 57% was obtained.
+I was really happy after encoding and decoding **book.txt** and getting exactly the same file.
+
+##### Difficulties
+I got constantly segmentation faults which I could solve by debugging using **printf()**.
+Once again the casting from int to unsigned char was tricky.
