@@ -39,27 +39,29 @@ void display_tree_node_list(tree_node* head)
 */
 void insert_into_priority_queue(tree_node* p)
 {
-  tree_node* curr = NULL;
-  tree_node* prev = NULL;
-  printf("inserting:%c,%f\n", p->symbol, p->freq);
+  if (p->freq > 0) {
+    tree_node* curr = NULL;
+    tree_node* prev = NULL;
+    printf("inserting:%c,%f\n", p->symbol, p->freq);
 
-  if (queue_head == NULL) {
-    queue_head = p;
-    return;
-  }
+    if (queue_head == NULL) {
+      queue_head = p;
+      return;
+    }
 
-  curr = queue_head;
-  while (curr != NULL && (curr->freq < p->freq)) {
-    prev = curr;
-    curr = curr->next;
-  }
+    curr = queue_head;
+    while (curr != NULL && (curr->freq < p->freq)) {
+      prev = curr;
+      curr = curr->next;
+    }
 
-  if (curr == queue_head) { /*inset before curr*/
-    p->next = curr;
-    queue_head = p;
-  } else { /*insert between prev and next*/
-    prev->next = p;
-    p->next = curr;
+    if (curr == queue_head) { /*inset before curr*/
+      p->next = curr;
+      queue_head = p;
+    } else { /*insert between prev and next*/
+      prev->next = p;
+      p->next = curr;
+    }
   }
 }
 
