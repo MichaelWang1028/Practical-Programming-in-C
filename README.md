@@ -107,8 +107,8 @@ Understanding the problem and the provided code took me some time.
 I got a couple of segmentation faults.
 
 #### Part C: Compressing a larger file
-Given a file **book.txt**, one has to generate the Huffman code tree, i.e., the frequencies are not provided.
-
+Given a file **book.txt**, one has to generate the Huffman code tree, and the frequencies are not provided.
+Once generated, the file information has to be encoded, and posteriorly decoded into a file **decoded.txt** which must have the same information of **book.txt**.
 
 ##### Observations
 Although it seems pretty simple at the beginning, it was necessary to implement a couple of helper functions.
