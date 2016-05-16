@@ -3,6 +3,8 @@
 #include <string.h>
 #include "encode.h"
 
+void initialize_priority_queue(int characters, char initial_char, float frequencies[]);
+
 int main()
 {
   /*test priority queue*/
@@ -73,4 +75,11 @@ int main()
   free_tree(root);
 
   return 0;
+}
+
+void initialize_priority_queue(int characters, char initial_char, float frequencies[])
+{
+  for(int i = 0; i < characters; i++) {
+    insert_into_priority_queue(allocate_new_node(initial_char + i, frequencies[i]));
+  }
 }
