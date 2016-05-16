@@ -82,3 +82,12 @@ The purpose of this lab was to understand and develop Huffman coding.
 #### Part A: Implementing a Huffman decoder
 Given a file that contains symbols and a their binary strings, a corresponding Huffman code tree should be created.
 In addition, a function **decode()** should be implemented which uses the Huffman code tree previously generated to decode input from a file.
+
+##### Observations
+Understanding the purpose of the Huffman code tree took me a little while.
+However, after I understood, I implemented these functions really quickly.
+My knowledge of trees was useful because I clearly knew that I had to use post-order traversal to free the nodes of a binary tree.
+I spent almost the same amount of time implementing the functions than separating the code into files.
+
+##### Difficulties
+Because of the lack of information provided in the pdf, I had to do extra research.
