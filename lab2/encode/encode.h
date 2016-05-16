@@ -1,6 +1,8 @@
 #ifndef ENCODE_H
 #define ENCODE_H
 
+#include <stdio.h>
+
 #define MAX_SYMBOLS 255
 #define MAX_LEN     255
 #define CODE_FILE "code.txt"
