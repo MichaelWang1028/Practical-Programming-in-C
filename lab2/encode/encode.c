@@ -90,7 +90,7 @@ tree_node* pop_priority_queue()
 */
 void generate_code(tree_node* root, int depth)
 {
-	int symbol;
+	unsigned char symbol;
 	int len; /*length of code*/
 	if (root->isleaf) {
 		symbol = root->symbol;
