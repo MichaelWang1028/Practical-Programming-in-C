@@ -73,4 +73,8 @@ Again the problem is really straightforward, and I spent more time separating th
 ##### Difficulties
 The only tricky thing is when implementing the function **cleartable()** because you should free not only the node of the linked list, but also the word associated with this node.
 
-## Lab 2: Data compression
+## Lab 2
+### Data compression
+This lab was both challenging and exciting.
+As usually, the information provided was not enough, so I had to make my own research.
+The purpose of this lab was to understand and develop Huffman coding.
