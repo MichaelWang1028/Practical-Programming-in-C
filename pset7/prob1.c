@@ -241,8 +241,7 @@ nodevalue * add_element(nodekey key, nodevalue * pvalue)
  */
 void inorder_traversal(p_tnode pnode, FILE * fp)
 {
-	int n;
-	for (n = 0; n < pnode->nkeys; n++) {
+	for (int n = 0; n < pnode->nkeys; n++) {
 		/* TODO: traverse children and keys, in order */
 	}
 	if (pnode->children[n] != NULL) {
