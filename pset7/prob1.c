@@ -314,6 +314,7 @@ int main(int argc, char * argv[]) {
 
 	/* part (a): execute the first three SQL queries */
 	const char sql[] = "SELECT * FROM movies WHERE ProductionYear < 1950";
+	char *zErrMsg = NULL;
 	/* const char sql[] = "SELECT * FROM movies WHERE Format == \"VHS\""; */
 	/* const char sql[] = "SELECT * FROM movies WHERE Language == \"Spanish\""; */
 
@@ -325,11 +326,21 @@ int main(int argc, char * argv[]) {
 		return 1;
 	}
 
-	/* TODO: load the database, probably using sqlite3_open() */
+	char * database_name = argv[1];
+	sqlite3 * database;
 
-	/* TODO: execute the SQL query, probably using sqlite3_exec() */
+	const char* data = "Callback function called";
 
-	/* TODO: close the database when you're done with it */
+	if (sqlite3_open(database_name, &database)){
+		fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(database));
+		exit(0);
+	}else {
+		fprintf(stderr, "Opened database successfully\n");
+	}
+
+	sqlite3_exec(database, sql, display_result, NULL, &zErrMsg);
+
+	sqlite3_close(database);
 
 	return 0;
 }
