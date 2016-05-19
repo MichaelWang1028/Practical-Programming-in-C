@@ -261,12 +261,17 @@ nodevalue * find_value(const nodekey key)
  */
 int display_result(void * pextra, int nfields, char ** arrvalues, char ** arrfieldnames)
 {
-	int n;
+	char * string = (char *) pextra;
 
-	for (n = 0; n < nfields; n++) {
+	if (string != NULL) {
+		puts(string);
+	}
+
+	for (int n = 0; n < nfields; n++) {
 		printf("%s: [%s]\n", arrfieldnames[n], arrvalues[n]);
 	}
-	printf("\n");
+
+	puts("");
 	return 0;
 }
 
@@ -313,10 +318,9 @@ int store_result(void * pextra, int nfields, char ** arrvalues, char ** arrfield
 int main(int argc, char * argv[]) {
 
 	/* part (a): execute the first three SQL queries */
-	const char sql[] = "SELECT * FROM movies WHERE ProductionYear < 1950";
-	char *zErrMsg = NULL;
-	/* const char sql[] = "SELECT * FROM movies WHERE Format == \"VHS\""; */
-	/* const char sql[] = "SELECT * FROM movies WHERE Language == \"Spanish\""; */
+	// const char sql[] = "SELECT * FROM movies WHERE ProductionYear < 1950";
+	// const char sql[] = "SELECT * FROM movies WHERE Format == \"VHS\"";
+	const char sql[] = "SELECT * FROM movies WHERE Language == \"Spanish\"";
 
 	/* part (b, c, d): use this SQL query to read the entire table */
 	/* const char sql[] = "SELECT * FROM movies"; */
@@ -328,6 +332,7 @@ int main(int argc, char * argv[]) {
 
 	char * database_name = argv[1];
 	sqlite3 * database;
+	char *zErrMsg = NULL;
 
 	const char* data = "Callback function called";
 
@@ -338,7 +343,7 @@ int main(int argc, char * argv[]) {
 		fprintf(stderr, "Opened database successfully\n");
 	}
 
-	sqlite3_exec(database, sql, display_result, NULL, &zErrMsg);
+	sqlite3_exec(database, sql, display_result, "Callback function called", &zErrMsg);
 
 	sqlite3_close(database);
 
