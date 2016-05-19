@@ -12,42 +12,16 @@
 /* the include file for the SQLite library */
 /* do not use sqlite.h or sqlite3ext.h */
 #include <sqlite3.h>
-
-/* T defines minimum number of children in non-root nodes
- * 2*T is maximum number of children in all nodes
- * 2*T-1 is maximum number of keys in all nodes */
-#define T 3
-
-typedef char * nodekey;
-
-/* record structure */
-typedef struct s_record {
-	unsigned int irecord; /* index of record in main database */
-	char * name; /* movie name used as key */
-	char * category;
-	unsigned int year;
-	char * format;
-	char * language;
-	char * url;
-} nodevalue;
-
-/* B-tree node structure */
-typedef struct s_tnode {
-	nodekey keys[2*T-1]; /* keys */
-	nodevalue * values[2*T-1]; /* values */
-	unsigned int nkeys; /* number of keys, < 2*T */
-
-	struct s_tnode * parent; /* pointer to parent */
-	struct s_tnode * children[2*T]; /* pointers to children */
-} * p_tnode;
+#include "prob1.h"
 
 /* static variables for the root of the tree and number of records */
 static p_tnode ptreeroot = NULL;
 static unsigned int record_count = 0;
 
-/* alloc_record() - allocate a new record on the heap */
-struct s_record * alloc_record() {
-	struct s_record * precord = (struct s_record *)malloc(sizeof(struct s_record));
+/* allocate_record() - allocate a new record on the heap */
+struct s_record * allocate_record()
+{
+	struct s_record * precord = (struct s_record *) malloc(sizeof(struct s_record));
 	precord->irecord = 0;
 	precord->name = NULL; /* movie name used as key */
 	precord->category = NULL;
@@ -295,7 +269,7 @@ int store_result(void * pextra, int nfields, char ** arrvalues, char ** arrfield
 	int n;
 
 	/* allocate record on heap */
-	struct s_record * prec = alloc_record();
+	struct s_record * prec = allocate_record();
 
 	prec->irecord = record_count+1;
 	for (n = 0; n < nfields; n++) {
@@ -347,4 +321,3 @@ int main(int argc, char * argv[]) {
 
 	return 0;
 }
-
