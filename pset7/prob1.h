@@ -32,4 +32,60 @@ typedef struct s_tnode {
 /* allocate_record() - allocate a new record on the heap */
 struct s_record * allocate_record();
 
+/* free_record() - frees the record structure and associated strings */
+void free_record(struct s_record * precord);
+
+/* display_record -- output record information to file pointer fp */
+void display_record(struct s_record * precord, FILE * fp);
+
+/* allocate_b_tree_node() - creates a new B-tree node on the heap */
+p_tnode allocate_b_tree_node(void);
+
+/* free_tnode() - frees a node in the B-tree,
+ * its associated record, and all its children from memory
+ */
+void free_tnode(p_tnode pnode);
+
+/* function for comparing two keys; simply calls the case-insensitive
+ * string comparison function strcasecmp() declared in string.h.
+ * Returns zero if both equal, positive if key1 > key2, negative if key1 < key2
+ */
+int key_compare(const nodekey key1, const nodekey key2);
+
+
+int find_index(nodekey key, p_tnode pnode); // TODO
+
+/* split_node() - splits a full node in the B-tree into two separate nodes,
+ * possibly creating a new root node in the process
+ * should be no need to modify this function
+ */
+void split_node(p_tnode * ppnode, int * poffset);
+
+/* add_element() - add the record with the specified key to the B-tree.
+ * returns a pointer to an already existing record with the same key,
+ * in which case, the new record was not inserted, or NULL on success
+ * should be no need to modify this function
+ */
+nodevalue * add_element(nodekey key, nodevalue * pvalue);
+
+void inorder_traversal(p_tnode pnode, FILE * fp); // TODO
+
+nodevalue * find_value(const nodekey key); // TODO
+
+/* display_result() - print information from the database
+ * this function is a valid callback for use with sqlite3_exec()
+ * pextra is unused
+ *
+ * needs to return zero (nonzero aborts SQL query)
+ */
+int display_result(void * pextra, int nfields, char ** arrvalues, char ** arrfieldnames);
+
+/* store_result() - store record from database in B-tree
+ * this function is also a valid callback for use with sqlite3_exec()
+ * pextra is again unused
+ *
+ * needs to return zero (nonzero aborts SQL query)
+ */
+int store_result(void * pextra, int nfields, char ** arrvalues, char ** arrfieldnames);
+
 #endif

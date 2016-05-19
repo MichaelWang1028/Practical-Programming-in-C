@@ -33,7 +33,8 @@ struct s_record * allocate_record()
 }
 
 /* free_record() - frees the record structure and associated strings */
-void free_record(struct s_record * precord) {
+void free_record(struct s_record * precord)
+{
 	if (precord->name) free(precord->name);
 	if (precord->category) free(precord->category);
 	if (precord->format) free(precord->format);
@@ -43,16 +44,17 @@ void free_record(struct s_record * precord) {
 }
 
 /* display_record -- output record information to file pointer fp */
-void display_record(struct s_record * precord, FILE * fp) {
+void display_record(struct s_record * precord, FILE * fp)
+{
 	fprintf(fp, "[#%d] %s (%d): %s, %s, %s, <%s>\n", precord->irecord, precord->name, precord->year, precord->category, precord->format, precord->language, precord->url);
 }
 
-/* alloc_tnode() - creates a new B-tree node on the heap */
-p_tnode alloc_tnode(void) {
-	int n;
-	p_tnode pnode = (p_tnode)malloc(sizeof(struct s_tnode));
+/* allocate_b_tree_node() - creates a new B-tree node on the heap */
+p_tnode allocate_b_tree_node(void)
+{
+	p_tnode pnode = (p_tnode) malloc(sizeof(struct s_tnode));
 	pnode->nkeys = 0;
-	for (n = 0; n < 2*T; n++)
+	for (int n = 0; n < 2 * T; n++)
 		pnode->children[n] = NULL;
 	pnode->parent = NULL;
 	return pnode;
@@ -61,9 +63,10 @@ p_tnode alloc_tnode(void) {
 /* free_tnode() - frees a node in the B-tree,
  * its associated record, and all its children from memory
  */
-void free_tnode(p_tnode pnode) {
+void free_tnode(p_tnode pnode)
+{
 	unsigned int n;
-	for (n = 0; n < 2*T; n++) {
+	for (n = 0; n < 2 * T; n++) {
 		if (pnode->children[n] != NULL)
 			free_tnode(pnode->children[n]);
 	}
@@ -80,7 +83,8 @@ void free_tnode(p_tnode pnode) {
  * string comparison function strcasecmp() declared in string.h.
  * Returns zero if both equal, positive if key1 > key2, negative if key1 < key2
  */
-int key_compare(const nodekey key1, const nodekey key2) {
+int key_compare(const nodekey key1, const nodekey key2)
+{
 	return strcasecmp(key1, key2);
 }
 
@@ -91,7 +95,8 @@ int key_compare(const nodekey key1, const nodekey key2) {
  *
  * TODO: fill in the binary search while loop
  */
-int find_index(nodekey key, p_tnode pnode) {
+int find_index(nodekey key, p_tnode pnode)
+{
 	/* find in between */
 	int icmp, L = 0, R = pnode->nkeys-1, M;
 	int ibetween = 0; /* index to return */
@@ -101,6 +106,7 @@ int find_index(nodekey key, p_tnode pnode) {
 	while (L <= R) {
 
 	}
+
 	return ibetween;
 }
 
@@ -108,10 +114,11 @@ int find_index(nodekey key, p_tnode pnode) {
  * possibly creating a new root node in the process
  * should be no need to modify this function
  */
-void split_node(p_tnode * ppnode, int * poffset) {
+void split_node(p_tnode * ppnode, int * poffset)
+{
 	p_tnode pnode = *ppnode;
 	int median = pnode->nkeys>>1, i;
-	p_tnode parent = pnode->parent, split = alloc_tnode();
+	p_tnode parent = pnode->parent, split = allocate_b_tree_node();
 
 	if (poffset != NULL) {
 		/* update offset index and ppnode to point to new insertion point */
@@ -152,7 +159,7 @@ void split_node(p_tnode * ppnode, int * poffset) {
 		split->parent = parent;
 	} else {
 		/* split root */
-		parent = ptreeroot = alloc_tnode();
+		parent = ptreeroot = allocate_b_tree_node();
 		parent->keys[0] = pnode->keys[median];
 		parent->values[0] = pnode->values[median];
 		parent->children[0] = pnode;
@@ -182,7 +189,8 @@ void split_node(p_tnode * ppnode, int * poffset) {
  * in which case, the new record was not inserted, or NULL on success
  * should be no need to modify this function
  */
-nodevalue * add_element(nodekey key, nodevalue * pvalue) {
+nodevalue * add_element(nodekey key, nodevalue * pvalue)
+{
 	/* find leaf */
 	p_tnode pleaf = ptreeroot, parent = NULL;
 	int ichild, i;
@@ -220,7 +228,8 @@ nodevalue * add_element(nodekey key, nodevalue * pvalue) {
  *
  * TODO: fill in this function
  */
-void inorder_traversal(p_tnode pnode, FILE * fp) {
+void inorder_traversal(p_tnode pnode, FILE * fp)
+{
 	int n;
 	for (n = 0; n < pnode->nkeys; n++) {
 		/* TODO: traverse children and keys, in order */
@@ -234,7 +243,8 @@ void inorder_traversal(p_tnode pnode, FILE * fp) {
  * need to return pointer to record structure, or NULL if record not found
  * TODO: fill in this function
  */
-nodevalue * find_value(const nodekey key) {
+nodevalue * find_value(const nodekey key)
+{
 	int ichild;
 	p_tnode pleaf = ptreeroot; /* start at root */
 
@@ -243,17 +253,18 @@ nodevalue * find_value(const nodekey key) {
 	return NULL; /* didn't find it */
 }
 
-/* display_result() - print information from the database
+/* allocate_b_tree_nodesult() - print information from the database
  * this function is a valid callback for use with sqlite3_exec()
  * pextra is unused
  *
  * needs to return zero (nonzero aborts SQL query)
  */
-int display_result(void * pextra, int nfields, char ** arrvalues, char ** arrfieldnames) {
+int display_result(void * pextra, int nfields, char ** arrvalues, char ** arrfieldnames)
+{
 	int n;
 
 	for (n = 0; n < nfields; n++) {
-		printf("%s: [%s] ", arrfieldnames[n], arrvalues[n]);
+		printf("%s: [%s]\n", arrfieldnames[n], arrvalues[n]);
 	}
 	printf("\n");
 	return 0;
@@ -265,7 +276,8 @@ int display_result(void * pextra, int nfields, char ** arrvalues, char ** arrfie
  *
  * needs to return zero (nonzero aborts SQL query)
  */
-int store_result(void * pextra, int nfields, char ** arrvalues, char ** arrfieldnames) {
+int store_result(void * pextra, int nfields, char ** arrvalues, char ** arrfieldnames)
+{
 	int n;
 
 	/* allocate record on heap */
