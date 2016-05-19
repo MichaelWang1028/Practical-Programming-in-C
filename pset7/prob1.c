@@ -98,13 +98,24 @@ int key_compare(const nodekey key1, const nodekey key2)
 int find_index(nodekey key, p_tnode pnode)
 {
 	/* find in between */
-	int icmp, L = 0, R = pnode->nkeys-1, M;
+	int comparison, L = 0, R = pnode->nkeys - 1, M;
 	int ibetween = 0; /* index to return */
 
-	/* TODO: complete binary search;
-	 * use key_compare() to compare two keys. */
-	while (L <= R) {
 
+	while (L <= R) {
+		M = (L + R) / 2;
+
+		comparison = key_compare(key, pnode->values[M]->name);
+
+		if (comparison == 0) {
+			return - (M + 1);
+		}
+
+		if (comparison > 0) {
+			ibetween = L = M + 1;
+		} else {
+			ibetween = R = M - 1;
+		}
 	}
 
 	return ibetween;
@@ -311,41 +322,6 @@ int store_result(void * pextra, int nfields, char ** arrvalues, char ** arrfield
 		display_record(prec, stdout);
 		free_record(prec);
 	}
-
-	return 0;
-}
-
-int main(int argc, char * argv[]) {
-
-	/* part (a): execute the first three SQL queries */
-	// const char sql[] = "SELECT * FROM movies WHERE ProductionYear < 1950";
-	// const char sql[] = "SELECT * FROM movies WHERE Format == \"VHS\"";
-	const char sql[] = "SELECT * FROM movies WHERE Language == \"Spanish\"";
-
-	/* part (b, c, d): use this SQL query to read the entire table */
-	/* const char sql[] = "SELECT * FROM movies"; */
-
-	if (argc < 2) {
-		fprintf(stderr,"Error: database name not specified!\n");
-		return 1;
-	}
-
-	char * database_name = argv[1];
-	sqlite3 * database;
-	char *zErrMsg = NULL;
-
-	const char* data = "Callback function called";
-
-	if (sqlite3_open(database_name, &database)){
-		fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(database));
-		exit(0);
-	}else {
-		fprintf(stderr, "Opened database successfully\n");
-	}
-
-	sqlite3_exec(database, sql, display_result, "Callback function called", &zErrMsg);
-
-	sqlite3_close(database);
 
 	return 0;
 }
