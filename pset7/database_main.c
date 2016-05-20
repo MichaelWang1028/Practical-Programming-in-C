@@ -4,6 +4,8 @@
 #include <sqlite3.h>
 #include "prob1.h"
 
+#define INPUT_MAX_LENGTH 2048
+
 int main(int argc, char * argv[]) {
 
 	/* part (a): execute the first three SQL queries */
@@ -35,14 +37,36 @@ int main(int argc, char * argv[]) {
 	sqlite3_exec(database, sql, store_result, NULL, &zErrMsg);
   sqlite3_close(database);
 
-  if (argc < 3) {
-    fprintf(stderr, "Error: output data file not specified\n");
-    return 2;
-  }
 
-  FILE * output = fopen(argv[2], "w");
+  char input[INPUT_MAX_LENGTH];
+  unsigned int len;
+  nodevalue * found_movie = NULL;
 
-  inorder_traversal(ptreeroot, output);
+  do {
+		printf("Enter a movie title: ");
+		fflush(stdout);
+		if (!fgets(input, INPUT_MAX_LENGTH, stdin))
+			abort(); /* failed to read stdin */
+
+		len = strlen(input);
+		/* remove trailing newline character */
+		if (len > 0 && input[len-1] == '\n') {
+			input[len-1] = '\0';
+			--len;
+		}
+
+		if (len == 0) /* empty expression signals exit */
+			break;
+
+		found_movie = find_value(input);
+
+    if (found_movie)
+      display_record(found_movie, stdout);
+    else
+      puts("Movie not in database");
+
+	} while (1);
+
 
 	return 0;
 }

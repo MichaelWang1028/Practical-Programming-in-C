@@ -93,7 +93,6 @@ int key_compare(const nodekey key1, const nodekey key2)
  * point of a new key. Returns nonnegative index of insertion point
  * if new key, or -(index+1) for existing key found at index
  *
- * TODO: fill in the binary search while loop
  */
 int find_index(nodekey key, p_tnode pnode)
 {
@@ -127,7 +126,7 @@ int find_index(nodekey key, p_tnode pnode)
 void split_node(p_tnode * ppnode, int * poffset)
 {
 	p_tnode pnode = *ppnode;
-	int median = pnode->nkeys>>1, i;
+	int median = pnode->nkeys>>1;
 	p_tnode parent = pnode->parent, split = allocate_b_tree_node();
 
 	if (poffset != NULL) {
@@ -139,10 +138,10 @@ void split_node(p_tnode * ppnode, int * poffset)
 		}
 	}
 	if (parent) {
-		int insert = find_index(pnode->keys[median],parent);
+		unsigned int insert = find_index(pnode->keys[median],parent);
 
 		/* move median into parent */
-		for (i = parent->nkeys; i > insert; i--) {
+		for (unsigned int i = parent->nkeys; i > insert; i--) {
 			parent->keys[i] = parent->keys[i-1];
 			parent->values[i] = parent->values[i-1];
 			parent->children[i+1] = parent->children[i];
@@ -153,11 +152,11 @@ void split_node(p_tnode * ppnode, int * poffset)
 		parent->nkeys++;
 
 		/* move half from pnode into new node */
-		for (i = median + 1; i < pnode->nkeys; i++) {
+		for (unsigned int i = median + 1; i < pnode->nkeys; i++) {
 			split->keys[i-(median+1)] = pnode->keys[i];
 			split->values[i-(median+1)] = pnode->values[i];
 		}
-		for (i = median + 1; i < pnode->nkeys+1; i++) {
+		for (unsigned int i = median + 1; i < pnode->nkeys+1; i++) {
 			split->children[i-(median+1)] = pnode->children[i];
 			if (pnode->children[i] != NULL)
 				pnode->children[i]->parent = split;
@@ -177,17 +176,17 @@ void split_node(p_tnode * ppnode, int * poffset)
 		pnode->parent = parent;
 
 		/* move half from pnode into new node */
-		for (i = median + 1; i < pnode->nkeys; i++) {
+		for (unsigned int i = median + 1; i < pnode->nkeys; i++) {
 			split->keys[i-(median+1)] = pnode->keys[i];
 			split->values[i-(median+1)] = pnode->values[i];
 		}
-		for (i = median + 1; i < pnode->nkeys+1; i++) {
+		for (unsigned int i = median + 1; i < pnode->nkeys+1; i++) {
 			split->children[i-(median+1)] = pnode->children[i];
 			if (pnode->children[i] != NULL)
 				pnode->children[i]->parent = split;
 			pnode->children[i] = NULL;
 		}
-		split->nkeys = pnode->nkeys - (median+1);
+		split->nkeys = pnode->nkeys - (median + 1);
 		pnode->nkeys = median;
 		parent->children[1] = split;
 		split->parent = parent;
@@ -236,11 +235,10 @@ nodevalue * add_element(nodekey key, nodevalue * pvalue)
  * similar to binary search tree traversal (except nodes have multiple values and children)
  * writes record info to file pointer fp
  *
- * TODO: fill in this function
  */
 void inorder_traversal(p_tnode pnode, FILE * fp)
 {
-	int n;
+	unsigned int n;
 
 	for (n = 0; n < pnode->nkeys; n++) {
 		if (pnode->children[n] != NULL) {
@@ -255,14 +253,25 @@ void inorder_traversal(p_tnode pnode, FILE * fp)
 
 /* find_value() - locate value for specified key in B-tree
  * need to return pointer to record structure, or NULL if record not found
- * TODO: fill in this function
  */
 nodevalue * find_value(const nodekey key)
 {
 	int ichild;
 	p_tnode pleaf = ptreeroot; /* start at root */
 
-	/* TODO: iterate pleaf down to leaves of tree, or until key is found */
+	while (1) {
+		ichild = find_index(key, pleaf);
+
+		if (ichild < 0) {
+			return pleaf->values[-(ichild + 1)];
+		}
+
+		pleaf = pleaf->children[ichild];
+
+		if (pleaf == NULL) {
+			break;
+		}
+	}
 
 	return NULL; /* didn't find it */
 }
