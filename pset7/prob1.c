@@ -379,3 +379,8 @@ void dump_sorted_list(const char * filename)
   inorder_traversal(ptreeroot, file);
 	fclose(file);
 }
+
+void cleanup(void)
+{
+  free_tnode(ptreeroot);
+}

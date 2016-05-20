@@ -6,11 +6,6 @@
 
 #define INPUT_MAX_LENGTH 2048
 
-void cleanup(void)
-{
-  free_tnode(ptreeroot);
-}
-
 int main(int argc, char * argv[]) {
 
 	/* part (a): execute the first three SQL queries */

@@ -98,4 +98,6 @@ int locate_movie(const char * title);
 
 void dump_sorted_list(const char * filename);
 
+void cleanup(void);
+
 #endif
