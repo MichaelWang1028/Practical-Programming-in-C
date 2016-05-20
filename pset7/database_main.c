@@ -26,13 +26,15 @@ int main(int argc, char * argv[]) {
 	const char* data = "Callback function called";
 
 	if (sqlite3_open(database_name, &database)){
-		fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(database));
+    fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(database));
 		exit(0);
 	}else {
 		fprintf(stderr, "Opened database successfully\n");
 	}
 
-	sqlite3_exec(database, sql, display_result, "Callback function called", &zErrMsg);
+  ptreeroot = allocate_b_tree_node();
+	sqlite3_exec(database, sql, store_result, NULL, &zErrMsg);
+
 
 	sqlite3_close(database);
 

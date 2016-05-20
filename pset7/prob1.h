@@ -29,6 +29,10 @@ typedef struct s_tnode {
 	struct s_tnode * children[2 * T]; /* pointers to children */
 } * p_tnode;
 
+/* static variables for the root of the tree and number of records */
+extern p_tnode ptreeroot;
+extern unsigned int record_count;
+
 /* allocate_record() - allocate a new record on the heap */
 struct s_record * allocate_record();
 

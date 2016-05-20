@@ -15,8 +15,8 @@
 #include "prob1.h"
 
 /* static variables for the root of the tree and number of records */
-static p_tnode ptreeroot = NULL;
-static unsigned int record_count = 0;
+p_tnode ptreeroot = NULL;
+unsigned int record_count = 0;
 
 /* allocate_record() - allocate a new record on the heap */
 struct s_record * allocate_record()
@@ -99,8 +99,7 @@ int find_index(nodekey key, p_tnode pnode)
 {
 	/* find in between */
 	int comparison, L = 0, R = pnode->nkeys - 1, M;
-	int ibetween = 0; /* index to return */
-
+	// int ibetween = 0; /* index to return */
 
 	while (L <= R) {
 		M = (L + R) / 2;
@@ -112,13 +111,13 @@ int find_index(nodekey key, p_tnode pnode)
 		}
 
 		if (comparison > 0) {
-			ibetween = L = M + 1;
+			L = M + 1;
 		} else {
-			ibetween = R = M - 1;
+			R = M - 1;
 		}
 	}
 
-	return ibetween;
+	return L;
 }
 
 /* split_node() - splits a full node in the B-tree into two separate nodes,
@@ -241,7 +240,9 @@ nodevalue * add_element(nodekey key, nodevalue * pvalue)
  */
 void inorder_traversal(p_tnode pnode, FILE * fp)
 {
-	for (int n = 0; n < pnode->nkeys; n++) {
+	int n;
+
+	for (n = 0; n < pnode->nkeys; n++) {
 		/* TODO: traverse children and keys, in order */
 	}
 	if (pnode->children[n] != NULL) {
@@ -298,7 +299,7 @@ int store_result(void * pextra, int nfields, char ** arrvalues, char ** arrfield
 	/* allocate record on heap */
 	struct s_record * prec = allocate_record();
 
-	prec->irecord = record_count+1;
+	prec->irecord = record_count + 1;
 	for (n = 0; n < nfields; n++) {
 		if (strcasecmp(arrfieldnames[n], "MovieTitle") == 0)
 			prec->name = strdup(arrvalues[n]); /* key */
