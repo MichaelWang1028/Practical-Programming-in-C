@@ -377,4 +377,5 @@ void dump_sorted_list(const char * filename)
 {
   FILE * file = fopen(filename, "w");
   inorder_traversal(ptreeroot, file);
+	fclose(file);
 }
