@@ -6,6 +6,22 @@
 
 #define INPUT_MAX_LENGTH 2048
 
+int locate_movie(const char * title)
+{
+  nodevalue * found_movie = NULL;
+
+  found_movie = find_value((nodekey) title);
+
+  if (found_movie) {
+    display_record(found_movie, stdout);
+    return 1;
+  }
+
+  puts("Movie not in database");
+
+  return 0;
+}
+
 int main(int argc, char * argv[]) {
 
 	/* part (a): execute the first three SQL queries */
@@ -30,7 +46,6 @@ int main(int argc, char * argv[]) {
 
   char input[INPUT_MAX_LENGTH];
   unsigned int len;
-  nodevalue * found_movie = NULL;
 
   do {
 		printf("Enter a movie title: ");
@@ -46,14 +61,11 @@ int main(int argc, char * argv[]) {
 		}
 
 		if (len == 0) /* empty expression signals exit */
-			break;
+    {
+      break;
+    }
 
-		found_movie = find_value(input);
-
-    if (found_movie)
-      display_record(found_movie, stdout);
-    else
-      puts("Movie not in database");
+    locate_movie(input);
 
 	} while (1);
 
