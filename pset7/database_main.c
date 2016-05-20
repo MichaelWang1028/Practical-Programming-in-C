@@ -6,6 +6,12 @@
 
 #define INPUT_MAX_LENGTH 2048
 
+void dump_sorted_list(const char * filename)
+{
+  FILE * file = fopen(filename, "w");
+  inorder_traversal(ptreeroot, file);
+}
+
 int main(int argc, char * argv[]) {
 
 	/* part (a): execute the first three SQL queries */
@@ -30,6 +36,8 @@ int main(int argc, char * argv[]) {
 
   char input[INPUT_MAX_LENGTH];
   unsigned int len;
+
+  dump_sorted_list("output.txt");
 
   do {
 		printf("Enter a movie title: ");
