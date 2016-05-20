@@ -120,3 +120,21 @@ I was really happy after encoding and decoding **book.txt** and getting exactly 
 ##### Difficulties
 I got constantly segmentation faults which I could solve by debugging using **printf()**.
 Once again the casting from int to unsigned char was tricky.
+
+## Problem Set 7
+### Using and creating libraries. B-trees and priority queues.
+This problem set has just one problem.
+Although the tittle suggests it covers priority queues, it doesn't.
+
+#### Problem 7.1: Using the library sqlite3 and load database in a B-Tree
+This exercise has four items.
+The first one is basically to use some functions from the library sqlite3.
+The second one is the one that is challenging which is to complete some functions to load the data base on a B-tree.
+The third one is to complete a function that allows to look for a movie on the b-tree.
+Finally, the fourth one is to implement a static or dynamic library implementing some functions which prototypes are provided.
+##### Observations
+It took me some time to understand what a b-tree is.
+I found a really useful information about it on a website called [Geek for Geeks](http://www.geeksforgeeks.org/b-tree-set-1-introduction-2/).
+Although I didn't check exhaustively the algorithms for insertion and deletion, I could notice that they are not so easy to implement.
+
+##### Difficulties
