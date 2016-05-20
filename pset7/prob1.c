@@ -243,10 +243,13 @@ void inorder_traversal(p_tnode pnode, FILE * fp)
 	int n;
 
 	for (n = 0; n < pnode->nkeys; n++) {
-		/* TODO: traverse children and keys, in order */
+		if (pnode->children[n] != NULL) {
+			inorder_traversal(pnode->children[n], fp);
+		}
+		display_record(pnode->values[n], fp);
 	}
 	if (pnode->children[n] != NULL) {
-		/* TODO: don't forget about the last child */
+		inorder_traversal(pnode->children[n], fp);
 	}
 }
 

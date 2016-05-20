@@ -23,20 +23,28 @@ int main(int argc, char * argv[]) {
 	sqlite3 * database;
 	char *zErrMsg = NULL;
 
-	const char* data = "Callback function called";
 
 	if (sqlite3_open(database_name, &database)){
     fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(database));
 		exit(0);
-	}else {
+	} else {
 		fprintf(stderr, "Opened database successfully\n");
 	}
 
   ptreeroot = allocate_b_tree_node();
 	sqlite3_exec(database, sql, store_result, NULL, &zErrMsg);
+  sqlite3_close(database);
 
+  printf("%d\n", argc);
 
-	sqlite3_close(database);
+  if (argc < 3) {
+    fprintf(stderr, "Error: output data file not specified\n");
+    return 2;
+  }
+
+  FILE * output = fopen(argv[2], "w");
+
+  inorder_traversal(ptreeroot, output);
 
 	return 0;
 }
