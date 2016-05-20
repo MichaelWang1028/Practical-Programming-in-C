@@ -8,5 +8,5 @@ prob1_dynamic.o: prob1.c
 	gcc -fPIC -c prob1.c -o prob1_dynamic.o
 libprob1.so: prob1_dynamic.o
 	gcc -shared prob1_dynamic.o -o libprob1.so
-prob1d_dynamic: prob1d.c
+prob1d_dynamic: prob1d.c libprob1.so
 	gcc -g -O0 -Wall -Wextra prob1d.c -I. -L. -lprob1 -lsqlite3 -o database.o
