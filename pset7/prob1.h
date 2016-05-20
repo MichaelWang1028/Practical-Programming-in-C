@@ -57,7 +57,7 @@ void free_tnode(p_tnode pnode);
 int key_compare(const nodekey key1, const nodekey key2);
 
 
-int find_index(nodekey key, p_tnode pnode); // TODO
+int find_index(nodekey key, p_tnode pnode);
 
 /* split_node() - splits a full node in the B-tree into two separate nodes,
  * possibly creating a new root node in the process
@@ -72,7 +72,7 @@ void split_node(p_tnode * ppnode, int * poffset);
  */
 nodevalue * add_element(nodekey key, nodevalue * pvalue);
 
-void inorder_traversal(p_tnode pnode, FILE * fp); // TODO
+void inorder_traversal(p_tnode pnode, FILE * fp);
 
 nodevalue * find_value(const nodekey key); // TODO
 
