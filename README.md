@@ -120,3 +120,35 @@ I was really happy after encoding and decoding **book.txt** and getting exactly 
 ##### Difficulties
 I got constantly segmentation faults which I could solve by debugging using **printf()**.
 Once again the casting from int to unsigned char was tricky.
+
+## Problem Set 7
+### Using and creating libraries. B-trees and priority queues.
+This problem set has just one problem.
+Although the tittle suggests it covers priority queues, it doesn't.
+
+#### Problem 7.1: Using the library sqlite3 and load database in a B-Tree
+This exercise has four items.
+The first one is basically to use some functions from the library sqlite3.
+The second one is the one that is challenging which is to complete some functions to load the data base on a B-tree.
+The third one is to complete a function that allows to look for a movie on the b-tree.
+Finally, the fourth one is to implement a static or dynamic library implementing some functions which prototypes are provided.
+##### Observations
+It took me some time to understand what a b-tree is.
+I found a really useful information about it on a website called [Geek for Geeks](http://www.geeksforgeeks.org/b-tree-set-1-introduction-2/).
+Although I didn't check exhaustively the algorithms for insertion and deletion, I could notice that they are not so easy to implement.
+As always it is useful to separate the provided code into files, i.e., to create a header file for preprocessor, structs and global variable definitions and a file for the main function which is used for testing.
+
+Fortunately, one does not have to implement the whole algorithm for creating a b-tree.
+Understanding a b-tree could take some time, but after reading for a while I learnt not only its properties, but also why they are useful.
+It turns out that they are used to store the content of databases and files in order to increase the speed at which they are accessed.
+I wonder why not using a hash map, and it seem both b-trees and hash maps are used with databases.
+The former allows applying comparison operators which answer is a range of values while the latter allows using == <=> and LIKE operators.
+Implementing the function **find_index()** made me realized that in the end the value that should be returned when a having a new key is **L** which is the left index after applying the binary search.
+I created a Makefile that allows me to compile both a program that uses either a dynamic or a static library.
+
+##### Difficulties
+The difficult part is to understand what a b-tree is, so I highly recommend to read and understand at least the basics of b-trees.
+Though it was not difficult I struggle a little bit when I was implementing the function to print the b-tree nodes in-order.
+The problem in the end was that I wanted to implement a similar algorithm that was used with a binary tree, but I did not remembered it properly, so I was not printing the leaves of the b-tree.
+Fortunately, after checking the solutions I realized of my mistake and I correct it immediately.
+Besides this mistake I did not find another one, and as all of the problem sets of this course I enjoyed it a lot.
