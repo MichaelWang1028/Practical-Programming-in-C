@@ -6,28 +6,6 @@
 
 #define INPUT_MAX_LENGTH 2048
 
-int initialize_db(const char * filename)
-{
-  const char sql[] = "SELECT * FROM movies";
-  sqlite3 * database = NULL;
-
-  if (sqlite3_open(filename, &database)){
-		return 1;
-	}
-
-  char * error_message = NULL;
-
-  ptreeroot = allocate_b_tree_node();
-	sqlite3_exec(database, sql, store_result, NULL, &error_message);
-
-  if (error_message) {
-    return 2;
-  }
-
-  sqlite3_close(database);
-  return 0;
-}
-
 int main(int argc, char * argv[]) {
 
 	/* part (a): execute the first three SQL queries */

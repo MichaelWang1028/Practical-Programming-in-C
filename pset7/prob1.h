@@ -92,4 +92,6 @@ int display_result(void * pextra, int nfields, char ** arrvalues, char ** arrfie
  */
 int store_result(void * pextra, int nfields, char ** arrvalues, char ** arrfieldnames);
 
+int initialize_db(const char * filename);
+
 #endif
