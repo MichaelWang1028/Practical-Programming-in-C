@@ -94,4 +94,6 @@ int store_result(void * pextra, int nfields, char ** arrvalues, char ** arrfield
 
 int initialize_db(const char * filename);
 
+int locate_movie(const char * title);
+
 #endif

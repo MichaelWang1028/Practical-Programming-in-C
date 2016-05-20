@@ -6,22 +6,6 @@
 
 #define INPUT_MAX_LENGTH 2048
 
-int locate_movie(const char * title)
-{
-  nodevalue * found_movie = NULL;
-
-  found_movie = find_value((nodekey) title);
-
-  if (found_movie) {
-    display_record(found_movie, stdout);
-    return 1;
-  }
-
-  puts("Movie not in database");
-
-  return 0;
-}
-
 int main(int argc, char * argv[]) {
 
 	/* part (a): execute the first three SQL queries */
@@ -68,7 +52,6 @@ int main(int argc, char * argv[]) {
     locate_movie(input);
 
 	} while (1);
-
 
 	return 0;
 }

@@ -356,3 +356,19 @@ int initialize_db(const char * filename)
 
   return 0;
 }
+
+int locate_movie(const char * title)
+{
+  nodevalue * found_movie = NULL;
+
+  found_movie = find_value((nodekey) title);
+
+  if (found_movie) {
+    display_record(found_movie, stdout);
+    return 1;
+  }
+
+  puts("Movie not in database");
+
+  return 0;
+}
