@@ -35,8 +35,6 @@ int main(int argc, char * argv[]) {
 	sqlite3_exec(database, sql, store_result, NULL, &zErrMsg);
   sqlite3_close(database);
 
-  printf("%d\n", argc);
-
   if (argc < 3) {
     fprintf(stderr, "Error: output data file not specified\n");
     return 2;
