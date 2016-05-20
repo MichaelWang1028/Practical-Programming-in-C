@@ -259,7 +259,7 @@ nodevalue * find_value(const nodekey key)
 	int ichild;
 	p_tnode pleaf = ptreeroot; /* start at root */
 
-	while (1) {
+	while (pleaf != NULL) {
 		ichild = find_index(key, pleaf);
 
 		if (ichild < 0) {
@@ -267,10 +267,6 @@ nodevalue * find_value(const nodekey key)
 		}
 
 		pleaf = pleaf->children[ichild];
-
-		if (pleaf == NULL) {
-			break;
-		}
 	}
 
 	return NULL; /* didn't find it */
