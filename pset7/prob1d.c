@@ -8,12 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-/* functions defined in your code */
-int initialize_db (const char * filename);
-int locate_movie(char * title );
-void dump_sorted_list(const char * filename);
-void cleanup(void);
+#include <prob1.h>
 
 #define NUM_TITLES 10
 int main(int argc, char * argv[]) {
@@ -50,4 +45,3 @@ int main(int argc, char * argv[]) {
 
 	return 0;
 }
-
