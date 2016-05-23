@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include "linked_list.h"
 
-node* create_node(int data)
+node * create_node(int data)
 {
-  node *new_node = (node *) malloc(sizeof(node));
+  node * new_node = (node *) malloc(sizeof(node));
 
   if (new_node != NULL) {
     new_node->data = data;
@@ -14,9 +14,10 @@ node* create_node(int data)
   return new_node;
 }
 
-node* add_node_at_front(node* head, int data)
+node* add_node_at_front(node * head, int data)
 {
-  node* new_head = create_node(data);
+  node * new_head = create_node(data);
+
   if (new_head == NULL) {
     return head;
   }
@@ -29,9 +30,9 @@ node* add_node_at_front(node* head, int data)
   return new_head;
 }
 
-node* add_node(node* head, int data)
+node * add_node(node * head, int data)
 {
-  node* new_node = create_node(data);
+  node * new_node = create_node(data);
 
   if (new_node == NULL) {
     return head;
@@ -41,7 +42,7 @@ node* add_node(node* head, int data)
     return new_node;
   }
 
-  node* current_node = head;
+  node * current_node = head;
 
   while(current_node->next != NULL) {
     current_node = current_node->next;
@@ -52,9 +53,9 @@ node* add_node(node* head, int data)
   return head;
 }
 
-node* find_node(node* head, int data)
+node * find_node(node * head, int data)
 {
-  for (node* current_node = head; current_node != NULL; current_node = current_node->next) {
+  for (node * current_node = head; current_node != NULL; current_node = current_node->next) {
     if (current_node->data == data) {
       return current_node;
     }
@@ -62,7 +63,7 @@ node* find_node(node* head, int data)
   return NULL;
 }
 
-node* delete_node(node* head, node* pointing_element)
+node * delete_node(node * head, node * pointing_element)
 {
   node* node_to_delete = find_node(head, pointing_element->data)->next;
 
@@ -72,15 +73,16 @@ node* delete_node(node* head, node* pointing_element)
 
   pointing_element->next = node_to_delete->next;
   free(node_to_delete);
+
   return node_to_delete == head? pointing_element->next: head;
 }
 
 void free_list(node* head)
 {
-  node* current_node = head;
+  node * current_node = head;
 
-  while(current_node != NULL) {
-    node* node_to_free = current_node;
+  while (current_node != NULL) {
+    node * node_to_free = current_node;
     current_node = current_node->next;
     free(node_to_free);
 
@@ -90,15 +92,17 @@ void free_list(node* head)
   }
 }
 
-void display(node* head)
+void display(node * head)
 {
-  node* p = head;
+  node * p = head;
+
   for (; p != NULL; p = p->next) {
     if (p->next == head) {
       printf("%d\t", p->data);
       puts("This is a circular linked list");
       return;
     }
+
     printf("%d\t", p->data);
   }
 
