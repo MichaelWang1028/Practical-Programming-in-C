@@ -12,7 +12,7 @@ Therefore, for every lecture, I will include a brief summary, while for every pr
 ## Problem Set 5
 ### Linked Lists and Trees
 #### Problem 5.1: Implement a linked list structure and its functions
-The purpose of this problem set is to implement a linked list and the functions to display it, add an element, find an element, delete an element and free the whole linked list.
+The purpose of this problem is to implement a linked list and the functions to display it, add an element, find an element, delete an element and free the whole linked list.
 
 ##### Observations
 Working on this problem set is really useful because one is able to understand how a linked list is implemented.
@@ -22,6 +22,16 @@ It is a good approach to divide the code into files.
 ##### Difficulties
 In general, there are not difficulties, but one should notice that head should be set to NULL right after calling the function **free_list()**.
 Otherwise, if one tries to print the freed list, one gets a segmentation fault.
+
+#### Problem 5.2: Implement a binary tree structure and its functions
+The purpose of this problem is to implement a binary structure and the functions to allocate a node, add a node, display the tree in pre-order traversal, display a tree in in-order traversal, and to free the whole tree (using post-order traversal).
+
+##### Observations
+This problem took me a little of effort because I had to understand what pre-order, in-order, and post-order traversal meant.
+Again it is really useful to implement a binary tree data structure by one's own to acquire a deep understanding of what is going on underneath the hood.
+
+##### Difficulties
+I found almost no difficulties, but I have to admit that I saw the solutions provided a little much better than my own implementation, so I decided to use those solutions on my code.
 
 ## Problem Set 6 - Part A
 ### Pointers to pointers. Multidimensional arrays. Stacks and Queues.
