@@ -20,9 +20,8 @@ In general, most of programming languages have this data structured implemented 
 It is a good approach to divide the code into files.
 
 ##### Difficulties
-In general, there are not difficulties, but one should notice that head should be set to NULL right after calling the funciton **free_list()**.
+In general, there are not difficulties, but one should notice that head should be set to NULL right after calling the function **free_list()**.
 Otherwise, if one tries to print the freed list, one gets a segmentation fault.
-
 
 ## Problem Set 6 - Part A
 ### Pointers to pointers. Multidimensional arrays. Stacks and Queues.
