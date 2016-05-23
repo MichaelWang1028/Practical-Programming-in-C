@@ -77,7 +77,7 @@ node * delete_node(node * head, node * pointing_element)
   return node_to_delete == head? pointing_element->next: head;
 }
 
-void free_list(node* head)
+void free_list(node * head)
 {
   node * current_node = head;
 
@@ -95,6 +95,11 @@ void free_list(node* head)
 void display(node * head)
 {
   node * p = head;
+
+  if (p == NULL) {
+    puts("Linked list is empty");
+    return;
+  }
 
   for (; p != NULL; p = p->next) {
     if (p->next == head) {

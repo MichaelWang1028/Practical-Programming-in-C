@@ -6,7 +6,7 @@ void print_finding_message(node* head, int value);
 
 int main()
 {
-  node* head = create_node(9);
+  node * head = create_node(9);
   add_node(head, 10);
   add_node(head, 21);
   add_node(head, 12);
@@ -52,10 +52,13 @@ int main()
 
   puts("Testing free");
   free_list(head);
+  head = NULL;
   display(head);
   free_list(another_head);
+  another_head = NULL;
   display(another_head);
   free_list(circular_head);
+  circular_head = NULL;
   display(circular_head);
 
   return 0;
