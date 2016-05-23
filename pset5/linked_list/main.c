@@ -65,7 +65,7 @@ int main()
 }
 
 
-void print_finding_message(node* head, int value)
+void print_finding_message(node * head, int value)
 {
   node * found = find_node(head, value);
 
