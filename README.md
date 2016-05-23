@@ -14,6 +14,16 @@ Therefore, for every lecture, I will include a brief summary, while for every pr
 #### Problem 5.1: Implement a linked list structure and its functions
 The purpose of this problem set is to implement a linked list and the functions to display it, add an element, find an element, delete an element and free the whole linked list.
 
+##### Observations
+Working on this problem set is really useful because one is able to understand how a linked list is implemented.
+In general, most of programming languages have this data structured implemented and ready to use, but one gets deep insights doing this by his own.
+It is a good approach to divide the code into files.
+
+##### Difficulties
+In general, there are not difficulties, but one should notice that head should be set to NULL right after calling the funciton **free_list()**.
+Otherwise, if one tries to print the freed list, one gets a segmentation fault.
+
+
 ## Problem Set 6 - Part A
 ### Pointers to pointers. Multidimensional arrays. Stacks and Queues.
 #### Problem 6.1: Four-Function Calculator
