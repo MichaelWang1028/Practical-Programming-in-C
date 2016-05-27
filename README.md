@@ -30,6 +30,7 @@ This exercise is kind of challenging, and it allows understanding much better bo
 
 #### Difficulties
 I found function **shift_element_by_gap()** a little more difficult to implement than the function **shellsort()**.
+The problem was that at first I was not able to see how to use the parameter gap.
 
 ## Problem Set 5
 ### Linked Lists and Trees
