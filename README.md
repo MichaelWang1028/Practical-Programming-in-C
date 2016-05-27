@@ -20,6 +20,17 @@ This exercise is helpful for getting familiar with pointer and pointer arithmeti
 #### Difficulties
 There are no difficulties.
 
+#### Problem 4.3: Shell sort algorithm
+The purpose of this problem is to implement the shell sort algorithm.
+I have used array notation on this problem.
+In addition, I decided to separate code in a .c (source) and a .h (header) files which was a really wise decision to keep code organized.
+
+#### Observations
+This exercise is kind of challenging, and it allows understanding much better both insertion and shell sort algorithms.
+
+#### Difficulties
+I found function **shift_element_by_gap()** a little more difficult to implement than the function **shellsort()**.
+
 ## Problem Set 5
 ### Linked Lists and Trees
 #### Problem 5.1: Implement a linked list structure and its functions
