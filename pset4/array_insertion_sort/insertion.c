@@ -14,7 +14,7 @@ void shift_element(int i)
 
 void insertion_sort()
 {
-  for (int i = 1; i < array_size(array); i++) {
+  for (unsigned int i = 1; i < array_size(array); i++) {
     if (array[i - 1] > array[i]) {
       shift_element(i);
     }
