@@ -8,5 +8,7 @@ int main(void)
   print_array(array, array_size(array));
   insertion_sort();
   puts("After sorting");
-  insertion_sort();
+  print_array(array, array_size(array));
+
+  return 0;
 }
