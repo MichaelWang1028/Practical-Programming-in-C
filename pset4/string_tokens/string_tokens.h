@@ -9,4 +9,6 @@ unsigned int own_strspn(const char * str, const char * delims);
 
 unsigned int own_strcspn(const char * str, const char * delims);
 
+int strpos(const char * str, const char ch);
+
 #endif

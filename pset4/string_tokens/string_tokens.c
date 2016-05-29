@@ -1,4 +1,6 @@
+#include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "string_tokens.h"
 
 static char * pnexttoken;
@@ -29,4 +31,14 @@ unsigned int own_strspn(const char * str, const char * delims)
 unsigned int own_strcspn(const char * str, const char * delims)
 {
   /* insert code here */
+}
+int strpos(const char * str, const char ch)
+{
+  for (unsigned int i = 0; str[i] != '\0'; i++) {
+    if (str[i] == ch) {
+      return i;
+    }
+  }
+
+  return -1;
 }
