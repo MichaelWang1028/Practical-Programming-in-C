@@ -1,4 +1,4 @@
-#include "insertion_pn.h"
+#include "insertion.h"
 
 int array[5] = {4, 0, 2, 1, 3};
 
