@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "insertion.h"
-#include "../util.h"
+#include "../util/util.h"
 
 int main(void)
 {
