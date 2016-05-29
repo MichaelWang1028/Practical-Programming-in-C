@@ -16,6 +16,7 @@ void fibonacci()
 	/* do not edit below this line */
 	results_buffer[0] = a;
 	results_buffer[1] = b;
+
 	for (n = 2; n < NMAX; n++) {
 		c = a + b;
 		results_buffer[n] = c; /* store code in results buffer */
@@ -25,7 +26,6 @@ void fibonacci()
 }
 
 int main(void) {
-
 	int n, ntests = 10000000;
 	clock_t tstart, tend;
 	double favg;
