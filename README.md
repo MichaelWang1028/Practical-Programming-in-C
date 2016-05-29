@@ -20,6 +20,18 @@ This exercise is helpful for getting familiar with pointer and pointer arithmeti
 #### Difficulties
 There are no difficulties.
 
+#### Problem 4.2: Implement helper functions for strstrtok() function
+The purpose of this problem is to implement the helper functions **strspn()** and **strcspn()** that are used in the provided code for the function **strtok()**
+
+#### Observations
+One should not forget to declare the static variable **pnexttoken** which is global.
+Because '\0' was used more than twice, I have created a constant using the #define preprocessor directive.
+It was very useful to extract the method to detect if a character was a delimiter because it was used on both functions to implement.
+
+#### Difficulties
+At first, I was struggling implementing function **strspn()** because I wanted to look the position of a token on a string.
+However, when I realized that I had to found the position of a character of a string on the delimiters, the implementation was easy.
+
 #### Problem 4.3: Shell sort algorithm
 The purpose of this problem is to implement the shell sort algorithm.
 I have used array notation on this problem.
