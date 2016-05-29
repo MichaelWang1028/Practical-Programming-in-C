@@ -11,7 +11,7 @@ void shift_element_by_gap(unsigned int i, unsigned int gap)
   array[i] = i_value;
 }
 
-void shellsort() {
+void shell_sort() {
   unsigned int gap , i , len = array_size(array) ;
 
   for (gap = len / 2 ; gap > 0 ; gap /= 2 ) {

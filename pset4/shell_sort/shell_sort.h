@@ -5,6 +5,6 @@
 
 extern int array[6];
 void shift_element_by_gap(unsigned int i, unsigned int gap);
-void shellsort();
+void shell_sort();
 
 #endif
