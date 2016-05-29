@@ -10,13 +10,13 @@ char * strtok(char * text, const char * delims)
   }
   /* find start of token in text */
   text += strspn(text, delims);
-  if (*text == '\0')
+  if (*text == NULL_CHARACTER)
     return NULL;
   /* find end of token in text */
   pnexttoken = text + strcspn(text, delims);
   /* insert null−terminator at end */
-  if (*pnexttoken != '\0')
-    *pnexttoken++ = '\0' ;
+  if (*pnexttoken != NULL_CHARACTER)
+    *pnexttoken++ = NULL_CHARACTER;
   return text;
 }
 
