@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 #include "string_tokens.h"
 
 static char * pnexttoken;
@@ -28,20 +27,23 @@ unsigned int own_strspn(const char * str, const char * delims)
   unsigned int i;
 
   for (i = 0; str[i]; i++) {
-    bool is_delimiter = false;
-    for (unsigned int j = 0; delims[j] != NULL_CHARACTER; j++) {
-      if (strpos(delims, str[i]) != -1) {
-        is_delimiter = true;
-        break;
-      }
-    }
-
-    if (!is_delimiter) {
-      return i;
+    if (!is_character_a_delimiter(delims, str[i])) {
+      break;
     }
   }
 
   return i;
+}
+
+bool is_character_a_delimiter(const char * delims, char ch)
+{
+  for (unsigned int j = 0; delims[j] != NULL_CHARACTER; j++) {
+    if (strpos(delims, ch) != -1) {
+      return true;
+    }
+  }
+
+  return false;
 }
 
 unsigned int own_strcspn(const char * str, const char * delims)
