@@ -40,7 +40,7 @@ int main(void) {
 	/* end profiling */
 
 	/* compute average execution time */
-	favg = ((double)(tend - tstart))/CLOCKS_PER_SEC/ntests;
+	favg = ((double) (tend - tstart)) / CLOCKS_PER_SEC / ntests;
 
 	/* print avg execution time in milliseconds */
 	printf("Avg. execution time: %g msec\n",favg*1000);
