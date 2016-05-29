@@ -48,7 +48,15 @@ bool is_character_a_delimiter(const char * delims, char ch)
 
 unsigned int own_strcspn(const char * str, const char * delims)
 {
-  /* insert code here */
+  unsigned int i;
+
+  for (i = 0; str[i]; i++) {
+    if (is_character_a_delimiter(delims, str[i])) {
+      break;
+    }
+  }
+
+  return i;
 }
 
 int strpos(const char * str, const char ch)
