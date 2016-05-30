@@ -6,8 +6,8 @@
  */
 
 /* include helper functions for game */
-#include "lifegame.h"
-#include "lab01.h"
+#include "./life_game/lifegame.h"
+#include "./life_game/lab01.h"
 
 int main(void)
 {
