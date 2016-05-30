@@ -8,7 +8,6 @@
 #define ERROR_MESSAGE "Input file couldn't be read.\n"
 #define OUTPUT stdout
 
-
 void print_separation(int n);
 void print_table_header();
 void print_table_bottom(long total_migration);
@@ -55,7 +54,8 @@ int main() {
   return 0;
 }
 
-void print_table_header() {
+void print_table_header()
+{
   fprintf(OUTPUT, "%-25s%10s\n", "STATE", "TOTAL");
   print_separation(35);
 }
