@@ -17,21 +17,16 @@ int main(int argc,char* argv[])
   unsigned long number_of_lines = 0;
   unsigned long number_of_characters = 0;
 
-  if(number_of_files == 0)
-  {
+  if(number_of_files == 0) {
     file_pointer = stdin; /*standard input*/
     number_of_files++;
-  }
-  else /*set to first*/
-  {
+  } else { /*set to first*/
     current_file = argv[argidx++];
     file_pointer = fopen(current_file, "r");
   }
 
-  while(number_of_files > 0) /*files left >0*/
-  {
-    if(file_pointer == NULL)
-    {
+  while(number_of_files > 0) { /*files left >0*/
+    if(file_pointer == NULL) {
       fprintf(stderr, "Unable to open input\n");
       exit(-1);
     }
@@ -40,8 +35,7 @@ int main(int argc,char* argv[])
     previous_character = 0;
 
 
-    while((character = getc(file_pointer))!=EOF)
-    {
+    while((character = getc(file_pointer))!=EOF) {
       number_of_characters++;
       if (character == '\n') {
         number_of_lines++;
@@ -61,8 +55,7 @@ int main(int argc,char* argv[])
     printf("\n%ld\t%ld\t%ld\t%s\n", number_of_lines, number_of_words, number_of_characters, current_file);
     /*next file if exists*/
     number_of_files--;
-    if(number_of_files > 0)
-    {
+    if(number_of_files > 0) {
       current_file = argv[argidx++];
       file_pointer = fopen(current_file,"r");
     }
@@ -71,6 +64,7 @@ int main(int argc,char* argv[])
 	return 0;
 }
 
-bool is_space_or_nul(char c) {
+bool is_space_or_nul(char c)
+{
   return isspace(c) || c == 0;
 }
