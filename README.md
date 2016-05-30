@@ -61,6 +61,16 @@ The implementation was challenging, but at the same it was really fun.
 ##### Difficulties
 I was not able to notice that a matrix is stored by columns, so firstly my code was not working properly.
 
+#### Part B: The World in a File
+This part focuses of using files as input and output.
+
+##### Observations
+This was pretty simple.
+Basically, it was just reading elements from a file and use the functions already implemented.
+
+##### Difficulties
+Almost not difficulties found.
+
 ## Problem Set 4
 ### Pointers. Arrays. Strings. Searching and sorting algorithms.
 #### Problem 4.1: Insertion sort algorithm using pointers and pointer arithmetic
