@@ -8,15 +8,13 @@
 /* include helper functions for game */
 #include <stdio.h>
 #include <stdlib.h>
-#include "lifegame.h"
-#include "lab01.h"
+#include "../life_game/lifegame.h"
+#include "../life_game/lab01.h"
 
 #define OUTPUT_FILE "world.txt"
 
 int main(int argc, char ** argv)
 {
-
-
 	char * initializer;
 
 	if (argc > 2) {
