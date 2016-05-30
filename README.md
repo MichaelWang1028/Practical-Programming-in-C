@@ -32,6 +32,17 @@ This exercise is really exciting to implement, and my implementation is even muc
 #### Difficulties
 I had to be catchy looking for cases like when spaces or new lines are entered at the beginning and/or at the end.
 
+#### Problem 3.5: State Report
+The purpose of this exercise is to generate a report of people from Massachusetts to all other states, and display the total amount of people in the end.
+
+#### Observations
+I tried to extract as much functions as I could.
+I realized that I need to learn how to use header files to improve code maintenance.
+
+#### Difficulties
+No difficulties found.
+
+
 ## Problem Set 4
 ### Pointers. Arrays. Strings. Searching and sorting algorithms.
 #### Problem 4.1: Insertion sort algorithm using pointers and pointer arithmetic
