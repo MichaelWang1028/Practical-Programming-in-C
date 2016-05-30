@@ -1,7 +1,3 @@
-structs: structs.c structs.h
-	gcc -g -O0 -Wall -Wextra structs.c -o structs.o
-pointers_to_pointers: pointers_to_pointers.c
-	gcc -g -O0 -Wall -Wextra pointers_to_pointers.c -o pointers_to_pointers.o
 swap: swap.c swap.h
 	gcc -g -O0 -Wall -Wextra swap.c -o swap.o
 sort_pointers: sort_pointers.c sort_pointers.h
@@ -10,7 +6,5 @@ stack_array: stack_array.c stack_array_test.c stack_array.h
 	gcc -g -O0 -Wall -Wextra stack_array.c stack_array_test.c -o stack_array.o
 stack_linked_list: stack_linked_list.c stack_linked_list_test.c stack_linked_list.h
 	gcc -g -O0 -Wall -Wextra stack_linked_list.c stack_linked_list_test.c -o stack_linked_list.o
-queue_array: queue_array.c queue_array_test.c queue_array.h
-	gcc -g -O0 -Wall -Wextra queue_array.c queue_array_test.c -o queue_array.o
 queue_linked_list: queue_linked_list.c queue_linked_list_test.c queue_linked_list.h
 	gcc -g -O0 -Wall -Wextra queue_linked_list.c queue_linked_list_test.c -o queue_linked_list.o
