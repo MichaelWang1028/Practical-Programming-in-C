@@ -11,6 +11,9 @@ Therefore, for every lecture, I will include a brief summary, while for every pr
 
 ## Problem Set 3
 ### Control flow. Functions. Variable scope. Static and global variables. I/O: printf and scanf. File I/O. Character arrays. Error handling. Labels and goto.
+Problem 3.2 is not documented because it is not a coding problem, so it was answered on paper.
+Problem 3.3 is not documented because its solution is pretty simple that was solved on paper.
+
 #### Problem 3.1: Code profiling and registers
 The purpose of this exercise is to compare how faster a program can run when some variables are defined as **registered**.
 
