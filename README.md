@@ -9,6 +9,17 @@ However, this book does not offer challenging problems or exercises, so I starte
 The purpose of this README is to track how well (or badly) I am doing this course, and I would also like to provide some advice for the ones who are interested in taking this course too.
 Therefore, for every lecture, I will include a brief summary, while for every project or problem set I will describe the difficulties and insights I got.
 
+## Problem Set 3
+### Control flow. Functions. Variable scope. Static and global variables. I/O: printf and scanf. File I/O. Character arrays. Error handling. Labels and goto.
+#### Problem 3.1: Code profiling and registers
+The purpose of this exercise is to compare how faster a program can run when some variables are defined as **registered**.
+
+#### Observations
+It is notorious that when all variables were defined as registered the execution time is pretty smaller compared with the execution time when variables are not registered.
+
+#### Difficulties
+No difficulties. Basically, it was writing **register** before some variable declarations.
+
 ## Problem Set 4
 ### Pointers. Arrays. Strings. Searching and sorting algorithms.
 #### Problem 4.1: Insertion sort algorithm using pointers and pointer arithmetic
