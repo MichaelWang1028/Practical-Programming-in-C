@@ -23,6 +23,15 @@ It is notorious that when all variables were defined as registered the execution
 #### Difficulties
 No difficulties. Basically, it was writing **register** before some variable declarations.
 
+#### Problem 3.4: wc - Unix Utility
+The purpose of this exercise is to implement the unix utility **wc** which is used to count the number of characters, words and lines in a file or entered by keyword.
+
+#### Observations
+This exercise is really exciting to implement, and my implementation is even much better than the solution provided because the latter does not work properly when spaces are entered at the beginning.
+
+#### Difficulties
+I had to be catchy looking for cases like when spaces or new lines are entered at the beginning and/or at the end.
+
 ## Problem Set 4
 ### Pointers. Arrays. Strings. Searching and sorting algorithms.
 #### Problem 4.1: Insertion sort algorithm using pointers and pointer arithmetic
