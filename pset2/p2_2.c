@@ -23,7 +23,7 @@ int main() {
 
   int x, y;
 
-  printf("%d\n", (x = 1));
+  printf("x = 1\t%d\n", (x = 1));
   printf("%d\n", (y = 0));
   printf("%d\n", 1 && 0);
 
