@@ -45,6 +45,21 @@ I realized that I need to learn how to use header files to improve code maintena
 #### Difficulties
 No difficulties found.
 
+## Lab 1
+### Game of Life
+This lab was both challenging and entertaining.
+The purpose of this lab was to implement the Game of Life invented by John Conway.
+I decided to separate the provided code into files to improve maintenance.
+
+#### Part A: Implementing Evolution
+This part focuses on implementing the needed rules to evolve the world from one generation to the next.
+
+##### Observations
+It took me time to separate code in different files.
+The implementation was challenging, but at the same it was really fun.
+
+##### Difficulties
+I was not able to notice that a matrix is stored by columns, so firstly my code was not working properly.
 
 ## Problem Set 4
 ### Pointers. Arrays. Strings. Searching and sorting algorithms.
